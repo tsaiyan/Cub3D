@@ -56,7 +56,7 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "/Users/tsaiyan/cub3d/text"
+            argument = "/Users/tsaiyan/cub3d/map.cub"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

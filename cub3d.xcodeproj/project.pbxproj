@@ -20,8 +20,8 @@
 		973B96EF25B9C43F008A2E8B /* libft.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libft.a; path = libft/libft.a; sourceTree = "<group>"; };
 		973B96F925B9C4E2008A2E8B /* get_next_line_utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = get_next_line_utils.c; path = get_next_line/get_next_line_utils.c; sourceTree = "<group>"; };
 		973B96FE25B9D048008A2E8B /* get_next_line.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = get_next_line.c; path = get_next_line/get_next_line.c; sourceTree = "<group>"; };
-		973B970025B9D05B008A2E8B /* text */ = {isa = PBXFileReference; lastKnownFileType = text; path = text; sourceTree = "<group>"; };
 		979E5BD725B9D4FC000B0B85 /* libft */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libft; sourceTree = "<group>"; };
+		97E0C7FE25B9DD3000207A28 /* map.cub */ = {isa = PBXFileReference; lastKnownFileType = text; path = map.cub; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,8 +39,8 @@
 		973B967725B9C1AD008A2E8B = {
 			isa = PBXGroup;
 			children = (
-				973B970025B9D05B008A2E8B /* text */,
 				973B96FE25B9D048008A2E8B /* get_next_line.c */,
+				97E0C7FE25B9DD3000207A28 /* map.cub */,
 				973B96F925B9C4E2008A2E8B /* get_next_line_utils.c */,
 				973B96EA25B9C243008A2E8B /* main.c */,
 				973B96ED25B9C42C008A2E8B /* cub3d */,
