@@ -24,9 +24,7 @@ void	make_map(t_list **head, int size)
 	}
 	i = 0;
 	while (*map[i])
-	{
 		ft_putendl(map[i++]);
-	}
 }
 
 int main(int argc, char **argv)
