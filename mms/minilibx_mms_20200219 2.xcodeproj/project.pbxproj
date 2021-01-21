@@ -1,0 +1,159 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXFileReference section */
+		9782AB5A25B84C7D008A0E83 /* font.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = font.c; sourceTree = "<group>"; };
+		9782AB5B25B84C7D008A0E83 /* interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = interface.swift; sourceTree = "<group>"; };
+		9782AB5C25B84C7D008A0E83 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		9782AB5D25B84C7D008A0E83 /* man */ = {isa = PBXFileReference; lastKnownFileType = folder; path = man; sourceTree = "<group>"; };
+		9782AB5E25B84C7D008A0E83 /* mlx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mlx.h; sourceTree = "<group>"; };
+		9782AB5F25B84C7D008A0E83 /* mlx_image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mlx_image.swift; sourceTree = "<group>"; };
+		9782AB6025B84C7D008A0E83 /* mlx_init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mlx_init.swift; sourceTree = "<group>"; };
+		9782AB6125B84C7D008A0E83 /* mlx_png.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mlx_png.c; sourceTree = "<group>"; };
+		9782AB6225B84C7D008A0E83 /* mlx_rgb.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mlx_rgb.c; sourceTree = "<group>"; };
+		9782AB6325B84C7D008A0E83 /* mlx_string_put.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mlx_string_put.c; sourceTree = "<group>"; };
+		9782AB6425B84C7D008A0E83 /* mlx_window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mlx_window.swift; sourceTree = "<group>"; };
+		9782AB6525B84C7D008A0E83 /* mlx_xpm.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mlx_xpm.c; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		9782AB5425B84C7D008A0E83 = {
+			isa = PBXGroup;
+			children = (
+				9782AB5A25B84C7D008A0E83 /* font.c */,
+				9782AB5B25B84C7D008A0E83 /* interface.swift */,
+				9782AB5C25B84C7D008A0E83 /* Makefile */,
+				9782AB5D25B84C7D008A0E83 /* man */,
+				9782AB5E25B84C7D008A0E83 /* mlx.h */,
+				9782AB5F25B84C7D008A0E83 /* mlx_image.swift */,
+				9782AB6025B84C7D008A0E83 /* mlx_init.swift */,
+				9782AB6125B84C7D008A0E83 /* mlx_png.c */,
+				9782AB6225B84C7D008A0E83 /* mlx_rgb.c */,
+				9782AB6325B84C7D008A0E83 /* mlx_string_put.c */,
+				9782AB6425B84C7D008A0E83 /* mlx_window.swift */,
+				9782AB6525B84C7D008A0E83 /* mlx_xpm.c */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		9782AB5925B84C7D008A0E83 /* minilibx_mms_20200219 2 */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 9782AB6625B84C7D008A0E83 /* Build configuration list for PBXLegacyTarget "minilibx_mms_20200219 2" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "/Users/tsaiyan/Downloads/minilibx_mms_20200219 2";
+			dependencies = (
+			);
+			name = "minilibx_mms_20200219 2";
+			passBuildSettingsInEnvironment = 1;
+			productName = "minilibx_mms_20200219 2";
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		9782AB5525B84C7D008A0E83 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 9782AB5825B84C7D008A0E83 /* Build configuration list for PBXProject "minilibx_mms_20200219 2" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9782AB5425B84C7D008A0E83;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9782AB5925B84C7D008A0E83 /* minilibx_mms_20200219 2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		9782AB5625B84C7D008A0E83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		9782AB5725B84C7D008A0E83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		9782AB6725B84C7D008A0E83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "minilibx_mms_20200219 2";
+			};
+			name = Debug;
+		};
+		9782AB6825B84C7D008A0E83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "minilibx_mms_20200219 2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9782AB5825B84C7D008A0E83 /* Build configuration list for PBXProject "minilibx_mms_20200219 2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9782AB5625B84C7D008A0E83 /* Debug */,
+				9782AB5725B84C7D008A0E83 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9782AB6625B84C7D008A0E83 /* Build configuration list for PBXLegacyTarget "minilibx_mms_20200219 2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9782AB6725B84C7D008A0E83 /* Debug */,
+				9782AB6825B84C7D008A0E83 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9782AB5525B84C7D008A0E83 /* Project object */;
+}
