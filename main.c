@@ -40,7 +40,6 @@ int main(int argc, char **argv)
 		ft_lstadd_back(&head, ft_lstnew(line));
 	}
 	ft_lstadd_back(&head, ft_lstnew(line));
-	printf("%d", ft_lstsize(head));
 	make_map(&head, ft_lstsize(head));
 	return 0;
 }
