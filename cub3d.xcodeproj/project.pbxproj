@@ -7,23 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		973B96EB25B9C243008A2E8B /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 973B96EA25B9C243008A2E8B /* main.c */; };
+		973B96EB25B9C243008A2E8B /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 973B96EA25B9C243008A2E8B /* main.c */; settings = {COMPILER_FLAGS = "-framework OpenGL -framework AppKit"; }; };
 		973B96F025B9C43F008A2E8B /* libft.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 973B96EF25B9C43F008A2E8B /* libft.a */; };
 		973B96FB25B9C4E2008A2E8B /* get_next_line_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 973B96F925B9C4E2008A2E8B /* get_next_line_utils.c */; };
 		973B96FF25B9D048008A2E8B /* get_next_line.c in Sources */ = {isa = PBXBuildFile; fileRef = 973B96FE25B9D048008A2E8B /* get_next_line.c */; };
-		97E0C80025B9E60700207A28 /* mlx.c in Sources */ = {isa = PBXBuildFile; fileRef = 97E0C7FF25B9E60700207A28 /* mlx.c */; };
+		97B29EC625BAE87D0067994B /* visual_map.c in Sources */ = {isa = PBXBuildFile; fileRef = 97B29EC525BAE87C0067994B /* visual_map.c */; };
+		97B29EC825BAEDEB0067994B /* libmlx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 97B29EC725BAEDEB0067994B /* libmlx.dylib */; };
+		97B29ECA25BAEED20067994B /* libmlx.dylib in Sources */ = {isa = PBXBuildFile; fileRef = 97B29EC725BAEDEB0067994B /* libmlx.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		970B03DC25B9D4A300CEE126 /* libft */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libft; sourceTree = "<group>"; };
 		973B96EA25B9C243008A2E8B /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		973B96ED25B9C42C008A2E8B /* cub3d */ = {isa = PBXFileReference; explicitFileType = sourcecode.c; includeInIndex = 0; path = cub3d; sourceTree = BUILT_PRODUCTS_DIR; };
+		973B96ED25B9C42C008A2E8B /* cub3d */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cub3d; sourceTree = BUILT_PRODUCTS_DIR; };
 		973B96EF25B9C43F008A2E8B /* libft.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libft.a; path = libft/libft.a; sourceTree = "<group>"; };
 		973B96F925B9C4E2008A2E8B /* get_next_line_utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = get_next_line_utils.c; path = get_next_line/get_next_line_utils.c; sourceTree = "<group>"; };
 		973B96FE25B9D048008A2E8B /* get_next_line.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = get_next_line.c; path = get_next_line/get_next_line.c; sourceTree = "<group>"; };
 		979E5BD725B9D4FC000B0B85 /* libft */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libft; sourceTree = "<group>"; };
+		97B29EC425BAE5110067994B /* parcer_map.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = parcer_map.h; sourceTree = "<group>"; };
+		97B29EC525BAE87C0067994B /* visual_map.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = visual_map.c; sourceTree = "<group>"; };
+		97B29EC725BAEDEB0067994B /* libmlx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmlx.dylib; sourceTree = "<group>"; };
 		97E0C7FE25B9DD3000207A28 /* map.cub */ = {isa = PBXFileReference; lastKnownFileType = text; path = map.cub; sourceTree = "<group>"; };
-		97E0C7FF25B9E60700207A28 /* mlx.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mlx.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97B29EC825BAEDEB0067994B /* libmlx.dylib in Frameworks */,
 				973B96F025B9C43F008A2E8B /* libft.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,7 +50,8 @@
 				97E0C7FE25B9DD3000207A28 /* map.cub */,
 				973B96F925B9C4E2008A2E8B /* get_next_line_utils.c */,
 				973B96EA25B9C243008A2E8B /* main.c */,
-				97E0C7FF25B9E60700207A28 /* mlx.c */,
+				97B29EC425BAE5110067994B /* parcer_map.h */,
+				97B29EC525BAE87C0067994B /* visual_map.c */,
 				973B96ED25B9C42C008A2E8B /* cub3d */,
 				973B96EE25B9C43F008A2E8B /* Frameworks */,
 			);
@@ -54,6 +60,7 @@
 		973B96EE25B9C43F008A2E8B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				97B29EC725BAEDEB0067994B /* libmlx.dylib */,
 				970B03DC25B9D4A300CEE126 /* libft */,
 				979E5BD725B9D4FC000B0B85 /* libft */,
 				973B96EF25B9C43F008A2E8B /* libft.a */,
@@ -63,11 +70,22 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		97B29EC925BAEE240067994B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		973B967F25B9C1AD008A2E8B /* cub3d */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 973B968725B9C1AD008A2E8B /* Build configuration list for PBXNativeTarget "cub3d" */;
 			buildPhases = (
+				97B29EC925BAEE240067994B /* Headers */,
 				973B967C25B9C1AD008A2E8B /* Sources */,
 				973B967D25B9C1AD008A2E8B /* Frameworks */,
 			);
@@ -117,10 +135,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				973B96EB25B9C243008A2E8B /* main.c in Sources */,
 				973B96FF25B9D048008A2E8B /* get_next_line.c in Sources */,
 				973B96FB25B9C4E2008A2E8B /* get_next_line_utils.c in Sources */,
-				973B96EB25B9C243008A2E8B /* main.c in Sources */,
-				97E0C80025B9E60700207A28 /* mlx.c in Sources */,
+				97B29EC625BAE87D0067994B /* visual_map.c in Sources */,
+				97B29ECA25BAEED20067994B /* libmlx.dylib in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +263,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/libft",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -257,6 +277,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/libft",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

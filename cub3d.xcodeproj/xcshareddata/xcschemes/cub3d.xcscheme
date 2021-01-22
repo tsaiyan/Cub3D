@@ -56,6 +56,14 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
+            argument = " -framework OpenGL -framework AppKit"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = ""
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
             argument = "/Users/tsaiyan/cub3d/map.cub"
             isEnabled = "YES">
          </CommandLineArgument>
