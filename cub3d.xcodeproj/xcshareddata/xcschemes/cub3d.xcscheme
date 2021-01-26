@@ -57,7 +57,7 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = " -framework OpenGL -framework AppKit"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = ""
