@@ -8,9 +8,9 @@ CC = gcc -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): parcer_map.h main.c
+$(NAME): cub3d.h main.c
 	${RM} $(NAME)
-	clang main.c libft/libft.a  get_next_line/get_next_line.c get_next_line/get_next_line_utils.c visual_map.c libmlx.dylib -framework OpenGL -framework AppKit -o $(NAME)
+	clang main.c libft/libft.a  get_next_line/get_next_line.c get_next_line/get_next_line_utils.c ft_map_parcer.c ft_check_map.c ft_putin.c  libmlx.dylib -framework OpenGL -framework AppKit -o $(NAME)
 	./cub3d map.cub
 clean:
 	${RM} $(NAME)

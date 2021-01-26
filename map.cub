@@ -1,16 +1,10 @@
-1111111111111
-1           1
-1 N    11   1
-1           1
-1      1    1
-1      1    1
-1           1
-1           1
-1           1
-1           1
-1           1
-1           1
-1           1
-1           1
-1           1
-1111111111111
+R 640 480
+NO ./path_to_the_north_texture
+SO ./path_to_the_south_texture
+WE ./path_to_the_west_texture
+EA ./path_to_the_east_texture
+S ./path_to_the_sprite_texture
+111111
+1000N1
+100001
+111111

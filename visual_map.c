@@ -8,9 +8,8 @@
 
 #include "mms/mlx.h"
 #include "libft/libft.h"
-#include "parcer_map.h"
+#include "cub3d.h"
 
-# define SCALE 10
 
 void	scale_map(t_struct *map)
 {
@@ -44,7 +43,7 @@ int visual_map(t_struct *map)
 					map->py = map->y;
 					map->px = map->x;
 				}
-				scale_player(map);
+				//scale_player(map);
 			}
 			map->x++;
 		}
