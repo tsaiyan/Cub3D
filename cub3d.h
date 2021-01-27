@@ -72,4 +72,5 @@ typedef struct	s_all // структура для всего вместе
 void	ft_map_parcer(t_all *all, char *argv);
 int		ft_check_map(t_all *all, char *str);
 void	ft_putin(t_all *all);
+char	**make_map(t_list **head, int size, t_all *all);
 #endif /* parcer_map_h */

@@ -28,6 +28,18 @@
 //	return(0);
 //}
 
+void printf_check(t_all *all)
+{
+	printf("R vert = %d \n", all->win.vert);
+	printf("R gor = %d \n", all->win.gorisont);
+	printf("NO texture = %s \n", all->map.no_way);
+	printf("SO texture = %s \n", all->map.so_way);
+	printf("WE texture = %s \n", all->map.we_way);
+	printf("EA texture = %s \n", all->map.ea_way);
+	printf("Sprite texture = %s \n", all->map.s_way);
+	//printf("%s \n", all->array);
+}
+
 int main(int argc, char **argv)
 {
 	t_all *all;
@@ -35,6 +47,7 @@ int main(int argc, char **argv)
 		return (-1);
 	ft_putin(all);
 	ft_map_parcer(all, argv[1]);
+	printf_check(all);
 	return 0;
 }
 

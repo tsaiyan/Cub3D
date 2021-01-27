@@ -20,6 +20,7 @@ int	write_res(t_all *all, char *str)
 		all->map.error = 1;
 		return (0);
 	}
+	all->map.count++;
 	return (1);
 }
 
@@ -48,18 +49,20 @@ int write_ways(t_all *all, char *str, int flag)
 
 int	ft_check_map(t_all *all, char *str)
 {
-	if (*str == 'R')
-		write_res(all, ++str);
-	else if (*str == 'N' && *(++str) == 'O')
-		write_ways(all, ++str, 1);
+	if (str[0] == '\0')
+		all->map.count++;
+	else if (*str == 'R')
+		write_res(all, (str + 1));
+	else if (*str == 'N' && *(str + 1) == 'O')
+		write_ways(all, (str + 2), 1);
 	else if (*str == 'S' && *(str + 1) == 'O')
 		write_ways(all, (str + 2), 2);
-	else if (*str++ == 'W' && *str++ == 'E')
-		write_ways(all, str, 3);
-	else if (*str++ == 'E' && *str++ == 'A')
-		write_ways(all, str, 4);
-	else if (*str++ == 'S')
-		write_ways(all, str, 5);
+	else if (*str == 'W' && *(str + 1) == 'E')
+		write_ways(all, (str + 2), 3);
+	else if (*str == 'E' && *(str + 1) == 'A')
+		write_ways(all, (str + 2), 4);
+	else if (*str == 'S')
+		write_ways(all, (str + 1), 5);
 	if (all->map.error)
 		return (0);
 	return (1);

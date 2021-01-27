@@ -13,4 +13,9 @@ void ft_putin(t_all *all)
 	all->win.gorisont = 0;
 	all->win.vert = 0;
 	all->map.error = 0;
+	all->map.no_way = NULL;
+	all->map.so_way = NULL;
+	all->map.we_way = NULL;
+	all->map.ea_way = NULL;
+	all->map.s_way = NULL;
 }

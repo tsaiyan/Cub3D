@@ -7,20 +7,22 @@
 //
 
 #include "cub3d.h"
-char	**make_map(t_list **head, int size)
+char	**make_map(t_list **head, int size, t_all *all)
 {
-	char	  **map = ft_calloc(size + 1, sizeof(char *));
+	char	  **map = ft_calloc(size + 1 - all->map.count, sizeof(char *));
 	int		  i = -1;
 	t_list	*tmp = *head;
-
+	int count = all->map.count;
+	while (count--)
+		tmp = tmp->next;
 	while (tmp)
 	{
 		map[++i] = tmp->content;
 		tmp= tmp->next;
 	}
-	i = -1;
-	while (map[++i])
-		ft_putendl(map[i]);
+		i = -1;
+		while (map[++i])
+			ft_putendl(map[i]);
 	return (map);
 }
 
@@ -36,5 +38,6 @@ void	ft_map_parcer(t_all *all, char *argv)
 		ft_lstadd_back(&head, ft_lstnew(line));
 	}
 	ft_lstadd_back(&head, ft_lstnew(line));
-	all->array = *make_map(&head, ft_lstsize(head));
+	all->array = *make_map(&head, ft_lstsize(head), all);
+	printf("count =%d\n", all->map.count);
 }
