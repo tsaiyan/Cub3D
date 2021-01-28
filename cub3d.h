@@ -41,7 +41,7 @@ typedef struct	s_map //структура для карты
 	char *we_way;
 	char *ea_way;
 	char *s_way;
-	int count;
+	int total_lines_before_map;
 	int error;
 }				  t_map;
 
@@ -69,8 +69,12 @@ typedef struct	s_all // структура для всего вместе
 }				  t_all;
 
 
+// for map:
 void	ft_map_parcer(t_all *all, char *argv);
-int		ft_check_map(t_all *all, char *str);
+int		config_map(t_all *all, char *str);
 void	ft_putin(t_all *all);
 char	**make_map(t_list **head, int size, t_all *all);
+int		check_ways(t_all *all);
+int		error(t_all *all);
+
 #endif /* parcer_map_h */

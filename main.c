@@ -37,7 +37,6 @@ void printf_check(t_all *all)
 	printf("WE texture = %s \n", all->map.we_way);
 	printf("EA texture = %s \n", all->map.ea_way);
 	printf("Sprite texture = %s \n", all->map.s_way);
-	//printf("%s \n", all->array);
 }
 
 int main(int argc, char **argv)
@@ -47,6 +46,8 @@ int main(int argc, char **argv)
 		return (-1);
 	ft_putin(all);
 	ft_map_parcer(all, argv[1]);
+	if (error(all))
+		return (0);
 	printf_check(all);
 	return 0;
 }

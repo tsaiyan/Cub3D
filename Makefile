@@ -1,4 +1,4 @@
-OBJTS = ft_map_parcer.c ft_putin.c ft_check_map.c map.cub main.c cub3d.h
+OBJTS =  ft_putin.c map.cub cub3d.h map_validate.c map_write.c map_config.c error.c libft/libft.a get_next_line/get_next_line.c get_next_line/get_next_line_utils.c libmlx.dylib
 
 NAME = cub3d
 
@@ -10,10 +10,10 @@ CC = gcc -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJTS)
+$(NAME): $(OBJTS) main.c cub3d.h
 	${RM} $(NAME)
-	clang main.c libft/libft.a  get_next_line/get_next_line.c get_next_line/get_next_line_utils.c ft_map_parcer.c ft_check_map.c ft_putin.c  libmlx.dylib -framework OpenGL -framework AppKit -o $(NAME)
-	./cub3d map.cub
+	clang main.c $(OBJTS) -framework OpenGL -framework AppKit
+	./a.out map.cub
 clean:
 	${RM} $(NAME)
 

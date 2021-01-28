@@ -20,7 +20,7 @@ int	write_res(t_all *all, char *str)
 		all->map.error = 1;
 		return (0);
 	}
-	all->map.count++;
+	all->map.total_lines_before_map++;
 	return (1);
 }
 
@@ -43,14 +43,14 @@ int write_ways(t_all *all, char *str, int flag)
 		all->map.ea_way = str;
 	else if (flag == 5)
 		all->map.s_way = str;
-	all->map.count++;
+	all->map.total_lines_before_map++;
 	return (1);
 }
 
-int	ft_check_map(t_all *all, char *str)
+int	config_map(t_all *all, char *str)
 {
 	if (str[0] == '\0')
-		all->map.count++;
+		all->map.total_lines_before_map++;
 	else if (*str == 'R')
 		write_res(all, (str + 1));
 	else if (*str == 'N' && *(str + 1) == 'O')
@@ -63,7 +63,21 @@ int	ft_check_map(t_all *all, char *str)
 		write_ways(all, (str + 2), 4);
 	else if (*str == 'S')
 		write_ways(all, (str + 1), 5);
-	if (all->map.error)
+	return (1);
+}
+
+int	check_ways(t_all *all)
+{
+	if (!all->map.no_way || \
+		!all->map.so_way || \
+		!all->map.we_way || \
+		!all->map.ea_way || \
+		!all->map.s_way || \
+		!all->win.vert || \
+		!all->win.gorisont)
+	{
+		write(1, "MAP ERROR!\n", 11);
 		return (0);
+	}
 	return (1);
 }

@@ -18,4 +18,5 @@ void ft_putin(t_all *all)
 	all->map.we_way = NULL;
 	all->map.ea_way = NULL;
 	all->map.s_way = NULL;
+	all->map.total_lines_before_map = 0;
 }

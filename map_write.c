@@ -9,10 +9,10 @@
 #include "cub3d.h"
 char	**make_map(t_list **head, int size, t_all *all)
 {
-	char	  **map = ft_calloc(size + 1 - all->map.count, sizeof(char *));
+	char	  **map = ft_calloc(size + 1 - all->map.total_lines_before_map, sizeof(char *));
 	int		  i = -1;
 	t_list	*tmp = *head;
-	int count = all->map.count;
+	int count = all->map.total_lines_before_map;
 	while (count--)
 		tmp = tmp->next;
 	while (tmp)
@@ -34,10 +34,14 @@ void	ft_map_parcer(t_all *all, char *argv)
 
 	while (get_next_line(fd, &line))
 	{
-		ft_check_map(all, line);
+		config_map(all, line);
 		ft_lstadd_back(&head, ft_lstnew(line));
+	}
+	if (!check_ways(all))
+	{
+		all->map.error = 1;
+		return;
 	}
 	ft_lstadd_back(&head, ft_lstnew(line));
 	all->array = *make_map(&head, ft_lstsize(head), all);
-	printf("count =%d\n", all->map.count);
 }
