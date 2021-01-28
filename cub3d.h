@@ -1,10 +1,15 @@
-//
-//  parcer_map.h
-//  cub3d
-//
-//  Created by Torres Saiyan on 1/22/21.
-//  Copyright © 2021 21school. All rights reserved.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tsaiyan <tsaiyan@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/28 18:29:13 by tsaiyan           #+#    #+#             */
+/*   Updated: 2021/01/28 18:29:15 by tsaiyan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #ifndef PARCER_MAP_H
 #define PARCER_MAP_H
@@ -41,6 +46,8 @@ typedef struct	s_map //структура для карты
 	char *we_way;
 	char *ea_way;
 	char *s_way;
+	char *floor_color;
+	char *sky_color;
 	int total_lines_before_map;
 	int error;
 }				  t_map;
@@ -58,14 +65,15 @@ typedef struct	s_plr //структура для игрока и луча
 	float		dir;
 	float		start;
 	float		end;
+	char		plook;
 }				  t_plr;
 
 typedef struct	s_all // структура для всего вместе
 {
 	t_win		win;
-	t_plr		*plr;
+	t_plr		plr;
 	t_map		map;
-	char		*array;
+	char		**array;
 }				  t_all;
 
 
@@ -76,5 +84,5 @@ void	ft_putin(t_all *all);
 char	**make_map(t_list **head, int size, t_all *all);
 int		check_ways(t_all *all);
 int		error(t_all *all);
-
+int		map_validate(t_all *all);
 #endif /* parcer_map_h */

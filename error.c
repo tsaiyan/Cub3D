@@ -1,17 +1,22 @@
-//
-//  error.c
-//  cub3d
-//
-//  Created by Torres Saiyan on 1/28/21.
-//  Copyright © 2021 21school. All rights reserved.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tsaiyan <tsaiyan@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/28 18:29:13 by tsaiyan           #+#    #+#             */
+/*   Updated: 2021/01/28 18:29:15 by tsaiyan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "cub3d.h"
 
 int	error(t_all *all)
 {
-	if (all->map.error)
+	if (all->map.error || !(map_validate(all)))
 		return (1);
-
+	
 	return (0);
 }

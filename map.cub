@@ -10,7 +10,11 @@ S ./path_to_the_sprite_texture
 
 EA ./path_to_the_east_texture
 
+F 220,100,0
+
+C 225,30,0
+
 111111
-1000N1
+100N01
 100001
 111111

@@ -1,12 +1,22 @@
-//
-//  ft_map_parcer.c
-//  cub3d
-//
-//  Created by Torres Saiyan on 1/26/21.
-//  Copyright © 2021 21school. All rights reserved.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tsaiyan <tsaiyan@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/28 18:29:13 by tsaiyan           #+#    #+#             */
+/*   Updated: 2021/01/28 18:29:15 by tsaiyan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "cub3d.h"
+
+/*
+** запись карты через листы минус строки конфига
+*/
+
 char	**make_map(t_list **head, int size, t_all *all)
 {
 	char	  **map = ft_calloc(size + 1 - all->map.total_lines_before_map, sizeof(char *));
@@ -20,11 +30,15 @@ char	**make_map(t_list **head, int size, t_all *all)
 		map[++i] = tmp->content;
 		tmp= tmp->next;
 	}
-		i = -1;
-		while (map[++i])
-			ft_putendl(map[i]);
 	return (map);
 }
+
+/*
+** считывание файла и его запись
+** проверка путей к текстурам
+** запись карты без конфига
+** запуск проверки карты
+*/
 
 void	ft_map_parcer(t_all *all, char *argv)
 {
@@ -43,5 +57,5 @@ void	ft_map_parcer(t_all *all, char *argv)
 		return;
 	}
 	ft_lstadd_back(&head, ft_lstnew(line));
-	all->array = *make_map(&head, ft_lstsize(head), all);
+	all->array = make_map(&head, ft_lstsize(head), all);
 }
