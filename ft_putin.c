@@ -26,4 +26,5 @@ void ft_putin(t_all *all)
 	all->map.sky_color = NULL;
 	all->map.total_lines_before_map = 0;
 	all->plr.plook = 0;
+	all->map.lines = 0;
 }

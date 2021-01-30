@@ -50,6 +50,7 @@ typedef struct	s_map //структура для карты
 	char *sky_color;
 	int total_lines_before_map;
 	int error;
+	int lines;
 }				  t_map;
 
 typedef struct	s_point // структура для точки
@@ -74,6 +75,7 @@ typedef struct	s_all // структура для всего вместе
 	t_plr		plr;
 	t_map		map;
 	char		**array;
+	char		**arrrecuv;
 }				  t_all;
 
 
@@ -82,7 +84,10 @@ void	ft_map_parcer(t_all *all, char *argv);
 int		config_map(t_all *all, char *str);
 void	ft_putin(t_all *all);
 char	**make_map(t_list **head, int size, t_all *all);
+void	map_copy(t_all *all);
 int		check_ways(t_all *all);
 int		error(t_all *all);
 int		map_validate(t_all *all);
+int		find_player(t_all *all);
+int		bad_chars_in_map(t_all *all);
 #endif /* parcer_map_h */

@@ -36,7 +36,10 @@
 void printf_checks(t_all *all)
 {
 	puts("- - -- - - - - - - - - - -- - - ");
-	printf("R vert			=%d\n", all->win.vert);
+	int i = 0;
+	while(all->array[i])
+		printf("\n%s", all->array[i++]);
+	printf("\nR vert			=%d\n", all->win.vert);
 	printf("R gor			=%d\n", all->win.gorisont);
 	printf("NO texture		=%s\n", all->map.no_way);
 	printf("SO texture		=%s\n", all->map.so_way);
@@ -46,9 +49,9 @@ void printf_checks(t_all *all)
 	printf("Floor color		=%s\n", all->map.floor_color);
 	printf("Sky color		=%s\n", all->map.sky_color);
 	printf("Player looks at		=%c\n", all->plr.plook);
-	int i = 0;
-	while(all->array[i])
-	printf("\n%s", all->array[i++]);
+	i = 0;
+	while(all->arrrecuv[i])
+		printf("\n%s", all->arrrecuv[i++]);
 	puts("- - -- - - - - - - - - - -- - - ");
 }
 

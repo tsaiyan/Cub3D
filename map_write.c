@@ -20,15 +20,16 @@
 char	**make_map(t_list **head, int size, t_all *all)
 {
 	char	  **map = ft_calloc(size + 1 - all->map.total_lines_before_map, sizeof(char *));
-	int		  i = -1;
+	int		  i = 0;
 	t_list	*tmp = *head;
 	int count = all->map.total_lines_before_map;
 	while (count--)
 		tmp = tmp->next;
 	while (tmp)
 	{
-		map[++i] = tmp->content;
+		map[i++] = tmp->content;
 		tmp= tmp->next;
+		all->map.lines++;
 	}
 	return (map);
 }
@@ -58,4 +59,5 @@ void	ft_map_parcer(t_all *all, char *argv)
 	}
 	ft_lstadd_back(&head, ft_lstnew(line));
 	all->array = make_map(&head, ft_lstsize(head), all);
+	map_copy(all);
 }

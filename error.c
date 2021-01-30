@@ -15,8 +15,10 @@
 
 int	error(t_all *all)
 {
-	if (all->map.error || !(map_validate(all)))
+	if (all->map.error || !find_player(all) || !bad_chars_in_map(all))
+	{
+		write(1, "ERROR MAP!\n", 11);
 		return (1);
-	
+	}
 	return (0);
 }

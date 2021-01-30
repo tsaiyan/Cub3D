@@ -87,9 +87,26 @@ int	check_ways(t_all *all)
 		!all->map.floor_color || \
 		!all->map.sky_color)
 	{
-		write(1, "MAP ERROR!\n", 11);
+		write(1, "BAD WAY FOR TEXTURES!\n", 11);
 		return (0);
 	}
 	return (1);
 }
 
+void	map_copy(t_all *all)
+{
+	char **line;
+	int j = 0;
+	int i = all->map.lines;
+
+	printf("%d\n", all->map.lines);;
+	line = (char **)malloc(sizeof(char*) * (i + 1));
+	line[i] = NULL;
+	while (i--)
+	{
+		line[j] = "h";
+		j++;
+		puts(*line);
+	}
+	all->arrrecuv = line;
+}
