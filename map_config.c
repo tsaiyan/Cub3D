@@ -71,7 +71,7 @@ int	config_map(t_all *all, char *str)
 		write_ways(all, (str + 1), 6);
 	else if (*str == 'C' && *(str + 1) == 32)
 		write_ways(all, (str + 1), 7);
-	
+
 	return (1);
 }
 
@@ -93,20 +93,3 @@ int	check_ways(t_all *all)
 	return (1);
 }
 
-void	map_copy(t_all *all)
-{
-	char **line;
-	int j = 0;
-	int i = all->map.lines;
-
-	printf("%d\n", all->map.lines);;
-	line = (char **)malloc(sizeof(char*) * (i + 1));
-	line[i] = NULL;
-	while (i--)
-	{
-		line[j] = "h";
-		j++;
-		puts(*line);
-	}
-	all->arrrecuv = line;
-}

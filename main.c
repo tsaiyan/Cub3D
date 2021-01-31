@@ -37,8 +37,9 @@ void printf_checks(t_all *all)
 {
 	puts("- - -- - - - - - - - - - -- - - ");
 	int i = 0;
-	while(all->array[i])
-		printf("\n%s", all->array[i++]);
+	puts("filled map:");
+	while(all->arrrecuv[i])
+		printf("%s\n", all->arrrecuv[i++]);
 	printf("\nR vert			=%d\n", all->win.vert);
 	printf("R gor			=%d\n", all->win.gorisont);
 	printf("NO texture		=%s\n", all->map.no_way);
@@ -50,20 +51,27 @@ void printf_checks(t_all *all)
 	printf("Sky color		=%s\n", all->map.sky_color);
 	printf("Player looks at		=%c\n", all->plr.plook);
 	i = 0;
-	while(all->arrrecuv[i])
-		printf("\n%s", all->arrrecuv[i++]);
+	puts("\nmap:");
+	while(all->array[i])
+		printf("%s\n", all->array[i++]);
 	puts("- - -- - - - - - - - - - -- - - ");
 }
 
 int main(int argc, char **argv)
 {
 	t_all *all;
+	printf("argc=%d\n", argc);
+	if (argc != 2)
+	{
+		puts("wrong input file");
+		return (-1);
+	}
 	if (!(all = malloc(sizeof(t_all))))
 		return (-1);
 	ft_putin(all);
 	ft_map_parcer(all, argv[1]);
 	if (error(all))
-		return (0);
+		return (-1);
 	printf_checks(all);
 	return 0;
 }

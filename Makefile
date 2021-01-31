@@ -11,13 +11,15 @@ CC = gcc -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJTS) main.c cub3d.h
-	${RM} $(NAME)
+	$(MAKE) bonus -C ./libft
 	clang main.c $(OBJTS) -framework OpenGL -framework AppKit
 	./a.out map.cub
 clean:
 	${RM} $(NAME)
+	$(MAKE) clean -C ./libft
 
 fclean: clean
 	${RM} $(NAME)
+	$(MAKE) fclean -C ./libft
 
 re: fclean all

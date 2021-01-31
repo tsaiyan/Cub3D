@@ -14,6 +14,7 @@
 
 void ft_putin(t_all *all)
 {
+	puts("ft_putin");
 	all->win.gorisont = 0;
 	all->win.vert = 0;
 	all->map.error = 0;

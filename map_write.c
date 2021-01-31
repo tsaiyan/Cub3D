@@ -31,7 +31,25 @@ char	**make_map(t_list **head, int size, t_all *all)
 		tmp= tmp->next;
 		all->map.lines++;
 	}
+	puts("make_map");
 	return (map);
+}
+
+char	**map_copy(t_all *all)
+{
+	char **line;
+	int j = 0;
+	int i = all->map.lines;
+
+	line = (char **)malloc(sizeof(char*) * (i + 1));
+	line[i--] = NULL;
+	while (i--)
+	{
+		line[j] = ft_strdup(all->array[j]);
+		j++;
+	}
+	puts("map cpy");
+	return(line);
 }
 
 /*
@@ -59,5 +77,6 @@ void	ft_map_parcer(t_all *all, char *argv)
 	}
 	ft_lstadd_back(&head, ft_lstnew(line));
 	all->array = make_map(&head, ft_lstsize(head), all);
-	map_copy(all);
+	all->arrrecuv = map_copy(all);
+	puts("ft_map_parcer");
 }

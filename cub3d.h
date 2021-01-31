@@ -84,7 +84,7 @@ void	ft_map_parcer(t_all *all, char *argv);
 int		config_map(t_all *all, char *str);
 void	ft_putin(t_all *all);
 char	**make_map(t_list **head, int size, t_all *all);
-void	map_copy(t_all *all);
+char	**map_copy(t_all *all);
 int		check_ways(t_all *all);
 int		error(t_all *all);
 int		map_validate(t_all *all);

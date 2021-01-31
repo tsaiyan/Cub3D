@@ -38,6 +38,7 @@ int	recursive_needed(t_all *all, int i, int j)
 
 int	fill_error(t_all *all, int i, int j)
 {
+	puts("fill_error");
 	if (all->arrrecuv[i][j] == '1' || all->arrrecuv[i][j] == 'x')
 		return (0);
 	if (all->arrrecuv[i][j] == '\0' || all->arrrecuv[i][j] == ' ' \
@@ -68,6 +69,7 @@ int	bad_chars_in_map(t_all *all)
 	char *chr;
 	char **str;
 
+	puts("bad_chars_in_map");
 	str = all->array;
 	chr = *all->array;
 	while(*all->array)
@@ -101,6 +103,7 @@ int	find_player(t_all *all)
 	int i;
 	int j;
 
+	puts("find_player");
 	i = 0;
 	while (all->array[i])
 	{
