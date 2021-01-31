@@ -38,7 +38,6 @@ int	recursive_needed(t_all *all, int i, int j)
 
 int	fill_error(t_all *all, int i, int j)
 {
-	puts("fill_error");
 	if (all->arrrecuv[i][j] == '1' || all->arrrecuv[i][j] == 'x')
 		return (0);
 	if (all->arrrecuv[i][j] == '\0' || all->arrrecuv[i][j] == ' ' \
@@ -70,25 +69,24 @@ int	bad_chars_in_map(t_all *all)
 	char **str;
 	int i = 0;
 	int j = 0;
-	puts("bad_chars_in_map start");
+	//puts("bad_chars_in_map start");
 	str = all->array;
 		while(str[i])
 		{
+			j = 0;
 			puts(str[i]);
 			while(str[i][j])
 			{
 				chr = str[i][j];
 				if (chr != 'W' && chr != 'N' && chr != 'S' && chr != 'E' \
-					&& chr != '1' &&  chr != ' ' && chr != '1' && chr != '2' \
+					&& chr != '1' &&  chr != 32 && chr != '1' && chr != '2' \
 					&& chr != '0' && chr != '\0')
 				{
 					all->map.error = 1;
-					write(1, "BAD CHAR IN MAP\n", 15);
+					write(1, "BAD CHAR IN MAP\n", 16);
+					printf("c=%d\n", chr);
+					printf("j=%d\n", j);
 					return (1);
-				}
-				if (str[i][ft_strlen(str[i])] != '1')
-				{
-					write(1, "NO WALL ON BORDER \n", 18);
 				}
 				j++;
 			}
@@ -106,7 +104,6 @@ int	find_player(t_all *all)
 	int i;
 	int j;
 
-	puts("find_player");
 	i = 0;
 	while (all->array[i])
 	{
@@ -126,5 +123,6 @@ int	find_player(t_all *all)
 		}
 		i++;
 	}
+	puts("find_player");
 	return (all->plr.plook ? 1 : 0);
 }
