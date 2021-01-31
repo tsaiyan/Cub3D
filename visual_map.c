@@ -11,15 +11,15 @@
 #include "cub3d.h"
 
 
-void	scale_map(t_struct *map)
+void	scale_map(t_all *all)
 {
 	int start = 100;
 	int x;
-	int y = map->y * SCALE;
-		while (y < (map->y * SCALE + SCALE))
+	int y = all->map.y * SCALE;
+		while (y < (all->map.y * SCALE + SCALE))
 		{
-			x = map->x * SCALE;
-			while(x < (map->x * SCALE + SCALE))
+			x = all->map.x * SCALE;
+			while(x < (mall->map.x * SCALE + SCALE))
 				mlx_pixel_put(map->mlx, map->win, (x++ + start), (y + start), 0xFFFFFF);
 			y++;
 		}
@@ -27,9 +27,9 @@ void	scale_map(t_struct *map)
 
 
 
-int visual_map(t_struct *map)
+int visual_map(t_all *map)
 {
-	while (map->array[map->y])
+	while (all->array[all->map.y])
 	{
 		map->x = 0;
 		while(map->array[map->y][map->x])
