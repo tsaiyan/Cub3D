@@ -66,31 +66,34 @@ int	fill_error(t_all *all, int i, int j)
 
 int	bad_chars_in_map(t_all *all)
 {
-	char *chr;
+	char chr;
 	char **str;
-
-	puts("bad_chars_in_map");
+	int i = 0;
+	int j = 0;
+	puts("bad_chars_in_map start");
 	str = all->array;
-	chr = *all->array;
-	while(*all->array)
-	{
-		while(*str)
+		while(str[i])
 		{
-			if (*chr != 'W' && *chr != 'N' && *chr != 'S' && *chr != 'E' \
-				&& *chr != '1' &&  *chr != ' ' && *chr != '1' && *chr != '2' \
-				&& *chr != '0' && *chr != '\0')
+			puts(str[i]);
+			while(str[i][j])
 			{
-				write(1, "bad_chars_in_map\n", 17);
-				return (1);
+				chr = str[i][j];
+				if (chr != 'W' && chr != 'N' && chr != 'S' && chr != 'E' \
+					&& chr != '1' &&  chr != ' ' && chr != '1' && chr != '2' \
+					&& chr != '0' && chr != '\0')
+				{
+					all->map.error = 1;
+					write(1, "BAD CHAR IN MAP\n", 15);
+					return (1);
+				}
+				if (str[i][ft_strlen(str[i])] != '1')
+				{
+					write(1, "NO WALL ON BORDER \n", 18);
+				}
+				j++;
 			}
-			if (*chr + 1 == '\0' && *chr != '1')
-			{
-				write(1, "NO WALL ON BORDER \n", 18);
-			}
-			chr++;
+			i++;
 		}
-		str++;
-	}
 	return (0);
 }
 /*
