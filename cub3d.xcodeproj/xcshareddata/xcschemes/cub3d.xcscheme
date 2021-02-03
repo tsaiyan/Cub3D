@@ -24,9 +24,9 @@
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      selectedDebuggerIdentifier = ""
+      selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
+      shouldUseLaunchSchemeArgsEnv = "NO">
       <Testables>
       </Testables>
    </TestAction>
@@ -52,7 +52,11 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = " text"
+            argument = "/Users/artyom/cub3d/lbft/libft.a"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "/Users/artyom/cub3d/gnl/get_next_line_utils.c"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
@@ -60,12 +64,12 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = ""
-            isEnabled = "NO">
+            argument = "/Users/artyom/cub3d/map.cub"
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "/Users/tsaiyan/cub3d/map.cub"
-            isEnabled = "YES">
+            argument = "/Users/artyom/cub3d/gnl/get_next_line.c"
+            isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
    </LaunchAction>
