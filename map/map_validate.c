@@ -115,12 +115,12 @@ int	borders_ok(t_all *all)
 		if (all->array[0][i++] != '1')
 			return (0);
 	i = 0;
-	while (all->array[all->map.lines][i])
+	while (all->array[all->map.lines - 1][i])
 		if (all->array[0][i++] != '1')
 			return (0);
 	i = 0;
 	while (all->array[i][0])
-		if (all->array[i][0] != '1')
+		if (all->array[i++][0] != '1')
 			return (0);
 	i = 0;
 	while (all->array[i][ft_strlen(all->array[i])])
