@@ -64,7 +64,7 @@ int main(int argc, char **argv)
 	void    *mlx_win;
 
 	  mlx = mlx_init();
-	  mlx_win = mlx_new_window(mlx, 100, 100, "Hello world!");
+	  mlx_win = mlx_new_window(mlx, 400, 400, "Hello world!");
 	  mlx_loop(mlx);
 	if (argc != 2)
 	{
