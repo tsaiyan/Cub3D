@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d                                              :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsaiyan <tsaiyan@42.fr>                    +#+  +:+       +#+        */
+/*   By: tsaiyan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 18:29:13 by tsaiyan           #+#    #+#             */
-/*   Updated: 2021/01/28 18:29:15 by tsaiyan          ###   ########.fr       */
+/*   Created: 2020/10/30 11:31:00 by tsaiyan           #+#    #+#             */
+/*   Updated: 2020/10/30 11:31:03 by tsaiyan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#include "../cub3d.h"
-
-int	error(t_all *all)
+char	*ft_strrchr(char *str, int symbol)
 {
-	if (bad_chars_in_map(all) || !borders_ok(all)|| all->map.error || !find_player(all))
-	{
-		write(1, "ERROR MAP!\n", 11);
-		return (1);
-	}
-	return (0);
+	size_t i;
+
+	i = ft_strlen(str);
+	if (!symbol)
+		return ((char*)(str + i));
+	while (i--)
+		if (str[i] == symbol)
+			return ((char*)(str + i));
+	return (NULL);
 }

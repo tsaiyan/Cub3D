@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d                                              :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsaiyan <tsaiyan@42.fr>                    +#+  +:+       +#+        */
+/*   By: tsaiyan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 18:29:13 by tsaiyan           #+#    #+#             */
-/*   Updated: 2021/01/28 18:29:15 by tsaiyan          ###   ########.fr       */
+/*   Created: 2020/11/01 17:10:18 by tsaiyan           #+#    #+#             */
+/*   Updated: 2020/11/01 17:10:19 by tsaiyan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+#include <stdio.h>
 
-#include "../cub3d.h"
-
-int	error(t_all *all)
+char	*ft_strdup(char *src)
 {
-	if (bad_chars_in_map(all) || !borders_ok(all)|| all->map.error || !find_player(all))
+	char	*dest;
+	size_t	i;
+
+	i = 0;
+	dest = malloc(ft_strlen(src) + 1);
+	if (dest == 0)
+		return (0);
+	while (src[i])
 	{
-		write(1, "ERROR MAP!\n", 11);
-		return (1);
+		dest[i] = src[i];
+		i++;
 	}
-	return (0);
+	dest[i] = '\0';
+	return (dest);
 }

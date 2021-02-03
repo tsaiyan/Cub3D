@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d                                              :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsaiyan <tsaiyan@42.fr>                    +#+  +:+       +#+        */
+/*   By: tsaiyan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 18:29:13 by tsaiyan           #+#    #+#             */
-/*   Updated: 2021/01/28 18:29:15 by tsaiyan          ###   ########.fr       */
+/*   Created: 2020/10/31 14:37:58 by tsaiyan           #+#    #+#             */
+/*   Updated: 2020/10/31 14:38:00 by tsaiyan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#include "../cub3d.h"
-
-int	error(t_all *all)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (bad_chars_in_map(all) || !borders_ok(all)|| all->map.error || !find_player(all))
+	unsigned res;
+
+	if (n < 0)
 	{
-		write(1, "ERROR MAP!\n", 11);
-		return (1);
+		write(fd, "-", 1);
+		res = n * -1;
 	}
-	return (0);
+	else
+		res = (unsigned)n;
+	if (res >= 10)
+		ft_putnbr_fd(res / 10, fd);
+	ft_putchar_fd(res % 10 + 48, fd);
 }

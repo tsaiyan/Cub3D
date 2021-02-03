@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d                                              :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsaiyan <tsaiyan@42.fr>                    +#+  +:+       +#+        */
+/*   By: tsaiyan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 18:29:13 by tsaiyan           #+#    #+#             */
-/*   Updated: 2021/01/28 18:29:15 by tsaiyan          ###   ########.fr       */
+/*   Created: 2020/10/31 14:37:58 by tsaiyan           #+#    #+#             */
+/*   Updated: 2020/10/31 14:38:00 by tsaiyan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#include "../cub3d.h"
-
-int	error(t_all *all)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	if (bad_chars_in_map(all) || !borders_ok(all)|| all->map.error || !find_player(all))
+	t_list *buffer;
+
+	if (!(*lst))
+		return ;
+	while (*lst)
 	{
-		write(1, "ERROR MAP!\n", 11);
-		return (1);
+		buffer = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = buffer;
 	}
-	return (0);
+	*lst = NULL;
 }

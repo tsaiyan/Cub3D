@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d                                              :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsaiyan <tsaiyan@42.fr>                    +#+  +:+       +#+        */
+/*   By: tsaiyan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 18:29:13 by tsaiyan           #+#    #+#             */
-/*   Updated: 2021/01/28 18:29:15 by tsaiyan          ###   ########.fr       */
+/*   Created: 2020/11/01 16:47:19 by tsaiyan           #+#    #+#             */
+/*   Updated: 2020/11/01 16:47:22 by tsaiyan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#include "../cub3d.h"
-
-int	error(t_all *all)
+void	*ft_calloc(size_t number, size_t size)
 {
-	if (bad_chars_in_map(all) || !borders_ok(all)|| all->map.error || !find_player(all))
-	{
-		write(1, "ERROR MAP!\n", 11);
-		return (1);
-	}
-	return (0);
+	void *str;
+
+	if (!(str = malloc(number * size)))
+		return (0);
+	ft_memset(str, 0, number * size);
+	return (str);
 }

@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d                                              :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsaiyan <tsaiyan@42.fr>                    +#+  +:+       +#+        */
+/*   By: tsaiyan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/28 18:29:13 by tsaiyan           #+#    #+#             */
-/*   Updated: 2021/01/28 18:29:15 by tsaiyan          ###   ########.fr       */
+/*   Created: 2020/10/31 13:31:41 by tsaiyan           #+#    #+#             */
+/*   Updated: 2020/10/31 13:31:43 by tsaiyan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#include "../cub3d.h"
-
-int	error(t_all *all)
+void	*ft_memchr(void *s, int c, size_t n)
 {
-	if (bad_chars_in_map(all) || !borders_ok(all)|| all->map.error || !find_player(all))
-	{
-		write(1, "ERROR MAP!\n", 11);
-		return (1);
-	}
-	return (0);
+	while (n--)
+		if (*(unsigned char *)s++ == ((unsigned char)c))
+			return ((void*)--s);
+	return (NULL);
 }

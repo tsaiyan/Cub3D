@@ -19,8 +19,8 @@
 # include <stdlib.h>
 # include "mms/mlx.h"
 #include <fcntl.h>
-#include "libft/libft.h"
-#include "get_next_line/get_next_line.h"
+#include "lbft/libft.h"
+#include "gnl/get_next_line.h"
 #include <stdio.h>
 
 #define SCALE 16 // условный размер каждого квадратика в карте
@@ -90,4 +90,5 @@ int		error(t_all *all);
 int		map_validate(t_all *all);
 int		find_player(t_all *all);
 int		bad_chars_in_map(t_all *all);
+int		borders_ok(t_all *all);
 #endif /* parcer_map_h */

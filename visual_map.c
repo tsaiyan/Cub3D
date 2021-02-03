@@ -7,7 +7,7 @@
 //
 
 #include "mms/mlx.h"
-#include "libft/libft.h"
+#include "lbft/lbft.h"
 #include "cub3d.h"
 
 

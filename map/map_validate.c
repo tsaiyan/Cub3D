@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 /*
-** рекурсивная заливка поля
+** рекурсивная заливка поля 1
 */
 
 int	find_bad_char(t_all *all, char chr)
@@ -28,20 +28,27 @@ int	find_bad_char(t_all *all, char chr)
 	return (0);
 }
 
+/*
+** рекурсивная заливка поля 2
+*/
+
 int	recursive_needed(t_all *all, int i, int j)
 {
 	if (all->arrrecuv[i][j] != all->plr.plook && \
-		all->arrrecuv[i][j] != '1' && all->arrrecuv[i][j] != 'S')
+		all->arrrecuv[i][j] != '1')
 		return (1);
 	return (0);
 }
+
+/*
+** рекурсивная заливка поля 3
+*/
 
 int	fill_error(t_all *all, int i, int j)
 {
 	if (all->arrrecuv[i][j] == '1' || all->arrrecuv[i][j] == 'x')
 		return (0);
-	if (all->arrrecuv[i][j] == '\0' || all->arrrecuv[i][j] == ' ' \
-		|| (all->arrrecuv[i][j] != '1' && i == 0))
+	if (all->arrrecuv[i][j] == 0 || all->arrrecuv[i][j] == ' ')
 	{
 		all->map.error = 1;
 		puts("the player can be sucked into space \n");
@@ -60,7 +67,7 @@ int	fill_error(t_all *all, int i, int j)
 }
 
 /*
-** проверка 1 по краям карты (для душных) и левые символы в ней
+** поиск левых символов в карте
 */
 
 int	bad_chars_in_map(t_all *all)
@@ -94,6 +101,37 @@ int	bad_chars_in_map(t_all *all)
 		}
 	return (0);
 }
+
+/*
+** проверка границ поля
+*/
+
+int	borders_ok(t_all *all)
+{
+	int i;
+
+	i = 0;
+	while (all->array[0][i])
+		if (all->array[0][i++] != '1')
+			return (0);
+	i = 0;
+	while (all->array[all->map.lines][i])
+		if (all->array[0][i++] != '1')
+			return (0);
+	i = 0;
+	while (all->array[i][0])
+		if (all->array[i][0] != '1')
+			return (0);
+	i = 0;
+	while (all->array[i][ft_strlen(all->array[i])])
+	{
+		if (all->array[i][ft_strlen(all->array[i])] != '1')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 /*
 ** ищет игрока
 ** проверяет что вокруг него все ок
