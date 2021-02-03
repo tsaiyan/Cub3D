@@ -12,7 +12,6 @@
 
 
 #include "cub3d.h"
-
 //int key_press(int key, t_struct *map)
 //{
 //	printf("\npress\n");
@@ -61,6 +60,12 @@ int main(int argc, char **argv)
 {
 	t_all *all;
 	printf("argc=%d\n", argc);
+	void    *mlx;
+	void    *mlx_win;
+
+	  mlx = mlx_init();
+	  mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
+	  mlx_loop(mlx);
 	if (argc != 2)
 	{
 		puts("wrong input file");
