@@ -40,7 +40,14 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = ""
       selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
-      shouldUseLaunchSchemeArgsEnv = "NO">
+      shouldUseLaunchSchemeArgsEnv = "NO"
+      disableMainThreadChecker = "YES">
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "/Users/artyom/cub3d/map.cub"
+            isEnabled = "NO">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <Testables>
       </Testables>
    </TestAction>
@@ -78,7 +85,7 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "/Users/tsaiyan/cub3d/map.cub"
+            argument = "/Users/artyom/cub3d/map.cub"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument

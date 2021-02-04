@@ -97,7 +97,7 @@ static char			*ft_move_buffer(char *src)
 
 int					get_next_line(int fd, char **line)
 {
-	int				readedbytes;
+	ssize_t			readedbytes;
 	static char		*buffer[1024];
 	char			*dom;
 

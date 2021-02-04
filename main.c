@@ -37,7 +37,7 @@ void printf_checks(t_all *all)
 	puts("- - -- - - - - - - - - - -- - - ");
 	int i = 0;
 	puts("filled map:");
-	while(all->arrrecuv[i])
+	while(i < (all->map.lines - 1))
 		printf("%s\n", all->arrrecuv[i++]);
 	printf("\nR vert			=%d\n", all->win.vert);
 	printf("R gor			=%d\n", all->win.gorisont);
@@ -60,12 +60,7 @@ int main(int argc, char **argv)
 {
 	t_all *all;
 	printf("argc=%d\n", argc);
-	void    *mlx;
-	void    *mlx_win;
 
-	  mlx = mlx_init();
-	  mlx_win = mlx_new_window(mlx, 400, 400, "Hello world!");
-	  mlx_loop(mlx);
 	if (argc != 2)
 	{
 		puts("wrong input file");
@@ -78,6 +73,7 @@ int main(int argc, char **argv)
 	if (error(all))
 		return (-1);
 	printf_checks(all);
+	
 	return 0;
 }
 
