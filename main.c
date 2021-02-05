@@ -73,7 +73,7 @@ int main(int argc, char **argv)
 	if (error(all))
 		return (-1);
 	printf_checks(all);
-	
+	visual_map(all);
 	return 0;
 }
 

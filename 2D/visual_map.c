@@ -11,52 +11,90 @@
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#define FOOT 0.5
 
 
-//void	scale_map(t_struct *map)
-//{
-//	int start = 100;
-//	int x;
-//	int y = map->y * SCALE;
-//		while (y < (map->y * SCALE + SCALE))
-//		{
-//			x = map->x * SCALE;
-//			while(x < (map->x * SCALE + SCALE))
-//				mlx_pixel_put(map->mlx, map->win, (x++ + start), (y + start), 0xFFFFFF);
-//			y++;
-//		}
-//}
+void	scale_map(t_all *all)
+{
+	t_map *map = &all->map;
+	t_win *win = &all->win;
+	int start = 100;
+	int x;
+	int y = map->y * SCALE;
+		while (y < (map->y * SCALE + SCALE))
+		{
+			x = map->x * SCALE;
+			while(x < (map->x * SCALE + SCALE))
+				mlx_pixel_put(win->mlx, win->win, (x++ + start), (y + start), 0xFFFFFF);
+			y++;
+		}
+}
 
+void	scale_player(t_all *all)
+{
+	t_plr *map = &all->plr;
+	t_win *win = &all->win;
+	int start = 100;
+	float x;
+	float y = map->y * SCALE;
+		while (y < (map->y * SCALE + SCALE))
+		{
+			x = map->x * SCALE;
+			while(x < (map->x * SCALE + SCALE))
+				mlx_pixel_put(win->mlx, win->win, (x++ + start), (y + start), 0x000FFF);
+			y++;
+		}
+}
 
+int key_press(int key, t_all *all)
+ {
+	all->map.y = 0;
+	all->map.x = 0;
+	printf("\npress\n");
+	mlx_clear_window(all->win.mlx, all->win.win);
+	if (key == 13)
+		all->plr.y -= FOOT;
+	if (key == 1)
+		all->plr.y += FOOT;
+	if (key == 0)
+		all->plr.x -= FOOT;
+	if (key == 2)
+		all->plr.x += FOOT;
+	if (key == 53)
+		exit(0);
+	visual_map(all);
+	return(0);
+ }
 
 int visual_map(t_all *all)
 {
-	int y = 0;
-	int x = 0;
-	void    *mlx;
-	void    *win;
+	int *y = &all->map.y;
+	int *x = &all->map.x;
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 400, 400, "Hello world!");
-	while (all->array[y])
+	all->win.mlx = mlx_init();
+	all->win.win = mlx_new_window(all->win.mlx, 800, 400, "Hello world!");
+	while (all->array[*y])
 	{
-		while(all->array[y][x])
+		*x = 0;
+		while(all->array[*y][*x])
 		{
-			if (all->array[y][x] == '1')
-				mlx_pixel_put(mlx, win, x++, y, 0xFFFFFF);
-			if (all->array[y][x] == 'N')
-//			{
-//				if (map->py == 0 && map->px == 0)
-//				{
-//					map->py = map->y;
-//					map->px = map->x;
-//				}
-//				//scale_player(map);
-//			}
-			x++;
+			if (all->array[*y][*x] == '1')
+				scale_map(all);
+			if (all->array[*y][*x] == all->plr.plook)
+			{
+				if(all->plr.y == 0 && all->plr.x == 0)
+				{
+				all->plr.y = *y;
+				all->plr.x = *x;
+				}
+				scale_player(all);
+			}
+			*x += 1;
 		}
-		y++;
+		*y += 1;
 	}
-	mlx_loop(mlx);
+	mlx_hook(all->win.win, 2, (1L << 0), key_press, &all->win);
+	mlx_loop(all->win.mlx);
 	return (0);
 }
+

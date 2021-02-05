@@ -51,6 +51,8 @@ typedef struct	s_map //структура для карты
 	int total_lines_before_map;
 	int error;
 	int lines;
+	int y;
+	int x;
 }				  t_map;
 
 typedef struct	s_point // структура для точки
@@ -91,4 +93,8 @@ int		map_validate(t_all *all);
 int		find_player(t_all *all);
 int		bad_chars_in_map(t_all *all);
 int		borders_ok(t_all *all);
+
+
+// for 2d
+int		visual_map(t_all *all);
 #endif /* parcer_map_h */
