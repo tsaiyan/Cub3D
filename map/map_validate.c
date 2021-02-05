@@ -132,6 +132,7 @@ int	borders_ok(t_all *all)
 	return (1);
 }
 
+
 /*
 ** ищет игрока
 ** проверяет что вокруг него все ок
@@ -162,5 +163,8 @@ int	find_player(t_all *all)
 		i++;
 	}
 	puts("find_player");
+	write_player_pi(&all->plr);
 	return (all->plr.plook ? 1 : 0);
 }
+
+
