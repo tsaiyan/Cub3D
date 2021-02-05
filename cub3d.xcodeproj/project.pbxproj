@@ -207,7 +207,7 @@
 				};
 			};
 			buildConfigurationList = 973B967B25B9C1AD008A2E8B /* Build configuration list for PBXProject "cub3d" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
