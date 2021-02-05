@@ -18,12 +18,14 @@
 		9A0CE08525CB2FA600BC2C6F /* get_next_line.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A0CE08325CB2FA600BC2C6F /* get_next_line.h */; };
 		9A289D8A25CC463C0093CC63 /* visual_map.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A289D8925CC463C0093CC63 /* visual_map.c */; };
 		9A289D9225CC49890093CC63 /* cub3d.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A289D9125CC49890093CC63 /* cub3d.h */; };
+		9A289D9325CD8B2F0093CC63 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD8C45125CB29CC00E77F8A /* AppKit.framework */; };
+		9A289D9425CD8B2F0093CC63 /* AppKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD8C45125CB29CC00E77F8A /* AppKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9A289D9525CD8B310093CC63 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD8C45325CB29E900E77F8A /* OpenGL.framework */; };
+		9A289D9625CD8B310093CC63 /* OpenGL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD8C45325CB29E900E77F8A /* OpenGL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9A39295125CB585600F613BB /* mlx.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A39295025CB585600F613BB /* mlx.h */; };
 		9A39295825CB5A4400F613BB /* libft.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A39295625CB5A2A00F613BB /* libft.h */; };
 		9A39295A25CB5A7000F613BB /* libft.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A39295925CB5A7000F613BB /* libft.a */; };
 		9A39296225CB5B9800F613BB /* libmlx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A39296025CB5AF100F613BB /* libmlx.a */; };
-		9AD8C45625CB2A3E00E77F8A /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD8C45125CB29CC00E77F8A /* AppKit.framework */; };
-		9AD8C45925CB2A3F00E77F8A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD8C45325CB29E900E77F8A /* OpenGL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -47,6 +49,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				9A289D9425CD8B2F0093CC63 /* AppKit.framework in Embed Frameworks */,
+				9A289D9625CD8B310093CC63 /* OpenGL.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,8 +89,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A39296225CB5B9800F613BB /* libmlx.a in Frameworks */,
-				9AD8C45625CB2A3E00E77F8A /* AppKit.framework in Frameworks */,
-				9AD8C45925CB2A3F00E77F8A /* OpenGL.framework in Frameworks */,
+				9A289D9525CD8B310093CC63 /* OpenGL.framework in Frameworks */,
+				9A289D9325CD8B2F0093CC63 /* AppKit.framework in Frameworks */,
 				9A39295A25CB5A7000F613BB /* libft.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,7 +211,7 @@
 				};
 			};
 			buildConfigurationList = 973B967B25B9C1AD008A2E8B /* Build configuration list for PBXProject "cub3d" */;
-			compatibilityVersion = "Xcode 11.0";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -368,6 +372,7 @@
 					"$(PROJECT_DIR)/lbft",
 					"$(PROJECT_DIR)",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -384,6 +389,7 @@
 					"$(PROJECT_DIR)/lbft",
 					"$(PROJECT_DIR)",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
