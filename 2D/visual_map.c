@@ -14,6 +14,8 @@
 #define FOOT 0.5
 
 
+//рисуем карту
+
 void	scale_map(t_all *all)
 {
 	t_map *map = &all->map;
@@ -31,11 +33,12 @@ void	scale_map(t_all *all)
 }
 
 
+// пускаем лучи
+
 void	scale_player(t_all *all)
 {
 	t_plr ray = all->plr;
 	int move = 100;
-	//float y = map->y * SCALE;
 	ray.start = ray.dir - M_PI_4;
 	ray.end = ray.dir + M_PI_4;
 	  while (ray.start <= ray.end)
@@ -50,14 +53,9 @@ void	scale_player(t_all *all)
 			}
 			ray.start += M_PI / 100;
 		}
-//	while (all->array[(int)y / SCALE][(int)x / SCALE] != '1')
-//	{
-//		x += cos(ray.dir);
-//		y += sin(ray.dir);
-//		mlx_pixel_put(all->win.mlx, all->win.win, x + move, y + move, 0xFFF000);
-//	}
 }
 
+// считываем кнопки
 int key_press(int key, t_all *all)
  {
 	all->map.y = 0;
@@ -82,6 +80,7 @@ int key_press(int key, t_all *all)
 	return(0);
  }
 
+// основная функция
 int visual_map(t_all *all)
 {
 	int *y = &all->map.y;
