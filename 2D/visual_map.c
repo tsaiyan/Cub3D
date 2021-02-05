@@ -33,18 +33,29 @@ void	scale_map(t_all *all)
 
 void	scale_player(t_all *all)
 {
-	t_plr *map = &all->plr;
 	t_plr ray = all->plr;
-	int start = 100;
-	float x;
-	float y = map->y * SCALE;
-	x = map->x * SCALE;
-	while (all->array[(int)y / SCALE][(int)x / SCALE] != '1')
-	{
-		x += cos(ray.dir);
-		y += sin(ray.dir);
-		mlx_pixel_put(all->win.mlx, all->win.win, x + start, y + start, 0xFFF000);
-	}
+	int move = 100;
+	//float y = map->y * SCALE;
+	ray.start = ray.dir - M_PI_4;
+	ray.end = ray.dir + M_PI_4;
+	  while (ray.start <= ray.end)
+		{
+			ray.x = all->plr.x * SCALE; // каждый раз возвращаемся в точку начала
+			ray.y = all->plr.y * SCALE;
+			while (all->array[(int)(ray.y / SCALE)][(int)(ray.x / SCALE)] != '1')
+			{
+				ray.x += cos(ray.start);
+				ray.y += sin(ray.start);
+				mlx_pixel_put(all->win.mlx, all->win.win,ray.x + move, ray.y + move, 0x990099);
+			}
+			ray.start += M_PI / 100;
+		}
+//	while (all->array[(int)y / SCALE][(int)x / SCALE] != '1')
+//	{
+//		x += cos(ray.dir);
+//		y += sin(ray.dir);
+//		mlx_pixel_put(all->win.mlx, all->win.win, x + move, y + move, 0xFFF000);
+//	}
 }
 
 int key_press(int key, t_all *all)
