@@ -37,13 +37,8 @@ void	scale_player(t_all *all)
 	int start = 100;
 	float x;
 	float y = map->y * SCALE;
-		while (y < (map->y * SCALE + SCALE))
-		{
-			x = map->x * SCALE;
-			while(x < (map->x * SCALE + SCALE))
-				mlx_pixel_put(win->mlx, win->win, (x++ + start), (y + start), 0x000FFF);
-			y++;
-		}
+	x = map->x * SCALE;
+	mlx_pixel_put(win->mlx, win->win, (x++ + start + (SCALE / 2)), (y + start + (SCALE / 2)), 0xFFFFFF);
 }
 
 int key_press(int key, t_all *all)
