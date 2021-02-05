@@ -85,7 +85,7 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "/Users/artyom/cub3d/map.cub"
+            argument = "/Users/tsaiyan/cub3d/map.cub"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument

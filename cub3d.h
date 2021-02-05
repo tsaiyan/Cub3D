@@ -22,9 +22,8 @@
 #include "lbft/libft.h"
 #include "gnl/get_next_line.h"
 #include <stdio.h>
-
+#include <math.h>
 #define SCALE 16 // условный размер каждого квадратика в карте
-#define FOOT 0.3 // шаг шага
 
 typedef struct	s_win //структура для окна
 {

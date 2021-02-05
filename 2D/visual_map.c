@@ -30,15 +30,25 @@ void	scale_map(t_all *all)
 		}
 }
 
+
 void	scale_player(t_all *all)
 {
 	t_plr *map = &all->plr;
 	t_win *win = &all->win;
+	t_plr ray = all->plr;
 	int start = 100;
 	float x;
 	float y = map->y * SCALE;
 	x = map->x * SCALE;
-	mlx_pixel_put(win->mlx, win->win, (x++ + start + (SCALE / 2)), (y + start + (SCALE / 2)), 0xFFFFFF);
+	mlx_pixel_put(win->mlx, win->win, (x + start + (SCALE / 2)), (y + start + (SCALE / 2)), 0xFFFFFF);
+	while (all->array[(int)ray.y][(int)ray.x] != '1')
+	{
+		ray.x += cos(ray.dir);
+		ray.y += sin(ray.dir);
+		x = ray.x * SCALE + start + (SCALE / 2);
+		y = ray.y * SCALE + start + (SCALE / 2);
+		mlx_pixel_put(all->win.mlx, all->win.win, x, y, 0xFFF000);
+	}
 }
 
 int key_press(int key, t_all *all)
@@ -51,10 +61,14 @@ int key_press(int key, t_all *all)
 		all->plr.y -= FOOT;
 	if (key == 1)
 		all->plr.y += FOOT;
+	 if (key == 12)
+		 all->plr.x -= FOOT;
+	 if (key == 14)
+		 all->plr.x += FOOT;
 	if (key == 0)
-		all->plr.x -= FOOT;
+		all->plr.dir -= 0.2;
 	if (key == 2)
-		all->plr.x += FOOT;
+		all->plr.dir += 0.2;
 	if (key == 53)
 		exit(0);
 	visual_map(all);
