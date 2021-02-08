@@ -14,20 +14,27 @@
 #define FOOT 0.5
 
 
+//вывод изображения
+void            my_mlx_pixel_put(t_win *data, int x, int y, int color)
+{
+    char    *dst;
+
+    dst = data->addr + (y * data->line_l + x * (data->bpp / 8));
+    *(unsigned int*)dst = color;
+}
+
 //рисуем карту
 
 void	scale_map(t_all *all)
 {
-	t_map *map = &all->map;
-	t_win *win = &all->win;
 	int start = 100;
 	int x;
-	int y = map->y * SCALE;
-		while (y < (map->y * SCALE + SCALE))
+	int y = all->map.y * SCALE;
+		while (y < (all->map.y * SCALE + SCALE))
 		{
-			x = map->x * SCALE;
-			while(x < (map->x * SCALE + SCALE))
-				mlx_pixel_put(win->mlx, win->win, (x++ + start), (y + start), 0xFFFFFF);
+			x = all->map.x * SCALE;
+			while(x < (all->map.x * SCALE + SCALE))
+				my_mlx_pixel_put(&all->win, (x++ + start), (y + start), 0xFFFFFF);
 			y++;
 		}
 }
@@ -49,9 +56,9 @@ void	scale_player(t_all *all)
 			{
 				ray.x += cos(ray.start);
 				ray.y += sin(ray.start);
-				mlx_pixel_put(all->win.mlx, all->win.win,ray.x + move, ray.y + move, 0x990099);
+				my_mlx_pixel_put(&all->win, ray.x + move, ray.y + move, 0x990099);
 			}
-			ray.start += M_PI / 100;
+			ray.start += M_PI / 1000;
 		}
 }
 
@@ -80,14 +87,23 @@ int key_press(int key, t_all *all)
 	return(0);
  }
 
+
+
 // основная функция
 int visual_map(t_all *all)
 {
 	int *y = &all->map.y;
 	int *x = &all->map.x;
 
+	t_win	*img = &all->win;
+
 	all->win.mlx = mlx_init();
-	all->win.win = mlx_new_window(all->win.mlx, 800, 400, "Hello world!");
+	all->win.win = mlx_new_window(all->win.mlx, all->win.gorisont, all->win.vert, "Hello world!");
+	
+	img->img = mlx_new_image(img->mlx, all->win.gorisont, all->win.vert);
+	img->addr = mlx_get_data_addr(img->img, &img->bpp, &img->line_l,
+									 &img->en);
+	
 	while (all->array[*y])
 	{
 		*x = 0;
@@ -109,6 +125,7 @@ int visual_map(t_all *all)
 		*y += 1;
 	}
 	mlx_hook(all->win.win, 2, (1L << 0), key_press, &all->win);
+	mlx_put_image_to_window(all->win.mlx, all->win.win, img->img, 0, 0);
 	mlx_loop(all->win.mlx);
 	return (0);
 }
