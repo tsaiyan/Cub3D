@@ -124,7 +124,6 @@ int visual_map(t_all *all)
 		}
 		*y += 1;
 	}
-	mlx_hook(all->win.win, 2, (1L << 0), key_press, &all->win);
 	mlx_put_image_to_window(all->win.mlx, all->win.win, img->img, 0, 0);
 	mlx_loop(all->win.mlx);
 	return (0);

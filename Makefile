@@ -1,4 +1,4 @@
-OBJTS =  ft_putin.c map.cub cub3d.h map/map_validate.c map/map_write.c map/map_config.c map/error.c lbft/libft.a gnl/get_next_line.c gnl/get_next_line_utils.c libmlx.dylib
+OBJTS =  ft_putin.c map.cub cub3d.h map/map_validate.c map/map_write.c map/map_config.c map/error.c lbft/libft.a gnl/get_next_line.c gnl/get_next_line_utils.c libmlx.a
 
 NAME = cub3d
 

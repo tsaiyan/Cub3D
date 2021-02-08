@@ -32,14 +32,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define mapWidth 24
 #define mapHeight 24
 
-void            my_mlx_pixel_put(t_win *data, int x, int y, int color)
-{
-	char    *dst;
-
-	dst = data->addr + (y * data->line_l + x * (data->bpp / 8));
-	*(unsigned int*)dst = color;
-}
-
 //int worldMap[mapWidth][mapHeight]=
 //{
 //  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -96,14 +88,6 @@ void printf_checks(t_all *all)
 
 int main(int argc, char **argv)
 {
-	
-
-
-	
-	
-	
-	
-	
 	t_all *all;
 	printf("argc=%d\n", argc);
 	if (argc != 2)
@@ -215,6 +199,7 @@ int main(int argc, char **argv)
 		}
 		//mlx_put_image_to_window(mlx, win, img, 0, 0);
 	}
+	mlx_hook(win, 2, (1L << 0), key_press, &win);
 	mlx_loop(mlx);
 }
 	/*
