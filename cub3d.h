@@ -62,8 +62,8 @@ typedef struct	s_point // структура для точки
 
 typedef struct	s_plr //структура для игрока и луча
 {
-	float		x;
-	float		y;
+	double		x;
+	double		y;
 	float		dir;
 	float		start;
 	float		end;

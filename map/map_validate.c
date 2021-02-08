@@ -155,6 +155,8 @@ int	find_player(t_all *all)
 				if (all->plr.plook)
 					return (0);
 				all->plr.plook = all->array[i][j];
+				all->plr.y = i;
+				all->plr.x = j;
 				if (fill_error(all, i, j))
 					return (0);
 			}
