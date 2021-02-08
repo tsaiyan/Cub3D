@@ -32,4 +32,7 @@ void ft_putin(t_all *all)
 	all->map.x = 0;
 	all->plr.y = 0;
 	all->plr.x = 0;
+	all->win.bpp = 4;
+	all->plr.start = -1;
+	all->plr.end = 0;
 }

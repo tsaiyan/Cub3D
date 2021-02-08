@@ -11,17 +11,6 @@
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#define FOOT 0.5
-
-
-//вывод изображения
-void            my_mlx_pixel_put(t_win *data, int x, int y, int color)
-{
-    char    *dst;
-
-    dst = data->addr + (y * data->line_l + x * (data->bpp / 8));
-    *(unsigned int*)dst = color;
-}
 
 //рисуем карту
 
@@ -62,30 +51,7 @@ void	scale_player(t_all *all)
 		}
 }
 
-// считываем кнопки
-int key_press(int key, t_all *all)
- {
-	all->map.y = 0;
-	all->map.x = 0;
-	printf("\npress\n");
-	mlx_clear_window(all->win.mlx, all->win.win);
-	if (key == 13)
-		all->plr.y -= FOOT;
-	if (key == 1)
-		all->plr.y += FOOT;
-	 if (key == 12)
-		 all->plr.x -= FOOT;
-	 if (key == 14)
-		 all->plr.x += FOOT;
-	if (key == 0)
-		all->plr.dir -= 0.2;
-	if (key == 2)
-		all->plr.dir += 0.2;
-	if (key == 53)
-		exit(0);
-	visual_map(all);
-	return(0);
- }
+
 
 
 
@@ -94,7 +60,7 @@ int visual_map(t_all *all)
 {
 	int *y = &all->map.y;
 	int *x = &all->map.x;
-
+	mlx_clear_window(all->win.mlx, all->win.win);
 	t_win	*img = &all->win;
 
 	all->win.mlx = mlx_init();

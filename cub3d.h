@@ -80,6 +80,7 @@ typedef struct	s_all // структура для всего вместе
 }				  t_all;
 
 
+void printf_checks(t_all *all);
 // for map:
 void	ft_map_parcer(t_all *all, char *argv);
 int		config_map(t_all *all, char *str);
@@ -96,4 +97,10 @@ void	write_player_pi(t_plr *plr);
 int		key_press(int key, t_all *all);
 // for 2d
 int		visual_map(t_all *all);
+// 3D
+void	lodev(t_all *all);
+void    my_mlx_pixel_put(t_win *data, int x, int y, int color);
+void	slodev_init(t_all *all);
+
+
 #endif /* parcer_map_h */
