@@ -56,8 +56,18 @@ void printf_checks(t_all *all)
 	puts("- - -- - - - - - - - - - -- - - ");
 }
 
+
+
 int main(int argc, char **argv)
 {
+	
+
+
+	
+	
+	
+	
+	
 	t_all *all;
 	printf("argc=%d\n", argc);
 
