@@ -26,26 +26,30 @@ void            my_mlx_pixel_put(t_win *data, int x, int y, int color)
 // считываем кнопки
 int key_press(int key, t_all *all)
  {
-	 double FOOT = 1;
+	 double FOOT = 0.5;
 	 double posX = all->plr.x;
 	 double posY = all->plr.y;
-//	 double dirY = all->plr.start;
-//	 double dirX = all->plr.end;
+	 double dirX = all->plr.start;
+	 double dirY = all->plr.end;
 	printf("\npress\n");
 	//mlx_clear_window(all->win.mlx, all->win.win);
 	if (key == 13)
 	{
-		printf("%c\n", all->array[(int)posY][(int)(posX + FOOT)]);
-		if (all->array[(int)posY][(int)(posX + FOOT)] == '0')
+		printf("%c\n", all->array[(int)(posY + dirY)][(int)(posX + dirX)]);
+		if (all->array[(int)(posY + dirY)][(int)(posX + dirX)] == '0')
 		{
-			all->plr.x += FOOT;
+			all->plr.x += dirX * FOOT;
+			all->plr.y += dirY * FOOT;
 		}
 	}
 	if (key == 1)
 	{
 		printf("%c\n", all->array[(int)posY][(int)(posX - FOOT)]);
-		if (all->array[(int)posY][(int)(posX - FOOT)] == '0')
-			all->plr.x -= 	all->plr.start;
+		if (all->array[(int)(posY - dirY)][(int)(posX - dirX)] == '0')
+		{
+			all->plr.x -= dirX * FOOT;
+			all->plr.y -= dirY * FOOT;
+		}
 	}
 	 if (key == 12)
 	 {
