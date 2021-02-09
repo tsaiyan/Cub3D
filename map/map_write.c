@@ -89,7 +89,14 @@ void	write_player_pi(t_plr *plr)
 	if (plr->plook == 'W')
 		plr->dir = M_PI;
 	if (plr->plook == 'E')
+	{
+		plr->start = 1;
+		plr->end = 0;
+		plr->planeX = 0;
+		plr->planeY = 0.66;
 		plr->dir = M_PI * 2;
+		plr->y += 0.5;
+	}
 	if (plr->plook == 'S')
 		plr->dir = M_PI / 2;
 }

@@ -15,7 +15,6 @@
 		97501D6625C2F68A00663EE7 /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 97501D6525C2F68A00663EE7 /* error.c */; };
 		97501D6825C2FA2500663EE7 /* map_validate.c in Sources */ = {isa = PBXBuildFile; fileRef = 97501D6725C2FA2500663EE7 /* map_validate.c */; };
 		9750EFDB25D1D6F9007262C4 /* lodev.c in Sources */ = {isa = PBXBuildFile; fileRef = 9750EFDA25D1D6F9007262C4 /* lodev.c */; };
-		9750EFDD25D1D8AC007262C4 /* lodev_init.c in Sources */ = {isa = PBXBuildFile; fileRef = 9750EFDC25D1D8AC007262C4 /* lodev_init.c */; };
 		975E42AB25C0311B00A2707E /* map_write.c in Sources */ = {isa = PBXBuildFile; fileRef = 975E42A925C0311B00A2707E /* map_write.c */; };
 		9A0CE08125CB2F9D00BC2C6F /* get_next_line_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A0CE08025CB2F9D00BC2C6F /* get_next_line_utils.c */; };
 		9A0CE08425CB2FA600BC2C6F /* get_next_line.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A0CE08225CB2FA600BC2C6F /* get_next_line.c */; };
@@ -64,7 +63,6 @@
 		97501D6525C2F68A00663EE7 /* error.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = error.c; sourceTree = "<group>"; };
 		97501D6725C2FA2500663EE7 /* map_validate.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = map_validate.c; sourceTree = "<group>"; };
 		9750EFDA25D1D6F9007262C4 /* lodev.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = lodev.c; sourceTree = "<group>"; };
-		9750EFDC25D1D8AC007262C4 /* lodev_init.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = lodev_init.c; sourceTree = "<group>"; };
 		975E42A925C0311B00A2707E /* map_write.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = map_write.c; sourceTree = "<group>"; };
 		9794A57625CB36EE00AE3721 /* libmlx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmlx.a; sourceTree = "<group>"; };
 		97E0C7FE25B9DD3000207A28 /* map.cub */ = {isa = PBXFileReference; lastKnownFileType = text; path = map.cub; sourceTree = "<group>"; };
@@ -76,7 +74,6 @@
 		9A39295025CB585600F613BB /* mlx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mlx.h; path = mms/mlx.h; sourceTree = "<group>"; };
 		9A39295625CB5A2A00F613BB /* libft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = libft.h; path = lbft/libft.h; sourceTree = "<group>"; };
 		9A39295925CB5A7000F613BB /* libft.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libft.a; path = lbft/libft.a; sourceTree = "<group>"; };
-		9A39295D25CB5ACA00F613BB /* libmlx.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmlx.dylib; path = lbft/libmlx.dylib; sourceTree = "<group>"; };
 		9A39296025CB5AF100F613BB /* libmlx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmlx.a; sourceTree = "<group>"; };
 		9AD8C45125CB29CC00E77F8A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		9AD8C45325CB29E900E77F8A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -106,13 +103,11 @@
 				9A39295625CB5A2A00F613BB /* libft.h */,
 				9A39295025CB585600F613BB /* mlx.h */,
 				973B96EA25B9C243008A2E8B /* main.c */,
-				9750EFDC25D1D8AC007262C4 /* lodev_init.c */,
 				97E0C7FE25B9DD3000207A28 /* map.cub */,
 				9732D66E25C06327009D1677 /* ft_putin.c */,
 				973A408325BEFD980045E7BB /* Makefile */,
 				9A39296025CB5AF100F613BB /* libmlx.a */,
 				9A39295925CB5A7000F613BB /* libft.a */,
-				9A39295D25CB5ACA00F613BB /* libmlx.dylib */,
 				9732D66B25C04397009D1677 /* cub3d */,
 				9A289D9025CC48750093CC63 /* 2D */,
 				9A0CE07F25CB2F6800BC2C6F /* gnl */,
@@ -235,7 +230,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9750EFDB25D1D6F9007262C4 /* lodev.c in Sources */,
-				9750EFDD25D1D8AC007262C4 /* lodev_init.c in Sources */,
 				973B96EB25B9C243008A2E8B /* main.c in Sources */,
 				9A0CE08125CB2F9D00BC2C6F /* get_next_line_utils.c in Sources */,
 				9732D66D25C0453A009D1677 /* map_config.c in Sources */,

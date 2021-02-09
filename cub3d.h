@@ -38,6 +38,19 @@ typedef struct	s_win //структура для окна
 	int			gorisont;
 }				  t_win;
 
+typedef struct	s_dd //структура для окна
+{
+	void		*mlx;
+	void		*win;
+	void		*img;
+	void		*addr;
+	int			line_l;
+	int			bpp;
+	int			en;
+	int			vert;
+	int			gorisont;
+}				  t_dd;
+
 typedef struct	s_map //структура для карты
 {
 	char *no_way;
@@ -67,6 +80,8 @@ typedef struct	s_plr //структура для игрока и луча
 	float		dir;
 	float		start;
 	float		end;
+	double		planeX;
+	double		planeY;
 	char		plook;
 }				  t_plr;
 
@@ -75,6 +90,7 @@ typedef struct	s_all // структура для всего вместе
 	t_win		win;
 	t_plr		plr;
 	t_map		map;
+	t_dd		dd;
 	char		**array;
 	char		**arrrecuv;
 }				  t_all;
@@ -100,7 +116,6 @@ int		visual_map(t_all *all);
 // 3D
 void	lodev(t_all *all);
 void    my_mlx_pixel_put(t_win *data, int x, int y, int color);
-void	slodev_init(t_all *all);
-
+void	lodev_init(t_all *all);
 
 #endif /* parcer_map_h */

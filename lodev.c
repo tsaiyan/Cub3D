@@ -26,23 +26,37 @@ void            my_mlx_pixel_put(t_win *data, int x, int y, int color)
 // считываем кнопки
 int key_press(int key, t_all *all)
  {
-	 double FOOT = 10;
-//	all->map.y = 0;
-//	all->map.x = 0;
+	 double FOOT = 1;
+	 double posX = all->plr.x;
+	 double posY = all->plr.y;
+	 double dirY = all->plr.start;
+	 double dirX = all->plr.end;
 	printf("\npress\n");
 	//mlx_clear_window(all->win.mlx, all->win.win);
 	if (key == 13)
-		all->plr.y -= FOOT;
+	{
+		printf("%c\n", all->array[(int)posY][(int)(posX + FOOT)]);
+		if (all->array[(int)posY][(int)(posX + FOOT)] == '0')
+		{
+			all->plr.x += FOOT;
+		}
+	}
 	if (key == 1)
-		all->plr.y += FOOT;
+	{
+		printf("%c\n", all->array[(int)posY][(int)(posX - FOOT)]);
+		if (all->array[(int)posY][(int)(posX - FOOT)] == '0')
+		{
+			all->plr.x -= FOOT;
+		}
+	}
 	 if (key == 12)
 		 all->plr.x -= FOOT;
 	 if (key == 14)
 		 all->plr.x += FOOT;
 	if (key == 0)
-		all->plr.dir -= 0.2;
+		all->plr.end -= 0.2;
 	if (key == 2)
-		all->plr.dir += 0.2;
+		all->plr.end += 0.2;
 	if (key == 53)
 		exit(0);
 	lodev(all);
@@ -52,19 +66,18 @@ int key_press(int key, t_all *all)
 void	lodev_init(t_all *all)
 {
 	all->win.mlx = mlx_init();
-	all->win.win = mlx_new_window(all->win.mlx, all->win.gorisont, all->win.vert, "Hello world!");
+	all->win.win = mlx_new_window(all->win.mlx, all->win.gorisont, all->win.vert, "3D");
 	lodev(all);
 }
 void	lodev(t_all *all)
 {
-		t_win	*img = &all->win;
-	printf_checks(all);
+	t_win	*img = &all->win;
 	char **worldMap = all->array;
 	double posX = all->plr.x;
 	double posY = all->plr.y;  //x and y start position
 	double dirX = all->plr.start;
 	double dirY =  all->plr.end; //initial direction vector
-	double planeX = 0, planeY = 0.66; //the 2d raycaster version of camera plane
+	double planeX = all->plr.planeX, planeY = all->plr.planeY;//the 2d raycaster version of camera plane
 	int w = img->gorisont;
 	int h = img->vert;
 	all->win.img = mlx_new_image(all->win.mlx, w, h);
@@ -132,7 +145,7 @@ void	lodev(t_all *all)
 		  side = 1;
 		}
 		//Check if ray has hit a wall
-		  if(worldMap[mapX][mapY] > '0') hit = 1;
+		  if(worldMap[mapY][mapX] > '0') hit = 1;
 	  }
 	  //Calculate distance projected on camera direction (Euclidean distance will give fisheye effect!)
 	  if(side == 0) perpWallDist = (mapX - posX + (1 - stepX) / 2) / rayDirX;

@@ -23,7 +23,7 @@ void	scale_map(t_all *all)
 		{
 			x = all->map.x * SCALE;
 			while(x < (all->map.x * SCALE + SCALE))
-				my_mlx_pixel_put(&all->win, (x++ + start), (y + start), 0xFFFFFF);
+				my_mlx_pixel_put(&all->dd, (x++ + start), (y + start), 0xFFFFFF);
 			y++;
 		}
 }
@@ -45,7 +45,7 @@ void	scale_player(t_all *all)
 			{
 				ray.x += cos(ray.start);
 				ray.y += sin(ray.start);
-				my_mlx_pixel_put(&all->win, ray.x + move, ray.y + move, 0x990099);
+				my_mlx_pixel_put(&all->dd, ray.x + move, ray.y + move, 0x990099);
 			}
 			ray.start += M_PI / 1000;
 		}
@@ -60,11 +60,12 @@ int visual_map(t_all *all)
 {
 	int *y = &all->map.y;
 	int *x = &all->map.x;
-	mlx_clear_window(all->win.mlx, all->win.win);
-	t_win	*img = &all->win;
-
-	all->win.mlx = mlx_init();
-	all->win.win = mlx_new_window(all->win.mlx, all->win.gorisont, all->win.vert, "Hello world!");
+	t_dd	*img = &all->dd;
+	img->bpp = all->win.bpp;
+	img->line_l = all->win.line_l;
+	img->en = all->win.en;
+	all->dd.mlx = mlx_init();
+	all->dd.win = mlx_new_window(all->dd.mlx, all->win.gorisont, all->win.vert, "2D map");
 	
 	img->img = mlx_new_image(img->mlx, all->win.gorisont, all->win.vert);
 	img->addr = mlx_get_data_addr(img->img, &img->bpp, &img->line_l,
@@ -78,20 +79,13 @@ int visual_map(t_all *all)
 			if (all->array[*y][*x] == '1')
 				scale_map(all);
 			if (all->array[*y][*x] == all->plr.plook)
-			{
-				if(all->plr.y == 0 && all->plr.x == 0)
-				{
-				all->plr.y = *y;
-				all->plr.x = *x;
-				}
 				scale_player(all);
-			}
 			*x += 1;
 		}
 		*y += 1;
 	}
-	mlx_put_image_to_window(all->win.mlx, all->win.win, img->img, 0, 0);
-	mlx_loop(all->win.mlx);
+	mlx_put_image_to_window(all->dd.mlx, all->dd.win, img->img, 0, 0);
+	mlx_loop(all->dd.mlx);
 	return (0);
 }
 

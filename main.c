@@ -61,9 +61,10 @@ int main(int argc, char **argv)
 	ft_map_parcer(all, argv[1]);
 	if (error(all))
 		return (-1);
-	printf_checks(all);
+	//printf_checks(all);
 	lodev_init(all);
-	mlx_hook(all->win.win, 2, (1L << 0), key_press, &all->win.win);
+	mlx_hook(all->win.win, 2, (1L << 0), key_press, all);
+	//visual_map(all);
 	mlx_loop(all->win.mlx);
 }
 	/*
