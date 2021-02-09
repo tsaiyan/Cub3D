@@ -29,8 +29,8 @@ int key_press(int key, t_all *all)
 	 double FOOT = 1;
 	 double posX = all->plr.x;
 	 double posY = all->plr.y;
-	 double dirY = all->plr.start;
-	 double dirX = all->plr.end;
+//	 double dirY = all->plr.start;
+//	 double dirX = all->plr.end;
 	printf("\npress\n");
 	//mlx_clear_window(all->win.mlx, all->win.win);
 	if (key == 13)
@@ -45,14 +45,18 @@ int key_press(int key, t_all *all)
 	{
 		printf("%c\n", all->array[(int)posY][(int)(posX - FOOT)]);
 		if (all->array[(int)posY][(int)(posX - FOOT)] == '0')
-		{
-			all->plr.x -= FOOT;
-		}
+			all->plr.x -= 	all->plr.start;
 	}
 	 if (key == 12)
-		 all->plr.x -= FOOT;
+	 {
+		 if (all->array[(int)(posY - all->plr.start)][(int)posX] == '0')
+		 all->plr.y -= all->plr.start;
+	 }
 	 if (key == 14)
-		 all->plr.x += FOOT;
+	 {
+		 if (all->array[(int)(posY + all->plr.start)][(int)posX] == '0')
+		 all->plr.y += all->plr.start;
+	 }
 	if (key == 0)
 		all->plr.end -= 0.2;
 	if (key == 2)
