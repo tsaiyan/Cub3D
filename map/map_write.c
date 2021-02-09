@@ -85,9 +85,21 @@ void	ft_map_parcer(t_all *all, char *argv)
 void	write_player_pi(t_plr *plr)
 {
 	if (plr->plook == 'N')
+	{
+		plr->start = -1;
+		plr->end = 0;
+		plr->planeX = 0;
+		plr->planeY = -0.66;
 		plr->dir = M_PI * 1.5;
+	}
 	if (plr->plook == 'W')
-		plr->dir = M_PI;
+		{
+		plr->start = -1;
+		plr->end = 0;
+		plr->planeX = 0;
+		plr->planeY = -0.66;
+		plr->dir = M_PI * 1.5;
+	}
 	if (plr->plook == 'E')
 	{
 		plr->start = 1;
