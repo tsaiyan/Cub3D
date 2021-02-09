@@ -27,6 +27,9 @@ void            my_mlx_pixel_put(t_win *data, int x, int y, int color)
 int key_press(int key, t_all *all)
  {
 	 double FOOT = 0.5;
+	 double rotSpeed = 0.05;
+	 double planeX = all->plr.planeX;
+	 double planeY = all->plr.planeY;
 	 double posX = all->plr.x;
 	 double posY = all->plr.y;
 	 double dirX = all->plr.start;
@@ -51,20 +54,40 @@ int key_press(int key, t_all *all)
 			all->plr.y -= dirY * FOOT;
 		}
 	}
+	 ///w
 	 if (key == 12)
 	 {
 		 if (all->array[(int)(posY - all->plr.start)][(int)posX] == '0')
-		 all->plr.y -= all->plr.start;
+		 all->plr.y += all->plr.start;
 	 }
+	 //s
 	 if (key == 14)
 	 {
 		 if (all->array[(int)(posY + all->plr.start)][(int)posX] == '0')
-		 all->plr.y += all->plr.start;
+		 all->plr.y -= all->plr.start;
 	 }
+	 //left
 	if (key == 0)
-		all->plr.end -= 0.2;
+	{
+		//both camera direction and camera plane must be rotated
+		double oldDirX = dirX;
+		all->plr.start = dirX * cos(-rotSpeed) - dirY * sin(-rotSpeed);
+		all->plr.end = oldDirX * sin(-rotSpeed) + dirY * cos(-rotSpeed);
+		double oldPlaneX = planeX;
+		all->plr.planeX = planeX * cos(-rotSpeed) - planeY * sin(-rotSpeed);
+		all->plr.planeY = oldPlaneX * sin(-rotSpeed) + planeY * cos(-rotSpeed);
+	}
+	 //right
 	if (key == 2)
-		all->plr.end += 0.2;
+	 {
+	   //both camera direction and camera plane must be rotated
+	   double oldDirX = dirX;
+	   all->plr.start = dirX * cos(rotSpeed) - dirY * sin(rotSpeed);
+	   all->plr.end = oldDirX * sin(rotSpeed) + dirY * cos(rotSpeed);
+	   double oldPlaneX = planeX;
+	   all->plr.planeX = planeX * cos(rotSpeed) - planeY * sin(rotSpeed);
+	   all->plr.planeY = oldPlaneX * sin(rotSpeed) + planeY * cos(rotSpeed);
+	 }
 	if (key == 53)
 		exit(0);
 	lodev(all);
@@ -88,6 +111,7 @@ void	lodev(t_all *all)
 	double planeX = all->plr.planeX, planeY = all->plr.planeY;//the 2d raycaster version of camera plane
 	int w = img->gorisont;
 	int h = img->vert;
+	all->array[(int)all->plr.y][(int)all->plr.x] = '0';
 	all->win.img = mlx_new_image(all->win.mlx, w, h);
 	img->addr = mlx_get_data_addr(img->img, &img->bpp, &img->line_l, &img->en);
 	for(int x = 0; x < img->gorisont; x++)
@@ -156,21 +180,27 @@ void	lodev(t_all *all)
 		  if(worldMap[mapY][mapX] > '0') hit = 1;
 	  }
 	  //Calculate distance projected on camera direction (Euclidean distance will give fisheye effect!)
-	  if(side == 0) perpWallDist = (mapX - posX + (1 - stepX) / 2) / rayDirX;
-	  else          perpWallDist = (mapY - posY + (1 - stepY) / 2) / rayDirY;
+	  if(side == 0)
+		  perpWallDist = (mapX - posX + (1 - stepX) / 2) / rayDirX;
+	  else
+		  perpWallDist = (mapY - posY + (1 - stepY) / 2) / rayDirY;
 
 	  //Calculate height of line to draw on screen
-	  int lineHeight = (int)(h / perpWallDist);
+			int lineHeight = (int)(h / perpWallDist);
 
 	  //calculate lowest and highest pixel to fill in current stripe
-	  int drawStart = -lineHeight / 2 + h / 2;
-	  if(drawStart < 0)drawStart = 0;
-	  int drawEnd = lineHeight / 2 + h / 2;
-	  if(drawEnd >= h)drawEnd = h - 1;
+		int drawStart = -lineHeight / 2 + h / 2;
+		if(drawStart < 0)
+		  drawStart = 0;
+		int drawEnd = lineHeight / 2 + h / 2;
+		if(drawEnd >= h)
+		  drawEnd = h - 1;
 		int y;
-		
+		int color = 0xFF5500;
+		if (side)
+			color /= 2;
 		for (y = drawStart; y < drawEnd; y++)
-			my_mlx_pixel_put(&all->win, x, y, 0xFFFFF);
+			my_mlx_pixel_put(&all->win, x, y, color);
 	}
 	mlx_put_image_to_window(all->win.mlx, all->win.win, all->win.img, 0, 0);
 }
