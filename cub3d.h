@@ -108,7 +108,7 @@ int		map_validate(t_all *all);
 int		find_player(t_all *all);
 int		bad_chars_in_map(t_all *all);
 int		borders_ok(t_all *all);
-void	write_player_pi(t_plr *plr);
+void	write_player_pi(t_all *all);
 int		key_press(int key, t_all *all);
 // for 2d
 int		visual_map(t_all *all);

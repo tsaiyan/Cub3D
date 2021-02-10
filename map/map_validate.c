@@ -165,7 +165,7 @@ int	find_player(t_all *all)
 		i++;
 	}
 	puts("find_player");
-	write_player_pi(&all->plr);
+	write_player_pi(all);
 	return (all->plr.plook ? 1 : 0);
 }
 

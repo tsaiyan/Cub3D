@@ -82,15 +82,17 @@ void	ft_map_parcer(t_all *all, char *argv)
 	puts("ft_map_parcer");
 }
 
-void	write_player_pi(t_plr *plr)
+void	write_player_pi(t_all *all)
 {
+	t_plr *plr = &all->plr;
 	if (plr->plook == 'N')
 	{
-		plr->start = -1;
-		plr->end = 0;
-		plr->planeX = 0;
-		plr->planeY = -0.66;
+		plr->start = 0;
+		plr->end = -1;
+		plr->planeX = -0.66;
+		plr->planeY = 0;
 		plr->dir = M_PI * 1.5;
+		plr->x += 0.5;
 	}
 	if (plr->plook == 'W')
 		{
@@ -99,6 +101,7 @@ void	write_player_pi(t_plr *plr)
 		plr->planeX = 0;
 		plr->planeY = -0.66;
 		plr->dir = M_PI * 1.5;
+		plr->y += 0.5;
 	}
 	if (plr->plook == 'E')
 	{
@@ -110,5 +113,12 @@ void	write_player_pi(t_plr *plr)
 		plr->y += 0.5;
 	}
 	if (plr->plook == 'S')
-		plr->dir = M_PI / 2;
+		{
+		plr->start = 0;
+		plr->end = 1;
+		plr->planeX = 0.66;
+		plr->planeY = 0;
+		plr->dir = M_PI * 1.5;
+		plr->x += 0.5;
+		}
 }

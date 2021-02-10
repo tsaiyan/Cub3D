@@ -58,13 +58,13 @@ int key_press(int key, t_all *all)
 	 if (key == 12)
 	 {
 		 if (all->array[(int)(posY - all->plr.start)][(int)posX] == '0')
-		 all->plr.y += all->plr.start;
+		 all->plr.y -= all->plr.start;
 	 }
 	 //s
 	 if (key == 14)
 	 {
 		 if (all->array[(int)(posY + all->plr.start)][(int)posX] == '0')
-		 all->plr.y -= all->plr.start;
+		 all->plr.y += all->plr.start;
 	 }
 	 //left
 	if (key == 0)
