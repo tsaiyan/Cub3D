@@ -89,10 +89,11 @@ void	write_player_pi(t_all *all)
 	{
 		plr->start = 0;
 		plr->end = -1;
-		plr->planeX = -0.66;
+		plr->planeX = 0.66;
 		plr->planeY = 0;
 		plr->dir = M_PI * 1.5;
 		plr->x += 0.5;
+		plr->y += 0.5;
 	}
 	if (plr->plook == 'W')
 		{
@@ -116,9 +117,10 @@ void	write_player_pi(t_all *all)
 		{
 		plr->start = 0;
 		plr->end = 1;
-		plr->planeX = 0.66;
+		plr->planeX = -0.66;
 		plr->planeY = 0;
 		plr->dir = M_PI * 1.5;
 		plr->x += 0.5;
+		plr->y += 0.5;
 		}
 }

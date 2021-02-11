@@ -24,7 +24,7 @@
 #include <stdio.h>
 #include <math.h>
 #define SCALE 16 // условный размер каждого квадратика в карте
-typedef struct	s_win //структура для окна
+typedef struct	s_win //структура для окна 3D
 {
 	void		*mlx;
 	void		*win;
@@ -37,7 +37,7 @@ typedef struct	s_win //структура для окна
 	int			gorisont;
 }				  t_win;
 
-typedef struct	s_dd //структура для окна
+typedef struct	s_dd //структура для окна 2D
 {
 	void		*mlx;
 	void		*win;
@@ -49,6 +49,19 @@ typedef struct	s_dd //структура для окна
 	int			vert;
 	int			gorisont;
 }				  t_dd;
+
+typedef struct	s_txr //структура для изображения
+{
+	void		*mlx;
+	void		*win;
+	void		*ptr;
+	void		*addr;
+	int			line_l;
+	int			bpp;
+	int			en;
+	int			h;
+	int			w;
+}				t_txr;
 
 typedef struct	s_map //структура для карты
 {
@@ -90,6 +103,7 @@ typedef struct	s_all // структура для всего вместе
 	t_plr		plr;
 	t_map		map;
 	t_dd		dd;
+	t_txr		tx;
 	char		**array;
 	char		**arrrecuv;
 }				  t_all;
@@ -116,5 +130,5 @@ int		visual_map(t_all *all);
 void	lodev(t_all *all);
 void    my_mlx_pixel_put(t_win *data, int x, int y, int color);
 void	lodev_init(t_all *all);
-
+//void	ft_floor(t_all *all);
 #endif /* parcer_map_h */

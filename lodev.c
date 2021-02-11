@@ -23,6 +23,9 @@ void            my_mlx_pixel_put(t_win *data, int x, int y, int color)
     *(unsigned int*)dst = color;
 }
 
+
+
+
 // считываем кнопки
 int key_press(int key, t_all *all)
  {
@@ -98,6 +101,7 @@ void	lodev_init(t_all *all)
 {
 	all->win.mlx = mlx_init();
 	all->win.win = mlx_new_window(all->win.mlx, all->win.gorisont, all->win.vert, "3D");
+	//ft_floor(all);
 	lodev(all);
 }
 void	lodev(t_all *all)
@@ -196,11 +200,11 @@ void	lodev(t_all *all)
 		if(drawEnd >= h)
 		  drawEnd = h - 1;
 		int y;
-		int color = 0xFF5500;
+		unsigned color = 0xFF5500;
 		if (side)
 			color /= 2;
 		for (y = drawStart; y < drawEnd; y++)
-			my_mlx_pixel_put(&all->win, x, y, color);
+			my_mlx_pixel_put(&all->win, x, y, get_color(all, x, y));
 	}
 	mlx_put_image_to_window(all->win.mlx, all->win.win, all->win.img, 0, 0);
 }

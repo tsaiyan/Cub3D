@@ -63,6 +63,7 @@ int main(int argc, char **argv)
 		return (-1);
 	//printf_checks(all);
 	lodev_init(all);
+	//mlx_key_hook(all->win.win, key_press, all);
 	mlx_hook(all->win.win, 2, (1L << 0), key_press, all);
 	//visual_map(all);
 	mlx_loop(all->win.mlx);
