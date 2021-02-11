@@ -8,20 +8,7 @@
 
 #include <cub3d.h>
 
-unsigned            get_color(t_all *all, int x, int y)
-{
-    char    *dst;
-	unsigned color;
-	
-	char    *relative_path = "./images/FL.xpm";
-		all->tx.addr = mlx_xpm_file_to_image(all->win.mlx, relative_path, &all->tx.w,  &all->tx.h);
-	if (!all->tx.ptr)
-		puts("TEXTURE NOT LOADED");
-	
-    dst = all->tx.addr + (y * all->tx.line_l + x * (all->tx.bpp / 8));
-    color = *(unsigned int*)dst;
-	return (color);
-}
+
 
 //void	ft_floor(t_all *all)
 //{

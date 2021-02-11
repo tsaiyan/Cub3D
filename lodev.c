@@ -23,7 +23,17 @@ void            my_mlx_pixel_put(t_win *data, int x, int y, int color)
     *(unsigned int*)dst = color;
 }
 
-
+unsigned            get_color(t_all *all, int x, int y)
+{
+    char    *dst;
+	unsigned color;
+	
+	if (!all->tx.ptr || !all->tx.addr)
+		puts("TEXTURE NOT LOADED");
+    dst = all->tx.addr + (y * all->tx.line_l + x * (all->tx.bpp / 8));
+    color = all->tx.addr;
+	return (color);
+}
 
 
 // считываем кнопки
@@ -118,6 +128,60 @@ void	lodev(t_all *all)
 	all->array[(int)all->plr.y][(int)all->plr.x] = '0';
 	all->win.img = mlx_new_image(all->win.mlx, w, h);
 	img->addr = mlx_get_data_addr(img->img, &img->bpp, &img->line_l, &img->en);
+	all->tx.addr = mlx_xpm_file_to_image(all->win.mlx, "./images/FL.xpm", &all->tx.w, &all->tx.h);
+	all->tx.ptr = mlx_get_data_addr(all->tx.addr, &all->tx.bpp,  &all->tx.line_l,  &all->tx.en);
+/* FLOOR CASTING */
+//		for(int y = 0; y < h; y++)
+//		{
+//		  // rayDir for leftmost ray (x = 0) and rightmost ray (x = w)
+//		  float rayDirX0 = dirX - planeX;
+//		  float rayDirY0 = dirY - planeY;
+//		  float rayDirX1 = dirX + planeX;
+//		  float rayDirY1 = dirY + planeY;
+//
+//		  // Current y position compared to the center of the screen (the horizon)
+//		  int p = y - all->win.vert / 2;
+//
+//		  // Vertical position of the camera.
+//		  float posZ = 0.5 * all->win.vert;
+//
+//		  // Horizontal distance from the camera to the floor for the current row.
+//		  // 0.5 is the z position exactly in the middle between floor and ceiling.
+//		  float rowDistance = posZ / p;
+//
+//		  // calculate the real world step vector we have to add for each x (parallel to camera plane)
+//		  // adding step by step avoids multiplications with a weight in the inner loop
+//		  float floorStepX = rowDistance * (rayDirX1 - rayDirX0) / all->win.gorisont;
+//		  float floorStepY = rowDistance * (rayDirY1 - rayDirY0) / all->win.gorisont;
+//
+//		  // real world coordinates of the leftmost column. This will be updated as we step to the right.
+//		  float floorX = posX + rowDistance * rayDirX0;
+//		  float floorY = posY + rowDistance * rayDirY0;
+//
+//		  for(int x = 0; x < all->win.gorisont; ++x)
+//		  {
+//			// the cell coord is simply got from the integer parts of floorX and floorY
+//			int cellX = (int)(floorX);
+//			int cellY = (int)(floorY);
+//
+//			// get the texture coordinate from the fractional part
+//			int tx = (int)(100 * (floorX - cellX)) & (100 - 1);
+//			int ty = (int)(100 * (floorY - cellY)) & (100 - 1);
+//
+//			floorX += floorStepX;
+//			floorY += floorStepY;
+//
+//			// choose texture and draw the pixel
+//			int floorTexture = 3;
+//			int ceilingTexture = 6;
+//			int color;
+//
+//			// floor
+//			  color = get_color(all, x, y);
+//			my_mlx_pixel_put(&all->win, x, y, color);
+//		  }
+//		}
+/* wall */
 	for(int x = 0; x < img->gorisont; x++)
 	{
 	  //calculate ray position and direction
@@ -200,11 +264,12 @@ void	lodev(t_all *all)
 		if(drawEnd >= h)
 		  drawEnd = h - 1;
 		int y;
-		unsigned color = 0xFF5500;
-		if (side)
-			color /= 2;
+		for (y = 0; y < drawStart; y++)
+			my_mlx_pixel_put(&all->win, x, y, 0x00bfff);
 		for (y = drawStart; y < drawEnd; y++)
 			my_mlx_pixel_put(&all->win, x, y, get_color(all, x, y));
+		for (y = drawEnd; y < all->win.vert; y++)
+			my_mlx_pixel_put(&all->win, x, y, 0x141191);
 	}
 	mlx_put_image_to_window(all->win.mlx, all->win.win, all->win.img, 0, 0);
 }
