@@ -134,5 +134,6 @@ void	lodev(t_all *all);
 void    my_mlx_pixel_put(t_win *data, int x, int y, int color);
 void	lodev_init(t_all *all);
 void	write_textures(t_all *all);
+unsigned	get_color(t_all *all, int x, int y, char side);
 //void	ft_floor(t_all *all);
 #endif /* parcer_map_h */
