@@ -26,14 +26,14 @@ void            my_mlx_pixel_put(t_win *data, int x, int y, int color)
 unsigned            get_color(t_all *all, int x, int y)
 {
 	t_txr *data = &all->tx;
-	double repeat = (all->tx.de - all->tx.ds);
-	repeat /= data->w;
+	double step = (all->tx.de - all->tx.ds);
+	step /= data->w;
     char    *dst;
 	
 	dst = all->tx.ptr;
-	dst += 35 * (data->bpp / 8);
+	dst +=  x * (data->bpp / 8);
 	int color = *(unsigned int*)dst;
-	//printf("color = %d\n", color);
+	//printf("color = %u\n", color);
 	return (color);
 }
 
@@ -207,6 +207,7 @@ void	lodev(t_all *all)
 	  //Calculate height of line to draw on screen
 			int lineHeight = (int)(h / perpWallDist);
 
+		
 	  //calculate lowest and highest pixel to fill in current stripe
 		int drawStart = -lineHeight / 2 + h / 2;
 		if(drawStart < 0)
@@ -214,16 +215,44 @@ void	lodev(t_all *all)
 		int drawEnd = lineHeight / 2 + h / 2;
 		if(drawEnd >= h)
 		  drawEnd = h - 1;
+		
+		//textures
+		 int texNum = worldMap[mapX][mapY] - 1;
+		//calculate value of wallX
+		double wallX; //where exactly the wall was hit
+		if(side == 0) wallX = posY + perpWallDist * rayDirY;
+		else          wallX = posX + perpWallDist * rayDirX;
+		wallX -= floor((wallX));
+		//x coordinate on the texture
+		int texX = (int)(wallX * (double)(all->tx.w));
+		if(side == 0 && rayDirX > 0) texX = all->tx.w - texX - 1;
+		if(side == 1 && rayDirY < 0) texX = all->tx.w - texX - 1;
+
+		// TODO: an integer-only bresenham or DDA like algorithm could make the texture coordinate stepping faster
+		// How much to increase the texture coordinate per screen pixel
+		double step = 1.0 * all->tx.h / lineHeight;
+		// Starting texture coordinate
+		double texPos = (drawStart - h / 2 + lineHeight / 2) * step;
+		
+		
 		int y;
 		all->tx.line_l = lineHeight;
 		all->tx.de = drawEnd;
 		all->tx.ds = drawStart;
 		for (y = 0; y < drawStart; y++)
 			my_mlx_pixel_put(&all->win, x, y, 0x00bfff);
-		for (y = drawStart; y < drawEnd; y++)
-			my_mlx_pixel_put(&all->win, x, y, get_color(all, x, y));
+		for(int y = drawStart; y < drawEnd; y++)
+		{
+		// Cast the texture coordinate to integer, and mask with (texHeight - 1) in case of overflow
+		int texY = (int)texPos & (all->tx.h - 1);
+		texPos += step;
+		 int color = get_color(all, texY, texX);
+		  //make color darker for y-sides: R, G and B byte each divided through two with a "shift" and an "and"
+		if(side == 1) color = (color >> 1) & 8355711;
+			my_mlx_pixel_put(&all->win, x, y, color);
+		}
 		for (y = drawEnd; y < all->win.vert; y++)
-			my_mlx_pixel_put(&all->win, x, y, 0x007700);
+			my_mlx_pixel_put(&all->win, x, y, 0x754500);
 	}
 	mlx_put_image_to_window(all->win.mlx, all->win.win, all->win.img, 0, 0);
 }
