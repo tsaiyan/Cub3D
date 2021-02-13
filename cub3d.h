@@ -103,8 +103,9 @@ typedef struct	s_all // структура для всего вместе
 	t_plr		plr;
 	t_map		map;
 	t_dd		dd;
-	t_txr		tx;
 	t_txr		no;
+	t_txr		so;
+	t_txr		ea;
 	t_txr		we;
 	char		**array;
 	char		**arrrecuv;

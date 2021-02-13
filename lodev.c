@@ -28,8 +28,6 @@ void	lodev(t_all *all)
 	img->img = mlx_new_image(all->win.mlx, w, h);
 	img->addr = mlx_get_data_addr(img->img, &img->bpp, &img->line_l, &img->en);
 	write_textures(all);
-	all->tx.addr = mlx_xpm_file_to_image(all->win.mlx, all->map.no_way, &all->tx.w, &all->tx.h);
-	all->tx.ptr = mlx_get_data_addr(all->tx.addr, &all->tx.bpp,	&all->tx.line_l,	&all->tx.en);
 /* wall */
 	double sideDistX;
 	double sideDistY;
@@ -130,13 +128,13 @@ void	lodev(t_all *all)
 			wallX = posX + perpWallDist * rayDirX;
 		wallX -= floor((wallX));
 		//x coordinate on the texture
-		int texX = (int)(wallX * (double)(all->tx.w));
-		if(side == 0 && rayDirX > 0) texX = all->tx.w - texX - 1;
-		if(side == 1 && rayDirY < 0) texX = all->tx.w - texX - 1;
+		int texX = (int)(wallX * (double)(all->no.w));
+		if(side == 0 && rayDirX > 0) texX = all->no.w - texX - 1;
+		if(side == 1 && rayDirY < 0) texX = all->no.w - texX - 1;
 
 		// TODO: an integer-only bresenham or DDA like algorithm could make the texture coordinate stepping faster
 		// How much to increase the texture coordinate per screen pixel
-		double step = 1.0 * all->tx.h / lineHeight;
+		double step = 1.0 * all->no.h / lineHeight;
 		// Starting texture coordinate
 		double texPos = (drawStart - h / 2 + lineHeight / 2) * step;
 		
@@ -146,20 +144,27 @@ void	lodev(t_all *all)
 		for (y = 0; y < drawStart; y++)
 			my_mlx_pixel_put(&all->win, x, y, 0x00bfff);
 		
-		printf("sideDistX = %f\n", sideDistX);
-		printf("sideDistY = %f\n", sideDistY);
-		printf("deltaDistX = %f\n", deltaDistX);
-		printf("deltaDistY = %f\n", deltaDistY);
-		printf("perpWallDist = %f\n", perpWallDist);
-		printf("------------\n");
 		
 		for(int y = drawStart; y < drawEnd; y++)
 		{
-			int texY = (int)texPos & (all->tx.h - 1);
+			int texY = (int)texPos & (all->no.h - 1);
 			texPos += step;
 			color = get_color(all, texX, texY, 'W');
 			if(side)
-				color = 0xFFFF00;
+			{
+				if (stepY > 0)
+					color = get_color(all, texX, texY, 'S');
+				else
+					color = get_color(all, texX, texY, 'N');
+			}
+			else
+				{
+				if (stepX > 0)
+					color = get_color(all, texX, texY, 'E');
+				else
+					color = get_color(all, texX, texY, 'W');
+			}
+			
 			my_mlx_pixel_put(&all->win, x, y, color);
 		}
 		for (y = drawEnd; y < all->win.vert; y++)
