@@ -61,6 +61,10 @@ typedef struct	s_txr //структура для изображения
 	int			en;
 	int			h;
 	int			w;
+	int			ds;
+	int			de;
+	int 		x;
+	int 		y;
 }				t_txr;
 
 typedef struct	s_map //структура для карты
