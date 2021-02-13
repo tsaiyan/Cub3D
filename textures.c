@@ -23,16 +23,16 @@ void	write_textures(t_all *all)
 
 unsigned            get_color(t_all *all, int x, int y, char side)
 {
-	t_txr *data = &all->tx;
-//	if (side == 'N')
-//		 data = &all->no;
-//	else if (side == 'W')
-//		 data = &all->we;
-//	else
-//		 data = &all->tx;
+	t_txr *data;
+	if (side == 'N')
+		 data = &all->no;
+	else if (side == 'W')
+		 data = &all->we;
+	else
+		 data = &all->tx;
     char    *dst = NULL;
 	dst = data->ptr;
-	dst += (x * 4) + (y * data->line_l);
+	dst +=  (x * (data->bpp / 8)) + (y * data->line_l);
 	int color = *(unsigned int*)dst;
 	//printf("color = %u\n", color);
 	return (color);
