@@ -26,12 +26,10 @@ void            my_mlx_pixel_put(t_win *data, int x, int y, int color)
 unsigned            get_color(t_all *all, int x, int y)
 {
 	t_txr *data = &all->tx;
-	double step = (all->tx.de - all->tx.ds);
-	step /= data->w;
     char    *dst;
 	
 	dst = all->tx.ptr;
-	dst +=  x * (data->bpp / 8);
+	dst += (x + y) * 4;
 	int color = *(unsigned int*)dst;
 	//printf("color = %u\n", color);
 	return (color);
