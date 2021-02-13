@@ -39,6 +39,4 @@ void ft_putin(t_all *all)
 	all->tx.ptr = NULL;
 	all->tx.bpp = 0;
 	all->tx.line_l = 0;
-	all->tx.x = 0;
-	all->tx.y = 0;
 }

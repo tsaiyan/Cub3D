@@ -124,3 +124,4 @@ void	write_player_pi(t_all *all)
 		plr->y += 0.5;
 		}
 }
+

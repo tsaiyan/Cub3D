@@ -52,8 +52,6 @@ typedef struct	s_dd //структура для окна 2D
 
 typedef struct	s_txr //структура для изображения
 {
-	void		*mlx;
-	void		*win;
 	void		*ptr;
 	void		*addr;
 	int			line_l;
@@ -61,8 +59,6 @@ typedef struct	s_txr //структура для изображения
 	int			en;
 	int			h;
 	int			w;
-	int			ds;
-	int			de;
 	int 		x;
 	int 		y;
 }				t_txr;
@@ -108,6 +104,8 @@ typedef struct	s_all // структура для всего вместе
 	t_map		map;
 	t_dd		dd;
 	t_txr		tx;
+	t_txr		no;
+	t_txr		we;
 	char		**array;
 	char		**arrrecuv;
 }				  t_all;
@@ -134,5 +132,6 @@ int		visual_map(t_all *all);
 void	lodev(t_all *all);
 void    my_mlx_pixel_put(t_win *data, int x, int y, int color);
 void	lodev_init(t_all *all);
+void	write_textures(t_all *all);
 //void	ft_floor(t_all *all);
 #endif /* parcer_map_h */

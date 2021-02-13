@@ -16,6 +16,7 @@
 		97501D6825C2FA2500663EE7 /* map_validate.c in Sources */ = {isa = PBXBuildFile; fileRef = 97501D6725C2FA2500663EE7 /* map_validate.c */; };
 		9750EFDB25D1D6F9007262C4 /* lodev.c in Sources */ = {isa = PBXBuildFile; fileRef = 9750EFDA25D1D6F9007262C4 /* lodev.c */; };
 		975E42AB25C0311B00A2707E /* map_write.c in Sources */ = {isa = PBXBuildFile; fileRef = 975E42A925C0311B00A2707E /* map_write.c */; };
+		97787CBC25D82A590001D204 /* textures.c in Sources */ = {isa = PBXBuildFile; fileRef = 97787CBB25D82A590001D204 /* textures.c */; };
 		97844C0F25D42BFA006B1CA8 /* floor.c in Sources */ = {isa = PBXBuildFile; fileRef = 97844C0E25D42BFA006B1CA8 /* floor.c */; };
 		9A0CE08125CB2F9D00BC2C6F /* get_next_line_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A0CE08025CB2F9D00BC2C6F /* get_next_line_utils.c */; };
 		9A0CE08425CB2FA600BC2C6F /* get_next_line.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A0CE08225CB2FA600BC2C6F /* get_next_line.c */; };
@@ -65,6 +66,7 @@
 		97501D6725C2FA2500663EE7 /* map_validate.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = map_validate.c; sourceTree = "<group>"; };
 		9750EFDA25D1D6F9007262C4 /* lodev.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = lodev.c; sourceTree = "<group>"; };
 		975E42A925C0311B00A2707E /* map_write.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = map_write.c; sourceTree = "<group>"; };
+		97787CBB25D82A590001D204 /* textures.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = textures.c; sourceTree = "<group>"; };
 		97844C0E25D42BFA006B1CA8 /* floor.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = floor.c; sourceTree = "<group>"; };
 		9794A57625CB36EE00AE3721 /* libmlx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmlx.a; sourceTree = "<group>"; };
 		97E0C7FE25B9DD3000207A28 /* map.cub */ = {isa = PBXFileReference; lastKnownFileType = text; path = map.cub; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				9750EFDA25D1D6F9007262C4 /* lodev.c */,
 				97844C0E25D42BFA006B1CA8 /* floor.c */,
+				97787CBB25D82A590001D204 /* textures.c */,
 			);
 			name = 3D;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				9750EFDB25D1D6F9007262C4 /* lodev.c in Sources */,
 				973B96EB25B9C243008A2E8B /* main.c in Sources */,
 				9A0CE08125CB2F9D00BC2C6F /* get_next_line_utils.c in Sources */,
+				97787CBC25D82A590001D204 /* textures.c in Sources */,
 				9732D66D25C0453A009D1677 /* map_config.c in Sources */,
 				9732D66F25C06327009D1677 /* ft_putin.c in Sources */,
 				975E42AB25C0311B00A2707E /* map_write.c in Sources */,

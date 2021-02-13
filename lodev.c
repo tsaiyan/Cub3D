@@ -23,17 +23,6 @@ void            my_mlx_pixel_put(t_win *data, int x, int y, int color)
     *(unsigned int*)dst = color;
 }
 
-unsigned            get_color(t_all *all, int x, int y)
-{
-	t_txr *data = &all->tx;
-    char    *dst;
-	
-	dst = all->tx.ptr;
-	dst += (x + y) * 4;
-	int color = *(unsigned int*)dst;
-	//printf("color = %u\n", color);
-	return (color);
-}
 
 
 // считываем кнопки
@@ -126,9 +115,10 @@ void	lodev(t_all *all)
 	int w = img->gorisont;
 	int h = img->vert;
 	all->array[(int)all->plr.y][(int)all->plr.x] = '0';
-	all->win.img = mlx_new_image(all->win.mlx, w, h);
+	img->img = mlx_new_image(all->win.mlx, w, h);
 	img->addr = mlx_get_data_addr(img->img, &img->bpp, &img->line_l, &img->en);
-	all->tx.addr = mlx_xpm_file_to_image(all->win.mlx, "./images/lgbt2.xpm", &all->tx.w, &all->tx.h);
+//	write_textures(all);
+	all->tx.addr = mlx_xpm_file_to_image(all->win.mlx, all->map.no_way, &all->tx.w, &all->tx.h);
 	all->tx.ptr = mlx_get_data_addr(all->tx.addr, &all->tx.bpp,  &all->tx.line_l,  &all->tx.en);
 /* wall */
 	for(int x = 0; x < img->gorisont; x++)
@@ -234,9 +224,6 @@ void	lodev(t_all *all)
 		
 		
 		int y;
-		all->tx.line_l = lineHeight;
-		all->tx.de = drawEnd;
-		all->tx.ds = drawStart;
 		for (y = 0; y < drawStart; y++)
 			my_mlx_pixel_put(&all->win, x, y, 0x00bfff);
 		for(int y = drawStart; y < drawEnd; y++)
@@ -244,7 +231,7 @@ void	lodev(t_all *all)
 		// Cast the texture coordinate to integer, and mask with (texHeight - 1) in case of overflow
 		int texY = (int)texPos & (all->tx.h - 1);
 		texPos += step;
-		 int color = get_color(all, texY, texX);
+		 int color = get_color(all, texX, texY, 'N');
 		  //make color darker for y-sides: R, G and B byte each divided through two with a "shift" and an "and"
 		if(side == 1) color = (color >> 1) & 8355711;
 			my_mlx_pixel_put(&all->win, x, y, color);
