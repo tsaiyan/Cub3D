@@ -22,8 +22,8 @@ void            my_mlx_pixel_put(t_win *data, int x, int y, int color)
 // считываем кнопки
 int key_press(int key, t_all *all)
  {
-	 double FOOT = 0.1;
-	 double rotSpeed = 0.05;
+	 double FOOT = 0.5;
+	 double rotSpeed = 0.1;
 	 double planeX = all->plr.planeX;
 	 double planeY = all->plr.planeY;
 	 double posX = all->plr.x;
