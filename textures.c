@@ -8,21 +8,28 @@
 
 #include <cub3d.h>
 
+void	write_textures_small(t_txr *st, t_all *all)
+{
+		st->addr = mlx_xpm_file_to_image(all->win.mlx, st->way, &st->w, &st->h);
+	if (!st->addr)
+	{
+		write(1, "error : can't open texture\n", 27);
+		exit(1);
+	}
+		st->ptr = mlx_get_data_addr(st->addr, &st->bpp,  &st->line_l,  &st->en);
+}
+
 void	write_textures(t_all *all)
 {
 	t_txr *st = NULL;
 	st = &all->no;
-		st->addr = mlx_xpm_file_to_image(all->win.mlx, all->map.no_way, &st->w, &st->h);
-		st->ptr = mlx_get_data_addr(st->addr, &st->bpp,  &st->line_l,  &st->en);
+	write_textures_small(st, all);
 	st = &all->we;
-		st->addr = mlx_xpm_file_to_image(all->win.mlx, all->map.we_way, &st->w, &st->h);
-		st->ptr = mlx_get_data_addr(st->addr, &st->bpp,  &st->line_l,  &st->en);
+	write_textures_small(st, all);
 	st = &all->so;
-		st->addr = mlx_xpm_file_to_image(all->win.mlx, all->map.so_way, &st->w, &st->h);
-		st->ptr = mlx_get_data_addr(st->addr, &st->bpp,  &st->line_l,  &st->en);
+	write_textures_small(st, all);
 	st = &all->ea;
-		st->addr = mlx_xpm_file_to_image(all->win.mlx, all->map.ea_way, &st->w, &st->h);
-		st->ptr = mlx_get_data_addr(st->addr, &st->bpp,  &st->line_l,  &st->en);
+	write_textures_small(st, all);
 }
 
 

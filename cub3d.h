@@ -61,6 +61,7 @@ typedef struct	s_txr //структура для изображения
 	int			w;
 	int 		x;
 	int 		y;
+	char		*way;
 }				t_txr;
 
 typedef struct	s_map //структура для карты
@@ -107,6 +108,7 @@ typedef struct	s_all // структура для всего вместе
 	t_txr		so;
 	t_txr		ea;
 	t_txr		we;
+	t_txr		sprite;
 	char		**array;
 	char		**arrrecuv;
 }				  t_all;

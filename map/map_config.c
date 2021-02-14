@@ -34,15 +34,15 @@ int write_ways(t_all *all, char *str, int flag)
 	if (1 < flag && flag < 6 && str[0] != '.' && str[1] != '/')
 		return (0 * (all->map.error = 1));
 	if (flag == 1)
-		all->map.no_way = str;
+		all->no.way = str;
 	else if (flag == 2)
-		all->map.so_way = str;
+		all->so.way = str;
 	else if (flag == 3)
-		all->map.we_way = str;
+		all->we.way = str;
 	else if (flag == 4)
-		all->map.ea_way = str;
+		all->ea.way = str;
 	else if (flag == 5)
-		all->map.s_way = str;
+		all->sprite.way = str;
 	else if (flag == 6)
 		all->map.floor_color = str;
 	else if (flag == 7)
@@ -77,11 +77,11 @@ int	config_map(t_all *all, char *str)
 
 int	check_ways(t_all *all)
 {
-	if (!all->map.no_way || \
-		!all->map.so_way || \
-		!all->map.we_way || \
-		!all->map.ea_way || \
-		!all->map.s_way || \
+	if (!all->ea.way || \
+		!all->so.way || \
+		!all->we.way || \
+		!all->no.way || \
+		!all->sprite.way || \
 		!all->win.vert || \
 		!all->win.gorisont || \
 		!all->map.floor_color || \
