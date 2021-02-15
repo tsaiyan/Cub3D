@@ -64,6 +64,14 @@ typedef struct	s_txr //структура для изображения
 	char		*way;
 }				t_txr;
 
+typedef struct	s_fl //структура для изображения
+{
+	int			r;
+	int			g;
+	int			b;
+
+}				t_fl;
+
 typedef struct	s_map //структура для карты
 {
 	char *no_way;
@@ -108,6 +116,8 @@ typedef struct	s_all // структура для всего вместе
 	t_txr		so;
 	t_txr		ea;
 	t_txr		we;
+	t_fl		fl;
+	t_fl		c;
 	t_txr		sprite;
 	char		**array;
 	char		**arrrecuv;
@@ -137,5 +147,7 @@ void    my_mlx_pixel_put(t_win *data, int x, int y, int color);
 void	lodev_init(t_all *all);
 void	write_textures(t_all *all);
 unsigned	get_color(t_all *all, int x, int y, char side);
+void	floor_color(t_fl *strct, char *str);
+int		create_rgb(int r, int g, int b);
 //void	ft_floor(t_all *all);
 #endif /* parcer_map_h */

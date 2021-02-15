@@ -93,3 +93,28 @@ int	check_ways(t_all *all)
 	return (1);
 }
 
+void	floor_color(t_fl *strct, char *str)
+{
+	int res;
+
+	res = 0;
+	while(*str == 32)
+		str++;
+	while(ft_isdigit(*str))
+		res = res * 10 + (*str++ -  48);
+	strct->r = res;
+	res = 0;
+	while(*str == 32 || *str == ',')
+		str++;
+	while(ft_isdigit(*str))
+		res = res * 10 + (*str++ -  48);
+	strct->g = res;
+	res = 0;
+	while(*str == 32 || *str == ',')
+		str++;
+	while(ft_isdigit(*str))
+		res = res * 10 + (*str++ -  48);
+	strct->b = res;
+if (strct->r > 255 || strct->b > 255 || strct->g > 255)
+	write(1, "error : color int more than 255 \n", 33);
+}

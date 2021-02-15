@@ -44,7 +44,41 @@ void printf_checks(t_all *all)
 	puts("- - -- - - - - - - - - - -- - - ");
 }
 
+size_t	ft_rank_count(unsigned long long n, int base)
+{
+	size_t i;
 
+	if (n == 0)
+		return (1);
+	i = 0;
+	while (n)
+	{
+		i++;
+		n /= base;
+	}
+	return (i);
+}
+
+static void	ft_putnbr_x(unsigned n)
+{
+	char	*array;
+	char	result_array[ft_rank_count(n, 16) + 1];
+	size_t	len;
+
+	len = ft_rank_count(n, 16);
+	array = "0123456789abcdef";
+	result_array[len] = '\0';
+	if (n == 0)
+		result_array[--len] = 48;
+	else
+		while (n != 0)
+		{
+			result_array[--len] = array[n % 16];
+			n /= 16;
+		}
+	while (result_array[len])
+		putchar(result_array[len++]);
+}
 
 int main(int argc, char **argv)
 {

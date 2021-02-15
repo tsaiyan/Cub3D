@@ -119,7 +119,7 @@ void	lodev(t_all *all)
 			drawEnd = h - 1;
 		
 		//textures
-		 int texNum = worldMap[mapX][mapY] - 1;
+		 //int texNum = worldMap[mapX][mapY];
 		//calculate value of wallX
 		double wallX; //where exactly the wall was hit
 		if(side == 0)
@@ -142,7 +142,7 @@ void	lodev(t_all *all)
 		int y;
 		int color;
 		for (y = 0; y < drawStart; y++)
-			my_mlx_pixel_put(&all->win, x, y, 0x00bfff);
+			my_mlx_pixel_put(&all->win, x, y, create_rgb(all->c.r, all->c.g, all->c.b));
 		
 		
 		for(int y = drawStart; y < drawEnd; y++)
@@ -168,7 +168,7 @@ void	lodev(t_all *all)
 			my_mlx_pixel_put(&all->win, x, y, color);
 		}
 		for (y = drawEnd; y < all->win.vert; y++)
-			my_mlx_pixel_put(&all->win, x, y, 0x754500);
+			my_mlx_pixel_put(&all->win, x, y, create_rgb(all->fl.r, all->fl.g, all->fl.b));
 	}
 	mlx_put_image_to_window(all->win.mlx, all->win.win, all->win.img, 0, 0);
 }

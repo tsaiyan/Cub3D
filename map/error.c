@@ -20,5 +20,7 @@ int	error(t_all *all)
 		write(1, "ERROR MAP!\n", 11);
 		return (1);
 	}
+	floor_color(&all->fl, all->map.floor_color);
+	floor_color(&all->c, all->map.sky_color);
 	return (0);
 }
