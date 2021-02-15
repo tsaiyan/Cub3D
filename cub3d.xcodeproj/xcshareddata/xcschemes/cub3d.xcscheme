@@ -20,20 +20,6 @@
                ReferencedContainer = "container:cub3d.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9782AB5925B84C7D008A0E83"
-               BuildableName = "minilibx_mms_20200219 2"
-               BlueprintName = "minilibx_mms_20200219 2"
-               ReferencedContainer = "container:mms/minilibx_mms_20200219 2.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -57,7 +43,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "YES"
-      customWorkingDirectory = "/Users/tsaiyan/cub3d"
+      customWorkingDirectory = "/Users/artyom/cub3d"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"

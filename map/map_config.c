@@ -20,10 +20,7 @@ int	write_resolution(t_all *all, char *str)
 	if (*str == 32)
 		all->win.vert = ft_atoi(str);
 	else
-	{
-		all->map.error = 1;
-		return (0);
-	}
+		ft_exit("bad resolution", all);
 	all->map.total_lines_before_map++;
 	return (1);
 }
@@ -32,7 +29,7 @@ int write_ways(t_all *all, char *str, int flag)
 {
 	str++;
 	if (1 < flag && flag < 6 && str[0] != '.' && str[1] != '/')
-		return (0 * (all->map.error = 1));
+		ft_exit("bad chars in way for texture", all);
 	if (flag == 1)
 		all->no.way = str;
 	else if (flag == 2)
@@ -86,7 +83,7 @@ int	check_ways(t_all *all)
 		!all->win.gorisont || \
 		!all->map.floor_color || \
 		!all->map.sky_color)
-		ft_exit("BAD WAY FOR TEXTURES!");
+		ft_exit("BAD WAY FOR TEXTURES!", all);
 	return (1);
 }
 
@@ -113,13 +110,16 @@ void	floor_color(t_fl *strct, char *str)
 		res = res * 10 + (*str++ -  48);
 	strct->b = res;
 if (strct->r > 255 || strct->b > 255 || strct->g > 255)
-	write(1, "error : color int more than 255 \n", 33);
+	write(1, "attention : color int more than 255 \n", 33);
 }
 
-void	ft_exit(char *str)
+void	ft_exit(char *str, t_all *all)
 {
 	ft_putstr_fd("ERROR!\n", 1);
 	ft_putstr_fd(str, 1);
 	write(1, "\n", 1);
+	free(all->array);
+	free(all->arrrecuv);
+	free(all);
 	exit(1);
 }

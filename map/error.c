@@ -10,16 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../cub3d.h"
 
 int	error(t_all *all)
 {
-	if (bad_chars_in_map(all) || !borders_ok(all)|| all->map.error || !find_player(all))
-	{
-		write(1, "ERROR MAP!\n", 11);
-		return (1);
-	}
+	bad_chars_in_map(all);
+	borders_ok(all);
+	find_player(all);
 	floor_color(&all->fl, all->map.floor_color);
 	floor_color(&all->c, all->map.sky_color);
 	return (0);

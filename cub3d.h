@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef PARCER_MAP_H
 #define PARCER_MAP_H
 # include <stdio.h>
@@ -149,6 +148,6 @@ void	write_textures(t_all *all);
 unsigned	get_color(t_all *all, int x, int y, char side);
 void	floor_color(t_fl *strct, char *str);
 int		create_rgb(int r, int g, int b);
-void	ft_exit(char *str);
+void	ft_exit(char *str, t_all *all);
 //void	ft_floor(t_all *all);
 #endif /* parcer_map_h */

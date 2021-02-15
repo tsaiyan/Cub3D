@@ -24,10 +24,9 @@
 		9A0CE08525CB2FA600BC2C6F /* get_next_line.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A0CE08325CB2FA600BC2C6F /* get_next_line.h */; };
 		9A289D8A25CC463C0093CC63 /* visual_map.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A289D8925CC463C0093CC63 /* visual_map.c */; };
 		9A289D9225CC49890093CC63 /* cub3d.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A289D9125CC49890093CC63 /* cub3d.h */; };
-		9A39295125CB585600F613BB /* mlx.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A39295025CB585600F613BB /* mlx.h */; };
 		9A39295825CB5A4400F613BB /* libft.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A39295625CB5A2A00F613BB /* libft.h */; };
-		9A39295A25CB5A7000F613BB /* libft.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A39295925CB5A7000F613BB /* libft.a */; };
-		9A39296225CB5B9800F613BB /* libmlx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A39296025CB5AF100F613BB /* libmlx.a */; };
+		9A826C0B25DAC77000DAB127 /* libmlx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9794A57625CB36EE00AE3721 /* libmlx.a */; };
+		9A826C0E25DAC7C200DAB127 /* libft.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A826C0D25DAC7AA00DAB127 /* libft.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -77,13 +76,10 @@
 		9A0CE08325CB2FA600BC2C6F /* get_next_line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = get_next_line.h; path = "gnl copy/get_next_line.h"; sourceTree = SOURCE_ROOT; };
 		9A289D8925CC463C0093CC63 /* visual_map.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = visual_map.c; sourceTree = "<group>"; };
 		9A289D9125CC49890093CC63 /* cub3d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cub3d.h; sourceTree = "<group>"; };
-		9A39295025CB585600F613BB /* mlx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mlx.h; path = mms/mlx.h; sourceTree = "<group>"; };
 		9A39295625CB5A2A00F613BB /* libft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = libft.h; path = lbft/libft.h; sourceTree = "<group>"; };
-		9A39295925CB5A7000F613BB /* libft.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libft.a; path = lbft/libft.a; sourceTree = "<group>"; };
-		9A39296025CB5AF100F613BB /* libmlx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmlx.a; sourceTree = "<group>"; };
+		9A826C0D25DAC7AA00DAB127 /* libft.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libft.a; path = lbft/libft.a; sourceTree = "<group>"; };
 		9AD8C45125CB29CC00E77F8A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		9AD8C45325CB29E900E77F8A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		9AD8C45B25CB2B5800E77F8A /* libft.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libft.a; path = lbft/libft.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,9 +88,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				973BD54725CD8BF00069B8DB /* OpenGL.framework in Frameworks */,
-				9A39296225CB5B9800F613BB /* libmlx.a in Frameworks */,
-				9A39295A25CB5A7000F613BB /* libft.a in Frameworks */,
 				973BD54825CD8BF40069B8DB /* AppKit.framework in Frameworks */,
+				9A826C0B25DAC77000DAB127 /* libmlx.a in Frameworks */,
+				9A826C0E25DAC7C200DAB127 /* libft.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,17 +100,14 @@
 		973B967725B9C1AD008A2E8B = {
 			isa = PBXGroup;
 			children = (
-				9A289D9125CC49890093CC63 /* cub3d.h */,
-				97844C0D25D42ACA006B1CA8 /* 3D */,
-				9A39295625CB5A2A00F613BB /* libft.h */,
-				9A39295025CB585600F613BB /* mlx.h */,
-				973B96EA25B9C243008A2E8B /* main.c */,
 				97E0C7FE25B9DD3000207A28 /* map.cub */,
+				9A289D9125CC49890093CC63 /* cub3d.h */,
+				973B96EA25B9C243008A2E8B /* main.c */,
 				9732D66E25C06327009D1677 /* ft_putin.c */,
-				973A408325BEFD980045E7BB /* Makefile */,
-				9A39296025CB5AF100F613BB /* libmlx.a */,
-				9A39295925CB5A7000F613BB /* libft.a */,
 				9732D66B25C04397009D1677 /* cub3d */,
+				973A408325BEFD980045E7BB /* Makefile */,
+				9A39295625CB5A2A00F613BB /* libft.h */,
+				97844C0D25D42ACA006B1CA8 /* 3D */,
 				9A289D9025CC48750093CC63 /* 2D */,
 				9A0CE07F25CB2F6800BC2C6F /* gnl */,
 				9A3C90BF25C723540075077D /* map */,
@@ -165,10 +158,10 @@
 		9AD8C45025CB29CC00E77F8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A826C0D25DAC7AA00DAB127 /* libft.a */,
+				9794A57625CB36EE00AE3721 /* libmlx.a */,
 				9AD8C45325CB29E900E77F8A /* OpenGL.framework */,
 				9AD8C45125CB29CC00E77F8A /* AppKit.framework */,
-				9AD8C45B25CB2B5800E77F8A /* libft.a */,
-				9794A57625CB36EE00AE3721 /* libmlx.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -181,7 +174,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A39295825CB5A4400F613BB /* libft.h in Headers */,
-				9A39295125CB585600F613BB /* mlx.h in Headers */,
 				9A289D9225CC49890093CC63 /* cub3d.h in Headers */,
 				9A0CE08525CB2FA600BC2C6F /* get_next_line.h in Headers */,
 			);

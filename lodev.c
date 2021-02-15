@@ -1,15 +1,14 @@
 /* ************************************************************************** */
-/*																																						*/
-/*																												:::			::::::::	 */
-/*	 cub3d																							:+:			:+:		:+:	 */
-/*																										+:+ +:+				 +:+		 */
-/*	 By: tsaiyan <tsaiyan@42.fr>										+#+	+:+			 +#+				*/
-/*																								+#+#+#+#+#+	 +#+					 */
-/*	 Created: 2021/01/28 18:29:13 by tsaiyan					 #+#		#+#						 */
-/*	 Updated: 2021/01/28 18:29:15 by tsaiyan					###	 ########.fr			 */
-/*																																						*/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tsaiyan <tsaiyan@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/28 18:29:13 by tsaiyan           #+#    #+#             */
+/*   Updated: 2021/01/28 18:29:15 by tsaiyan          ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
-
 
 #include "cub3d.h"
 
@@ -45,19 +44,13 @@ void	lodev(t_all *all)
 		//which box of the map we're in
 		int mapX = (int)posX;
 		int mapY = (int)posY;
-
-		//length of ray from current position to next x or y-side
-
 		 //length of ray from one x or y-side to next x or y-side
 		deltaDistX = fabs(1 / rayDirX);
 		deltaDistY = fabs(1 / rayDirY);
 		double perpWallDist;
-
 		//what direction to step in x or y-direction (either +1 or -1)
-
-
 		int hit = 0; //was there a wall hit?
-		int side; //was a NS or a EW wall hit?
+		int side = 0; //was a NS or a EW wall hit?
 		//calculate step and initial sideDist
 		if(rayDirX < 0)
 		{
@@ -143,8 +136,6 @@ void	lodev(t_all *all)
 		int color;
 		for (y = 0; y < drawStart; y++)
 			my_mlx_pixel_put(&all->win, x, y, create_rgb(all->c.r, all->c.g, all->c.b));
-		
-		
 		for(int y = drawStart; y < drawEnd; y++)
 		{
 			int texY = (int)texPos & (all->no.h - 1);
@@ -164,7 +155,6 @@ void	lodev(t_all *all)
 				else
 					color = get_color(all, texX, texY, 'W');
 			}
-			
 			my_mlx_pixel_put(&all->win, x, y, color);
 		}
 		for (y = drawEnd; y < all->win.vert; y++)

@@ -14,19 +14,15 @@
 
 /*
 ** рекурсивная заливка поля 1
-*/
+
 
 int	find_bad_char(t_all *all, char chr)
 {
 	if (chr == 32 || chr == '\0')
-	{
-		all->map.error = 1;
-		puts("PLAYER IN THE SPACE!\n");
-		return (1);
-	}
-	puts("fbc runs\n");
+		ft_exit("PLAYER IN THE SPACE!", all);
 	return (0);
 }
+ */
 
 /*
 ** рекурсивная заливка поля 2
@@ -49,7 +45,7 @@ int	fill_error(t_all *all, int i, int j)
 	if (all->arrrecuv[i][j] == '1' || all->arrrecuv[i][j] == 'x')
 		return (0);
 	if (all->arrrecuv[i][j] == 0 || all->arrrecuv[i][j] == ' ')
-		ft_exit("the player can be sucked into space \n");
+		ft_exit("the player can be sucked into space", all);
 	all->arrrecuv[i][j] = 'x';
 	if (recursive_needed(all, i - 1, j))
 		fill_error(all, i - 1, j);
@@ -84,7 +80,7 @@ int	bad_chars_in_map(t_all *all)
 				if (chr != 'W' && chr != 'N' && chr != 'S' && chr != 'E' \
 					&& chr != '1' &&  chr != 32 && chr != '1' && chr != '2' \
 					&& chr != '0' && chr != '\0')
-					ft_exit("ERROR: BAD CHAR IN MAP\n");
+					ft_exit("ERROR: BAD CHAR IN MAP", all);
 				j++;
 			}
 			i++;
@@ -103,20 +99,20 @@ int	borders_ok(t_all *all)
 	i = 0;
 	while (all->array[0][i])
 		if (all->array[0][i++] != '1')
-			ft_exit("bad border!");
+			ft_exit("bad border!", all);
 	i = 0;
 	while (all->array[all->map.lines - 1][i])
 		if (all->array[0][i++] != '1')
-			ft_exit("bad border!");
+			ft_exit("bad border!", all);
 	i = 0;
 	while (all->array[i][0])
 		if (all->array[i++][0] != '1')
-			ft_exit("bad border!");
+			ft_exit("bad border!", all);
 	i = 0;
 	while (all->array[i][ft_strlen(all->array[i])])
 	{
 		if (all->array[i][ft_strlen(all->array[i])] != '1')
-			ft_exit("bad border!");
+			ft_exit("bad border!", all);
 		i++;
 	}
 	return (1);
@@ -143,12 +139,11 @@ int	find_player(t_all *all)
 				all->array[i][j] == 'W' || all->array[i][j] == 'E')
 			{
 				if (all->plr.plook)
-					return (0);
+					ft_exit("double player in map", all);
 				all->plr.plook = all->array[i][j];
 				all->plr.y = i;
 				all->plr.x = j;
-				if (fill_error(all, i, j))
-					return (0);
+				fill_error(all, i, j);
 			}
 			j++;
 		}

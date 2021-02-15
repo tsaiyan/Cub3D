@@ -1,13 +1,16 @@
-//
-//  lodev_utils.c
-//  cub3d
-//
-//  Created by Torres Saiyan on 2/13/21.
-//  Copyright © 2021 21school. All rights reserved.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tsaiyan <tsaiyan@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/28 18:29:13 by tsaiyan           #+#    #+#             */
+/*   Updated: 2021/01/28 18:29:15 by tsaiyan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "cub3d.h"
-
 //вывод изображения
 void            my_mlx_pixel_put(t_win *data, int x, int y, int color)
 {
@@ -16,8 +19,6 @@ void            my_mlx_pixel_put(t_win *data, int x, int y, int color)
     dst = data->addr + (y * data->line_l + x * (data->bpp / 8));
     *(unsigned int*)dst = color;
 }
-
-
 
 // считываем кнопки
 int key_press(int key, t_all *all)
@@ -30,11 +31,8 @@ int key_press(int key, t_all *all)
 	 double posY = all->plr.y;
 	 double dirX = all->plr.start;
 	 double dirY = all->plr.end;
-	//printf("\npress\n");
-	//mlx_clear_window(all->win.mlx, all->win.win);
 	if (key == 13)
 	{
-		//printf("%c\n", all->array[(int)(posY + dirY)][(int)(posX + dirX)]);
 		if (all->array[(int)(posY + dirY)][(int)(posX + dirX)] == '0')
 		{
 			all->plr.x += dirX * FOOT;
@@ -43,7 +41,6 @@ int key_press(int key, t_all *all)
 	}
 	if (key == 1)
 	{
-		//printf("%c\n", all->array[(int)posY][(int)(posX - FOOT)]);
 		if (all->array[(int)(posY - dirY)][(int)(posX - dirX)] == '0')
 		{
 			all->plr.x -= dirX * FOOT;
@@ -85,8 +82,8 @@ int key_press(int key, t_all *all)
 	   all->plr.planeY = oldPlaneX * sin(rotSpeed) + planeY * cos(rotSpeed);
 	 }
 	if (key == 53)
-		exit(0);
-	lodev(all);
+		ft_exit("ESC", all);
+	 lodev(all);
 	return(0);
  }
 
@@ -94,6 +91,5 @@ void	lodev_init(t_all *all)
 {
 	all->win.mlx = mlx_init();
 	all->win.win = mlx_new_window(all->win.mlx, all->win.gorisont, all->win.vert, "3D");
-	//ft_floor(all);
 	lodev(all);
 }

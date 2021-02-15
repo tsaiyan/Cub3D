@@ -10,15 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include <math.h>
 #include <string.h>
 #include "cub3d.h"
-
-#define screenWidth 640
-#define screenHeight 480
-#define mapWidth 24
-#define mapHeight 24
 
 void printf_checks(t_all *all)
 {
@@ -59,46 +53,20 @@ size_t	ft_rank_count(unsigned long long n, int base)
 	return (i);
 }
 
-static void	ft_putnbr_x(unsigned n)
-{
-	char	*array;
-	char	result_array[ft_rank_count(n, 16) + 1];
-	size_t	len;
-
-	len = ft_rank_count(n, 16);
-	array = "0123456789abcdef";
-	result_array[len] = '\0';
-	if (n == 0)
-		result_array[--len] = 48;
-	else
-		while (n != 0)
-		{
-			result_array[--len] = array[n % 16];
-			n /= 16;
-		}
-	while (result_array[len])
-		putchar(result_array[len++]);
-}
-
 int main(int argc, char **argv)
 {
 	t_all *all;
-	printf("argc=%d\n", argc);
 	if (argc != 2)
-	{
-		puts("wrong input file");
-		return (-1);
-	}
+		return (0 * (int)write(1, "ERROR\n", 7));
 	if (!(all = malloc(sizeof(t_all))))
 		return (-1);
 	ft_putin(all);
 	ft_map_parcer(all, argv[1]);
 	if (error(all))
 		return (-1);
-	//printf_checks(all);
 	lodev_init(all);
-	//mlx_key_hook(all->win.win, key_press, all);
+	//printf_checks(all);
 	mlx_hook(all->win.win, 2, (1L << 0), key_press, all);
-	//visual_map(all);
+//	mlx_loop_hook(all->win.mlx, lodev, all);
 	mlx_loop(all->win.mlx);
 }
