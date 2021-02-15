@@ -49,11 +49,7 @@ int	fill_error(t_all *all, int i, int j)
 	if (all->arrrecuv[i][j] == '1' || all->arrrecuv[i][j] == 'x')
 		return (0);
 	if (all->arrrecuv[i][j] == 0 || all->arrrecuv[i][j] == ' ')
-	{
-		all->map.error = 1;
-		puts("the player can be sucked into space \n");
-		return (1);
-	}
+		ft_exit("the player can be sucked into space \n");
 	all->arrrecuv[i][j] = 'x';
 	if (recursive_needed(all, i - 1, j))
 		fill_error(all, i - 1, j);
@@ -88,13 +84,7 @@ int	bad_chars_in_map(t_all *all)
 				if (chr != 'W' && chr != 'N' && chr != 'S' && chr != 'E' \
 					&& chr != '1' &&  chr != 32 && chr != '1' && chr != '2' \
 					&& chr != '0' && chr != '\0')
-				{
-					all->map.error = 1;
-					write(1, "BAD CHAR IN MAP\n", 16);
-					printf("c=%d\n", chr);
-					printf("j=%d\n", j);
-					return (1);
-				}
+					ft_exit("ERROR: BAD CHAR IN MAP\n");
 				j++;
 			}
 			i++;
@@ -113,20 +103,20 @@ int	borders_ok(t_all *all)
 	i = 0;
 	while (all->array[0][i])
 		if (all->array[0][i++] != '1')
-			return (0);
+			ft_exit("bad border!");
 	i = 0;
 	while (all->array[all->map.lines - 1][i])
 		if (all->array[0][i++] != '1')
-			return (0);
+			ft_exit("bad border!");
 	i = 0;
 	while (all->array[i][0])
 		if (all->array[i++][0] != '1')
-			return (0);
+			ft_exit("bad border!");
 	i = 0;
 	while (all->array[i][ft_strlen(all->array[i])])
 	{
 		if (all->array[i][ft_strlen(all->array[i])] != '1')
-			return (0);
+			ft_exit("bad border!");
 		i++;
 	}
 	return (1);
@@ -164,7 +154,6 @@ int	find_player(t_all *all)
 		}
 		i++;
 	}
-	puts("find_player");
 	write_player_pi(all);
 	return (all->plr.plook ? 1 : 0);
 }

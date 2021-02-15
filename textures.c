@@ -12,10 +12,7 @@ void	write_textures_small(t_txr *st, t_all *all)
 {
 		st->addr = mlx_xpm_file_to_image(all->win.mlx, st->way, &st->w, &st->h);
 	if (!st->addr)
-	{
-		write(1, "error : can't open texture\n", 27);
-		exit(1);
-	}
+		ft_exit("can't open texture");
 		st->ptr = mlx_get_data_addr(st->addr, &st->bpp,  &st->line_l,  &st->en);
 }
 
@@ -51,7 +48,6 @@ unsigned            get_color(t_all *all, int x, int y, char side)
 	dst = data->ptr;
 	dst +=  (x * (data->bpp / 8)) + (y * data->line_l);
 	int color = *(unsigned int*)dst;
-	//printf("color = %u\n", color);
 	return (color);
 }
 

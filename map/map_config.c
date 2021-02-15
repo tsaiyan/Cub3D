@@ -86,10 +86,7 @@ int	check_ways(t_all *all)
 		!all->win.gorisont || \
 		!all->map.floor_color || \
 		!all->map.sky_color)
-	{
-		write(1, "BAD WAY FOR TEXTURES!\n", 11);
-		return (0);
-	}
+		ft_exit("BAD WAY FOR TEXTURES!");
 	return (1);
 }
 
@@ -117,4 +114,12 @@ void	floor_color(t_fl *strct, char *str)
 	strct->b = res;
 if (strct->r > 255 || strct->b > 255 || strct->g > 255)
 	write(1, "error : color int more than 255 \n", 33);
+}
+
+void	ft_exit(char *str)
+{
+	ft_putstr_fd("ERROR!\n", 1);
+	ft_putstr_fd(str, 1);
+	write(1, "\n", 1);
+	exit(1);
 }
