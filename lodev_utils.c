@@ -11,8 +11,14 @@
 /* ************************************************************************** */
 
 #include "cub3d.h"
-//вывод изображения
-void            my_mlx_pixel_put(t_win *data, int x, int y, int color)
+
+/*
+** запись пикселя в img
+** bpp / 8 смещение по x
+** y * line_l перед по строкам
+*/
+
+void	my_mlx_pixel_put(t_win *data, int x, int y, int color)
 {
     char    *dst;
 
@@ -20,7 +26,14 @@ void            my_mlx_pixel_put(t_win *data, int x, int y, int color)
     *(unsigned int*)dst = color;
 }
 
-void turn_right(t_plr *plr, double step)
+
+/*
+** функции передвижения
+** step используется для использования функции как для поворота,
+** так и для стрейфа
+*/
+
+void	turn_right(t_plr *plr, double step)
 {
 	double planeX;
 	double planeY;
@@ -37,7 +50,7 @@ void turn_right(t_plr *plr, double step)
 	plr->planeY = planeX * sin(step) + planeY * cos(step);
 }
 
-void turn_left(t_plr *plr, double step)
+void	turn_left(t_plr *plr, double step)
 {
 	double planeX;
 	double planeY;
@@ -73,12 +86,13 @@ void	go_back(t_all *all)
 }
 
 /*
-** считываем кнопки
+** считывание кнопок и вызов функций передвижения
+** сокращения заданы в cub3d.h
 ** SL - стрейф влево
 ** SR - стрейф вправо
 */
 
-void key_press(int key, t_all *all)
+void	key_press(int key, t_all *all)
 {
 	if (key == SL)
 	{
@@ -104,6 +118,10 @@ void key_press(int key, t_all *all)
 		ft_exit("ESC", all);
 	lodev(all);
 }
+
+/*
+** инициализация окна
+*/
 
 void	lodev_init(t_all *all)
 {

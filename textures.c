@@ -12,17 +12,28 @@
 
 #include <cub3d.h>
 
+/*
+** открывает изображение текстуры, записает в указатель
+** если mlx_xpm_file_to_image записал NULL - значит не смог открыть
+** на этом работа программы завершается
+*/
+
 void	write_textures_small(t_txr *st, t_all *all)
 {
-		st->addr = mlx_xpm_file_to_image(all->win.mlx, st->way, &st->w, &st->h);
+	st->addr = mlx_xpm_file_to_image(all->win.mlx, st->way, &st->w, &st->h);
 	if (!st->addr)
 		ft_exit("can't open texture", all);
-		st->ptr = mlx_get_data_addr(st->addr, &st->bpp,  &st->line_l,  &st->en);
+	st->ptr = mlx_get_data_addr(st->addr, &st->bpp,  &st->line_l,  &st->en);
 }
+
+/*
+** функция разделена на две с целью сокращения повторяющегося кода
+*/
 
 void	write_textures(t_all *all)
 {
-	t_txr *st = NULL;
+	t_txr *st;
+
 	st = &all->no;
 	write_textures_small(st, all);
 	st = &all->we;
@@ -33,9 +44,16 @@ void	write_textures(t_all *all)
 	write_textures_small(st, all);
 }
 
+/*
+** считываем цвет пикселя из текстуры
+*/
+
 unsigned	get_color(t_all *all, int x, int y, char side)
 {
-	t_txr *data;
+	t_txr	*data;
+	int		color;
+	char	*dst;
+
 	if (side == 'N')
 		 data = &all->no;
 	else if (side == 'W')
@@ -46,12 +64,16 @@ unsigned	get_color(t_all *all, int x, int y, char side)
 		 data = &all->so;
 	else
 		return (0);
-    char    *dst = NULL;
 	dst = data->ptr;
 	dst +=  (x * (data->bpp / 8)) + (y * data->line_l);
-	int color = *(unsigned int*)dst;
+	color = *(unsigned int*)dst;
 	return (color);
 }
+
+/*
+** делает побитовое смещение и возвращает цвета
+** используется для цветов пола и потолка
+*/
 
 int		create_rgb(int r, int g, int b)
 {
