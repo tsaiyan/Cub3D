@@ -110,7 +110,7 @@ void	floor_color(t_fl *strct, char *str)
 		res = res * 10 + (*str++ -  48);
 	strct->b = res;
 if (strct->r > 255 || strct->b > 255 || strct->g > 255)
-	write(1, "attention : color int more than 255 \n", 33);
+	write(1, "attention : color int more than 255 \n", 37);
 }
 
 void	ft_exit(char *str, t_all *all)

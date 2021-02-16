@@ -23,6 +23,14 @@
 #include <stdio.h>
 #include <math.h>
 #define SCALE 16 // условный размер каждого квадратика в карте
+#define rotSpeed 0.1
+#define FOOT 0.5
+#define SL 12
+#define SR 14
+#define FRWD 13
+#define BACK 1
+#define TURN_LEFT 0
+#define TURN_RIGHT 2
 typedef struct	s_win //структура для окна 3D
 {
 	void		*mlx;
@@ -137,7 +145,7 @@ int		find_player(t_all *all);
 int		bad_chars_in_map(t_all *all);
 int		borders_ok(t_all *all);
 void	write_player_pi(t_all *all);
-int		key_press(int key, t_all *all);
+void		key_press(int key, t_all *all);
 // for 2d
 int		visual_map(t_all *all);
 // 3D

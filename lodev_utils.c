@@ -20,72 +20,90 @@ void            my_mlx_pixel_put(t_win *data, int x, int y, int color)
     *(unsigned int*)dst = color;
 }
 
-// считываем кнопки
-int key_press(int key, t_all *all)
- {
-	 double FOOT = 0.5;
-	 double rotSpeed = 0.1;
-	 double planeX = all->plr.planeX;
-	 double planeY = all->plr.planeY;
-	 double posX = all->plr.x;
-	 double posY = all->plr.y;
-	 double dirX = all->plr.start;
-	 double dirY = all->plr.end;
-	if (key == 13)
+void turn_right(t_plr *plr, double step)
+{
+	double planeX;
+	double planeY;
+	double dirX;
+	double dirY;
+
+	planeX = plr->planeX;
+	planeY = plr->planeY;
+	dirX = plr->start;
+	dirY = plr->end;
+	plr->start = dirX * cos(step) - dirY * sin(step);
+	plr->end = dirX * sin(step) + dirY * cos(step);
+	plr->planeX = planeX * cos(step) - planeY * sin(step);
+	plr->planeY = planeX * sin(step) + planeY * cos(step);
+}
+
+void turn_left(t_plr *plr, double step)
+{
+	double planeX;
+	double planeY;
+	double dirX;
+	double dirY;
+
+	planeX = plr->planeX;
+	planeY = plr->planeY;
+	dirX = plr->start;
+	dirY = plr->end;
+	plr->start = dirX * cos(-step) - dirY * sin(-step);
+	plr->end = dirX * sin(-step) + dirY * cos(-step);
+	plr->planeX = planeX * cos(-step) - planeY * sin(-step);
+	plr->planeY = planeX * sin(-step) + planeY * cos(-step);
+}
+
+void	go_forward(t_all *all)
+{
+	if (all->array[(int)(all->plr.y + all->plr.end)][(int)(all->plr.x + all->plr.start)] == '0')
 	{
-		if (all->array[(int)(posY + dirY)][(int)(posX + dirX)] == '0')
-		{
-			all->plr.x += dirX * FOOT;
-			all->plr.y += dirY * FOOT;
-		}
+		all->plr.x += all->plr.start * FOOT;
+		all->plr.y += all->plr.end * FOOT;
 	}
-	if (key == 1)
+}
+
+void	go_back(t_all *all)
+{
+	if (all->array[(int)(all->plr.y - all->plr.end)][(int)(all->plr.x - all->plr.start)] == '0')
 	{
-		if (all->array[(int)(posY - dirY)][(int)(posX - dirX)] == '0')
-		{
-			all->plr.x -= dirX * FOOT;
-			all->plr.y -= dirY * FOOT;
-		}
+		all->plr.x -= all->plr.start * FOOT;
+		all->plr.y -= all->plr.end * FOOT;
 	}
-	 ///w
-	 if (key == 12)
-	 {
-		 if (all->array[(int)(posY - all->plr.start)][(int)posX] == '0')
-		 all->plr.y -= all->plr.start;
-	 }
-	 //s
-	 if (key == 14)
-	 {
-		 if (all->array[(int)(posY + all->plr.start)][(int)posX] == '0')
-		 all->plr.y += all->plr.start;
-	 }
-	 //left
-	if (key == 0)
+}
+
+/*
+** считываем кнопки
+** SL - стрейф влево
+** SR - стрейф вправо
+*/
+
+void key_press(int key, t_all *all)
+{
+	if (key == SL)
 	{
-		//both camera direction and camera plane must be rotated
-		double oldDirX = dirX;
-		all->plr.start = dirX * cos(-rotSpeed) - dirY * sin(-rotSpeed);
-		all->plr.end = oldDirX * sin(-rotSpeed) + dirY * cos(-rotSpeed);
-		double oldPlaneX = planeX;
-		all->plr.planeX = planeX * cos(-rotSpeed) - planeY * sin(-rotSpeed);
-		all->plr.planeY = oldPlaneX * sin(-rotSpeed) + planeY * cos(-rotSpeed);
+		turn_left(&all->plr, M_PI_2);
+		go_forward(all);
+		turn_right(&all->plr, M_PI_2);
 	}
-	 //right
-	if (key == 2)
-	 {
-	   //both camera direction and camera plane must be rotated
-	   double oldDirX = dirX;
-	   all->plr.start = dirX * cos(rotSpeed) - dirY * sin(rotSpeed);
-	   all->plr.end = oldDirX * sin(rotSpeed) + dirY * cos(rotSpeed);
-	   double oldPlaneX = planeX;
-	   all->plr.planeX = planeX * cos(rotSpeed) - planeY * sin(rotSpeed);
-	   all->plr.planeY = oldPlaneX * sin(rotSpeed) + planeY * cos(rotSpeed);
-	 }
+	if (key == SR)
+	{
+		turn_right(&all->plr, M_PI_2);
+		go_forward(all);
+		turn_left(&all->plr, M_PI_2);
+	}
+	if (key == FRWD)
+		go_forward(all);
+	if (key == BACK)
+		go_back(all);
+	if (key == TURN_LEFT)
+		turn_left(&all->plr, rotSpeed);
+	if (key == TURN_RIGHT)
+		turn_right(&all->plr, rotSpeed);
 	if (key == 53)
 		ft_exit("ESC", all);
-	 lodev(all);
-	return(0);
- }
+	lodev(all);
+}
 
 void	lodev_init(t_all *all)
 {
