@@ -139,7 +139,7 @@ void	lodev(t_all *s)
 			}
 			my_mlx_pixel_put(&s->win, x, y, color);
 		}
-		for (y = drawEnd + 1; y < s->win.h; y++)
+		for (y = drawEnd; y < s->win.h; y++)
 			my_mlx_pixel_put(&s->win, x, y, create_rgb(s->fl.r, s->fl.g, s->fl.b));
 	}
 	mlx_put_image_to_window(s->win.mlx, s->win.win, s->win.img, 0, 0);

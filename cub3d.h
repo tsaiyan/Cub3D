@@ -12,11 +12,11 @@
 
 #ifndef PARCER_MAP_H
 #define PARCER_MAP_H
-# include <stdio.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdlib.h>
-# include "mms/mlx.h"
+#include <stdio.h>
+#include <unistd.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include "mms/mlx.h"
 #include <fcntl.h>
 #include "lbft/libft.h"
 #include "gnl/get_next_line.h"
