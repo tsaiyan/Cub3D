@@ -65,9 +65,9 @@ int visual_map(t_all *all)
 	img->line_l = all->win.line_l;
 	img->en = all->win.en;
 	all->dd.mlx = mlx_init();
-	all->dd.win = mlx_new_window(all->dd.mlx, all->win.gorisont, all->win.vert, "2D map");
+	all->dd.win = mlx_new_window(all->dd.mlx, all->win.w, all->win.h, "2D map");
 	
-	img->img = mlx_new_image(img->mlx, all->win.gorisont, all->win.vert);
+	img->img = mlx_new_image(img->mlx, all->win.w, all->win.h);
 	img->addr = mlx_get_data_addr(img->img, &img->bpp, &img->line_l,
 									 &img->en);
 	

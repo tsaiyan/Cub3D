@@ -21,8 +21,8 @@ void printf_checks(t_all *all)
 	puts("filled map:");
 	while(i < (all->map.lines - 1))
 		printf("%s\n", all->arrrecuv[i++]);
-	printf("\nR vert			=%d\n", all->win.vert);
-	printf("R gor			=%d\n", all->win.gorisont);
+	printf("\nR vert			=%d\n", all->win.h);
+	printf("R gor			=%d\n", all->win.w);
 	printf("NO texture		=%s\n", all->map.no_way);
 	printf("SO texture		=%s\n", all->map.so_way);
 	printf("WE texture		=%s\n", all->map.we_way);

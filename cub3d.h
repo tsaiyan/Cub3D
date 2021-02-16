@@ -40,8 +40,8 @@ typedef struct	s_win //структура для окна 3D
 	int			line_l;
 	int			bpp;
 	int			en;
-	int			vert;
-	int			gorisont;
+	int			h;
+	int			w;
 }				  t_win;
 
 typedef struct	s_dd //структура для окна 2D
@@ -53,8 +53,8 @@ typedef struct	s_dd //структура для окна 2D
 	int			line_l;
 	int			bpp;
 	int			en;
-	int			vert;
-	int			gorisont;
+	int			h;
+	int			w;
 }				  t_dd;
 
 typedef struct	s_txr //структура для изображения
@@ -106,8 +106,8 @@ typedef struct	s_plr //структура для игрока и луча
 	double		x;
 	double		y;
 	float		dir;
-	float		start;
-	float		end;
+	double		start;
+	double		end;
 	double		planeX;
 	double		planeY;
 	char		plook;

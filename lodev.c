@@ -12,153 +12,135 @@
 
 #include "cub3d.h"
 
-void	lodev(t_all *all)
+void	lodev(t_all *s)
 {
-	t_win	*img = &all->win;
-	char **worldMap = all->array;
-	double posX = all->plr.x;
-	double posY = all->plr.y;	//x and y start position
-	double dirX = all->plr.start;
-	double dirY =	all->plr.end; //initial direction vector
-	double planeX = all->plr.planeX, planeY = all->plr.planeY;//the 2d raycaster version of camera plane
-	int w = img->gorisont;
-	int h = img->vert;
-	all->array[(int)all->plr.y][(int)all->plr.x] = '0';
-	img->img = mlx_new_image(all->win.mlx, w, h);
-	img->addr = mlx_get_data_addr(img->img, &img->bpp, &img->line_l, &img->en);
-	write_textures(all);
-/* wall */
 	double sideDistX;
 	double sideDistY;
 	double oldsideDist;
+	double perpWsDist;
 	int stepX;
 	int stepY;
 	double deltaDistX;
 	double deltaDistY;
-	for(int x = 0; x < img->gorisont; x++)
+	double wsX;
+	int y;
+	int color;
+	double cameraX;
+	double rayDirX;
+	double rayDirY;
+	int mapX;
+	int mapY;
+	int hit;
+	int side;
+	int x;
+	int texX;
+	int texY;
+	int lineHeight;
+	double step;
+	double texPos;
+
+	s->array[(int)s->plr.y][(int)s->plr.x] = '0';
+	s->win.img = mlx_new_image(s->win.mlx, s->win.w, s->win.h);
+	s->win.addr = mlx_get_data_addr(s->win.img, &s->win.bpp, &s->win.line_l, &s->win.en);
+	write_textures(s);
+	for(x = 0; x < s->win.w; x++)
 	{
-		//calculate ray position and direction
-		double cameraX = 2 * x / (double)w - 1; //x-coordinate in camera space
-		double rayDirX = dirX + planeX * cameraX;
-		double rayDirY = dirY + planeY * cameraX;
-		//which box of the map we're in
-		int mapX = (int)posX;
-		int mapY = (int)posY;
-		 //length of ray from one x or y-side to next x or y-side
+		cameraX = 2 * x / (double)s->win.w - 1;
+		rayDirX = s->plr.start + s->plr.planeX * cameraX;
+		rayDirY = s->plr.end + s->plr.planeY * cameraX;
+		mapX = (int)s->plr.x;
+		mapY = (int)s->plr.y;
 		deltaDistX = fabs(1 / rayDirX);
 		deltaDistY = fabs(1 / rayDirY);
-		double perpWallDist;
-		//what direction to step in x or y-direction (either +1 or -1)
-		int hit = 0; //was there a wall hit?
-		int side = 0; //was a NS or a EW wall hit?
-		//calculate step and initial sideDist
+		hit = 0;
+		side = 0;
 		if(rayDirX < 0)
 		{
-		stepX = -1;
-		sideDistX = (posX - mapX) * deltaDistX;
+			stepX = -1;
+			sideDistX = (s->plr.x - mapX) * deltaDistX;
 		}
 		else
 		{
-		stepX = 1;
-		sideDistX = (mapX + 1.0 - posX) * deltaDistX;
+			stepX = 1;
+			sideDistX = (mapX + 1.0 - s->plr.x) * deltaDistX;
 		}
 		if(rayDirY < 0)
 		{
-		stepY = -1;
-		sideDistY = (posY - mapY) * deltaDistY;
+			stepY = -1;
+			sideDistY = (s->plr.y - mapY) * deltaDistY;
 		}
 		else
 		{
-		stepY = 1;
-		sideDistY = (mapY + 1.0 - posY) * deltaDistY;
+			stepY = 1;
+			sideDistY = (mapY + 1.0 - s->plr.y) * deltaDistY;
 		}
-		//perform DDA
 		while (hit == 0)
 		{
-		//jump to next map square, OR in x-direction, OR in y-direction
-		if(sideDistX < sideDistY)
-		{
-			oldsideDist = sideDistX;
-			sideDistX += deltaDistX;
-			mapX += stepX;
-			side = 0;
+			if (sideDistX < sideDistY)
+			{
+				oldsideDist = sideDistX;
+				sideDistX += deltaDistX;
+				mapX += stepX;
+				side = 0;
+			}
+			else
+			{
+				oldsideDist = sideDistY;
+				sideDistY += deltaDistY;
+				mapY += stepY;
+				side = 1;
+			}
+			if (s->array[mapY][mapX] > '0')
+				hit = 1;
 		}
-		else
-		{
-		oldsideDist = sideDistY;
-			sideDistY += deltaDistY;
-			mapY += stepY;
-			side = 1;
-		}
-		//Check if ray has hit a wall
-			if(worldMap[mapY][mapX] > '0') hit = 1;
-		}
-		//Calculate distance projected on camera direction (Euclidean distance will give fisheye effect!)
 		if(side == 0)
-			perpWallDist = (mapX - posX + (1 - stepX) / 2) / rayDirX;
+			perpWsDist = (mapX - s->plr.x + (1 - stepX) / 2) / rayDirX;
 		else
-			perpWallDist = (mapY - posY + (1 - stepY) / 2) / rayDirY;
-
-		//Calculate height of line to draw on screen
-			int lineHeight = (int)(h / perpWallDist);
-
-		
-		//calculate lowest and highest pixel to fill in current stripe
-		int drawStart = -lineHeight / 2 + h / 2;
+			perpWsDist = (mapY - s->plr.y + (1 - stepY) / 2) / rayDirY;
+		lineHeight = (int)(s->win.h / perpWsDist);
+		int drawStart = -lineHeight / 2 + s->win.h / 2;
 		if(drawStart < 0)
 			drawStart = 0;
-		int drawEnd = lineHeight / 2 + h / 2;
-		if(drawEnd >= h)
-			drawEnd = h - 1;
-		
-		//textures
-		 //int texNum = worldMap[mapX][mapY];
-		//calculate value of wallX
-		double wallX; //where exactly the wall was hit
+		int drawEnd = lineHeight / 2 + s->win.h / 2;
+		if(drawEnd >= s->win.h)
+			drawEnd = s->win.h - 1;
 		if(side == 0)
-			wallX = posY + perpWallDist * rayDirY;
+			wsX = s->plr.y + perpWsDist * rayDirY;
 		else
-			wallX = posX + perpWallDist * rayDirX;
-		wallX -= floor((wallX));
-		//x coordinate on the texture
-		int texX = (int)(wallX * (double)(all->no.w));
-		if(side == 0 && rayDirX > 0) texX = all->no.w - texX - 1;
-		if(side == 1 && rayDirY < 0) texX = all->no.w - texX - 1;
-
-		// TODO: an integer-only bresenham or DDA like algorithm could make the texture coordinate stepping faster
-		// How much to increase the texture coordinate per screen pixel
-		double step = 1.0 * all->no.h / lineHeight;
-		// Starting texture coordinate
-		double texPos = (drawStart - h / 2 + lineHeight / 2) * step;
-		
-		
-		int y;
-		int color;
+			wsX = s->plr.x + perpWsDist * rayDirX;
+		wsX -= floor((wsX));
+		texX = (int)(wsX * (double)(s->no.w));
+		if(side == 0 && rayDirX > 0)
+			texX = s->no.w - texX - 1;
+		if(side == 1 && rayDirY < 0)
+			texX = s->no.w - texX - 1;
+		step = 1.0 * s->no.h / lineHeight;
+		texPos = (drawStart - s->win.h / 2 + lineHeight / 2) * step;
 		for (y = 0; y < drawStart; y++)
-			my_mlx_pixel_put(&all->win, x, y, create_rgb(all->c.r, all->c.g, all->c.b));
+			my_mlx_pixel_put(&s->win, x, y, create_rgb(s->c.r, s->c.g, s->c.b));
 		for(int y = drawStart; y < drawEnd; y++)
 		{
-			int texY = (int)texPos & (all->no.h - 1);
+			texY = (int)texPos & (s->no.h - 1);
 			texPos += step;
-			color = get_color(all, texX, texY, 'W');
-			if(side)
+			color = get_color(s, texX, texY, 'W');
+			if (side)
 			{
 				if (stepY > 0)
-					color = get_color(all, texX, texY, 'S');
+					color = get_color(s, texX, texY, 'S');
 				else
-					color = get_color(all, texX, texY, 'N');
+					color = get_color(s, texX, texY, 'N');
 			}
 			else
 				{
 				if (stepX > 0)
-					color = get_color(all, texX, texY, 'E');
+					color = get_color(s, texX, texY, 'E');
 				else
-					color = get_color(all, texX, texY, 'W');
+					color = get_color(s, texX, texY, 'W');
 			}
-			my_mlx_pixel_put(&all->win, x, y, color);
+			my_mlx_pixel_put(&s->win, x, y, color);
 		}
-		for (y = drawEnd; y < all->win.vert; y++)
-			my_mlx_pixel_put(&all->win, x, y, create_rgb(all->fl.r, all->fl.g, all->fl.b));
+		for (y = drawEnd; y < s->win.h; y++)
+			my_mlx_pixel_put(&s->win, x, y, create_rgb(s->fl.r, s->fl.g, s->fl.b));
 	}
-	mlx_put_image_to_window(all->win.mlx, all->win.win, all->win.img, 0, 0);
+	mlx_put_image_to_window(s->win.mlx, s->win.win, s->win.img, 0, 0);
 }

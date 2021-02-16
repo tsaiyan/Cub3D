@@ -15,8 +15,8 @@
 void ft_putin(t_all *all)
 {
 	puts("ft_putin");
-	all->win.gorisont = 0;
-	all->win.vert = 0;
+	all->win.w = 0;
+	all->win.h = 0;
 	all->map.error = 0;
 	all->map.no_way = NULL;
 	all->map.so_way = NULL;

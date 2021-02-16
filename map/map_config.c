@@ -14,11 +14,11 @@
 
 int	write_resolution(t_all *all, char *str)
 {
-	all->win.gorisont = ft_atoi(str++);
+	all->win.w = ft_atoi(str++);
 	while(ft_isdigit(*str))
 		str++;
 	if (*str == 32)
-		all->win.vert = ft_atoi(str);
+		all->win.h = ft_atoi(str);
 	else
 		ft_exit("bad resolution", all);
 	all->map.total_lines_before_map++;
@@ -79,8 +79,8 @@ int	check_ways(t_all *all)
 		!all->we.way || \
 		!all->no.way || \
 		!all->sprite.way || \
-		!all->win.vert || \
-		!all->win.gorisont || \
+		!all->win.h || \
+		!all->win.w || \
 		!all->map.floor_color || \
 		!all->map.sky_color)
 		ft_exit("BAD WAY FOR TEXTURES!", all);

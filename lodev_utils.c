@@ -23,7 +23,7 @@ void	my_mlx_pixel_put(t_win *data, int x, int y, int color)
     char    *dst;
 
     dst = data->addr + (y * data->line_l + x * (data->bpp / 8));
-    *(unsigned int*)dst = color;
+	*(unsigned int*)dst = color;
 }
 
 
@@ -126,6 +126,6 @@ void	key_press(int key, t_all *all)
 void	lodev_init(t_all *all)
 {
 	all->win.mlx = mlx_init();
-	all->win.win = mlx_new_window(all->win.mlx, all->win.gorisont, all->win.vert, "3D");
+	all->win.win = mlx_new_window(all->win.mlx, all->win.w, all->win.h, "3D");
 	lodev(all);
 }

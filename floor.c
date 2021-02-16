@@ -16,7 +16,7 @@
 //	char    *relative_path = "./images/FL.xpm";
 //	int     img_width;
 //	int     img_height;
-//	int screenHeight = all->win.vert;
+//	int screenHeight = all->win.h;
 //	int screenWidth = all->win.gorisont;
 //	double dirX = all->plr.start;
 //	double dirY = all->plr.end;
