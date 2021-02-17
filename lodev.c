@@ -10,10 +10,9 @@
 /*																																						*/
 /* ************************************************************************** */
 
-#include "cub3d.h"
 #define numSprites 19
-#define texWidth 3
-#define texHeight 3
+
+#include "cub3d.h"
 typedef struct Sprite
 {
 	double x;
@@ -27,6 +26,7 @@ void	lodev(t_all *s)
 	{
 		//row of pillars in front of wall: fisheye test
 		{10, 5, 9},
+		{15, 10, 9},
 
 		//some barrels around the map
 	};
@@ -164,6 +164,8 @@ void	lodev(t_all *s)
 		
 	}
 	//SPRITE CASTING
+	int texWidth = s->sp.w;
+	int texHeight = s->sp.h;
 		//sort sprites from far to close
 		for(int i = 0; i < numSprites; i++)
 		{
@@ -216,7 +218,7 @@ void	lodev(t_all *s)
 		int stripe = drawStartX;
 		while (stripe < drawEndX)
 		{
-			//int texX = (int)(256 * (stripe - (-spriteWidth / 2 + spriteScreenX)) * texWidth / spriteWidth) / 256;
+			int texX = (int)(256 * (stripe - (-spriteWidth / 2 + spriteScreenX)) * texWidth / spriteWidth) / 256;
 			 //the conditions in the if are:
 			 //1) it's in front of camera plane so you don't see things behind you
 			 //2) it's on the screen (left)
@@ -225,11 +227,11 @@ void	lodev(t_all *s)
 			if(transformY > 0 && stripe > 0 && stripe < s->win.w && transformY < ZBuffer[stripe])
 			for(int y = drawStartY; y < drawEndY; y++) //for every pixel of the current stripe
 			{
-				//int d = y * 256 - s->win.h * 128 + spriteHeight * 128; //256 and 128 factors to avoid floats
-				//int texY = ((d * texHeight) / spriteHeight) / 256;
-				color = 0xFF0000; //get current color from the texture
-				// if((color & 0x00FFFFFF) != 0)
-				my_mlx_pixel_put(&s->win, stripe, y, 0xFFF000);
+				int d = y * 256 - s->win.h * 128 + spriteHeight * 128; //256 and 128 factors to avoid floats
+				int texY = ((d * s->sp.h) / spriteHeight) / 256;
+				color = get_color(s, texX, texY, 'P'); //get current color from the texture
+				 if((color & 0x00FFFF) != 0)
+				my_mlx_pixel_put(&s->win, stripe, y, color);
 					// buffer[y][stripe] = color; //paint pixel if it isn't black, black is the invisible color
 			}
 			stripe++;

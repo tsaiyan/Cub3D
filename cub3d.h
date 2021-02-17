@@ -113,6 +113,7 @@ typedef struct	s_plr //структура для игрока и луча
 	char		plook;
 }				  t_plr;
 
+
 typedef struct	s_all // структура для всего вместе
 {
 	t_win		win;
@@ -123,9 +124,9 @@ typedef struct	s_all // структура для всего вместе
 	t_txr		so;
 	t_txr		ea;
 	t_txr		we;
+	t_txr		sp;
 	t_fl		fl;
 	t_fl		c;
-	t_txr		sprite;
 	char		**array;
 	char		**arrrecuv;
 }				  t_all;

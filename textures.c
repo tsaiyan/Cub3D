@@ -42,6 +42,8 @@ void	write_textures(t_all *all)
 	write_textures_small(st, all);
 	st = &all->ea;
 	write_textures_small(st, all);
+	st = &all->sp;
+	write_textures_small(st, all);
 }
 
 /*
@@ -62,6 +64,8 @@ unsigned	get_color(t_all *all, int x, int y, char side)
 		 data = &all->ea;
 	else if (side == 'S')
 		 data = &all->so;
+	else if (side == 'P')
+		 data = &all->sp;
 	else
 		return (0);
 	dst = data->ptr;

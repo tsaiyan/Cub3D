@@ -39,7 +39,7 @@ int write_ways(t_all *all, char *str, int flag)
 	else if (flag == 4)
 		all->ea.way = str;
 	else if (flag == 5)
-		all->sprite.way = str;
+		all->sp.way = str;
 	else if (flag == 6)
 		all->map.floor_color = str;
 	else if (flag == 7)
@@ -78,7 +78,7 @@ int	check_ways(t_all *all)
 		!all->so.way || \
 		!all->we.way || \
 		!all->no.way || \
-		!all->sprite.way || \
+		!all->sp.way || \
 		!all->win.h || \
 		!all->win.w || \
 		!all->map.floor_color || \
