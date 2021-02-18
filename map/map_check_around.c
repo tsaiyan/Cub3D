@@ -45,7 +45,7 @@ char	*mapdup(t_all *s, char *src)
 		dest[i + 1] = src[i];
 		i++;
 	}
-	while (++i < (s->mv.longest_line + 1))
+	while (++i < (s->mv.longest_line + 2))
 		dest[i] = ' ';
 	dest[i] = '\0';
 	return (dest);
@@ -71,40 +71,45 @@ void	map_copy(t_all *s)
 	s->arrrecuv = line;
 }
 
-void	check_around(t_all *s, int x, int y)
+void	check_around(t_all *s, int y, int x)
 {
 	char **str;
-	int i = 0;
-	int j = 0;
+
 	str = s->arrrecuv;
-	if (str[i - 1][ j] == ' ')
+	if (str[y - 1][x] == ' ')
 		ft_exit("bad border in map", s);
-	if (str[i - 1][ j] == ' ')
+	if (str[y + 1][x] == ' ')
 		ft_exit("bad border in map", s);
-	if (str[i][ j - 1] == ' ')
+	if (str[y][x - 1] == ' ')
 		ft_exit("bad border in map", s);
-	if (str[i][j + 1] == ' ')
+	if (str[y][x + 1] == ' ')
 		ft_exit("bad border in map", s);
-	if (str[i + 1][j + 1] == ' ')
+	if (str[y + 1][x + 1] == ' ')
+	{
+		printf("checked char = %c\n", str[y][x]);
 		ft_putendl("ERROR : bad border in corner");
-	if (str[i - 1][j - 1] == ' ')
+	}
+	if (str[y - 1][x - 1] == ' ')
 		ft_putendl("ERROR : bad border in corner");
-	if (str[i - 1][j + 1] == ' ')
+	if (str[y - 1][x + 1] == ' ')
 		ft_putendl("ERROR : bad border in corner");
-	if (str[i + 1][j - 1] == ' ')
+	if (str[y + 1][x - 1] == ' ')
 		ft_putendl("ERROR : bad border in corner");
 }
 
 void	map_check_around(t_all *s)
 {
-	char **map = s->arrrecuv;
+	char **map;
+
 	map_copy(s);
-	int x = 0;
+	map = s->arrrecuv;
+	int x;
 	int y = 0;
-	char symbols[6] = { '0', 'S', 'N', 'W', 'E', '2'};;
+	char symbols[7] = { '0', 'S', 'N', 'W', 'E', '2' , '\0'};
 	
-	while (map[y][x])
+	while (map[y])
 	{
+		x = 0;
 		while(map[y][x])
 		{
 			if (ft_strchr(symbols, map[y][x]))
@@ -113,7 +118,6 @@ void	map_check_around(t_all *s)
 				ft_exit("bad char in map", s);
 			x++;
 		}
-		x = 0;
 		y++;
 	}
 }

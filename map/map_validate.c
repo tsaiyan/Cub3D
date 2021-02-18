@@ -123,7 +123,7 @@ int	borders_ok(t_all *all)
 ** проверяет что вокруг него все ок
 */
 
-int	find_player(t_all *all)
+void	find_player(t_all *all)
 {
 	int i;
 	int j;
@@ -142,14 +142,13 @@ int	find_player(t_all *all)
 				all->plr.plook = all->array[i][j];
 				all->plr.y = i;
 				all->plr.x = j;
-				fill_error(all, i, j);
 			}
 			j++;
 		}
 		i++;
 	}
-	write_player_pi(all);
-	return (all->plr.plook ? 1 : 0);
+	if (!all->plr.plook)
+		ft_exit("no player in map", all);
 }
 
 

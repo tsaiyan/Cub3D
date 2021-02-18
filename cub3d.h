@@ -147,7 +147,7 @@ void	map_copy(t_all *all);
 int		check_ways(t_all *all);
 int		error(t_all *all);
 int		map_validate(t_all *all);
-int		find_player(t_all *all);
+void	find_player(t_all *all);
 int		bad_chars_in_map(t_all *all);
 int		borders_ok(t_all *all);
 void	write_player_pi(t_all *all);
@@ -163,5 +163,6 @@ unsigned	get_color(t_all *all, int x, int y, char side);
 void	floor_color(t_fl *strct, char *str);
 int		create_rgb(int r, int g, int b);
 void	ft_exit(char *str, t_all *all);
+void	map_check_around(t_all *s);
 //void	ft_floor(t_all *all);
 #endif /* parcer_map_h */

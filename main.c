@@ -34,7 +34,7 @@ void printf_checks(t_all *all)
 //	i = 0;
 	puts("rec map:");
 	while(all->arrrecuv[i])
-		printf("\nstr =%s | ", all->arrrecuv[i++]);
+		printf("\nstr =%s|", all->arrrecuv[i++]);
 	//puts("- - -- - - - - - - - - - -- - - ");
 }
 

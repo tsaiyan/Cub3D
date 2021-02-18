@@ -15,8 +15,8 @@
 int	error(t_all *all)
 {
 	bad_chars_in_map(all);
-	borders_ok(all);
 	find_player(all);
+	write_player_pi(all);
 	floor_color(&all->fl, all->map.floor_color);
 	floor_color(&all->c, all->map.sky_color);
 	map_check_around(all);
