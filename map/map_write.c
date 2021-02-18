@@ -34,21 +34,6 @@ char	**make_map(t_list **head, int size, t_all *all)
 	return (map);
 }
 
-char	**map_copy(t_all *all)
-{
-	char **line;
-	int j = 0;
-	int i = all->map.lines;
-
-	line = (char **)malloc(sizeof(char*) * (i + 1));
-	line[i--] = NULL;
-	while (i--)
-	{
-		line[j] = ft_strdup(all->array[j]);
-		j++;
-	}
-	return(line);
-}
 
 /*
 ** считывание файла и его запись
