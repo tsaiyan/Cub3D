@@ -19,5 +19,6 @@ int	error(t_all *all)
 	find_player(all);
 	floor_color(&all->fl, all->map.floor_color);
 	floor_color(&all->c, all->map.sky_color);
+	map_check_around(all);
 	return (0);
 }
