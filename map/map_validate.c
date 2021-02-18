@@ -151,4 +151,3 @@ void	find_player(t_all *all)
 		ft_exit("no player in map", all);
 }
 
-

@@ -101,7 +101,6 @@ void	map_check_around(t_all *s)
 {
 	char **map;
 
-	map_copy(s);
 	map = s->arrrecuv;
 	int x;
 	int y = 0;

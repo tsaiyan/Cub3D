@@ -12,13 +12,12 @@
 
 #include "../cub3d.h"
 
-int	error(t_all *all)
+void	map_utils(t_all *all)
 {
-	bad_chars_in_map(all);
 	find_player(all);
 	write_player_pi(all);
 	floor_color(&all->fl, all->map.floor_color);
 	floor_color(&all->c, all->map.sky_color);
+	map_copy(all);
 	map_check_around(all);
-	return (0);
 }

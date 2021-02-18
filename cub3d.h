@@ -145,7 +145,7 @@ void	ft_putin(t_all *all);
 char	**make_map(t_list **head, int size, t_all *all);
 void	map_copy(t_all *all);
 int		check_ways(t_all *all);
-int		error(t_all *all);
+void	map_utils(t_all *all);
 int		map_validate(t_all *all);
 void	find_player(t_all *all);
 int		bad_chars_in_map(t_all *all);

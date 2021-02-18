@@ -62,9 +62,8 @@ int main(int argc, char **argv)
 		return (-1);
 	ft_putin(all);
 	ft_map_parcer(all, argv[1]);
+	map_utils(all);
 	printf_checks(all);
-	if (error(all))
-		return (-1);
 	lodev_init(all);
 	mlx_hook(all->win.win, 2, (1L << 0), key_press, all);
 //	mlx_loop_hook(all->win.mlx, lodev, all);
