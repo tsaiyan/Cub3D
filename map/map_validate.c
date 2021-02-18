@@ -73,7 +73,6 @@ int	bad_chars_in_map(t_all *all)
 		while(str[i])
 		{
 			j = 0;
-			puts(str[i]);
 			while(str[i][j])
 			{
 				chr = str[i][j];

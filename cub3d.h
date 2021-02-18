@@ -113,6 +113,10 @@ typedef struct	s_plr //структура для игрока и луча
 	char		plook;
 }				  t_plr;
 
+typedef struct	s_mv
+{
+	int longest_line;
+}				t_mv;
 
 typedef struct	s_all // структура для всего вместе
 {
@@ -127,6 +131,7 @@ typedef struct	s_all // структура для всего вместе
 	t_txr		sp;
 	t_fl		fl;
 	t_fl		c;
+	t_mv		mv;
 	char		**array;
 	char		**arrrecuv;
 }				  t_all;
@@ -138,7 +143,7 @@ void	ft_map_parcer(t_all *all, char *argv);
 int		config_map(t_all *all, char *str);
 void	ft_putin(t_all *all);
 char	**make_map(t_list **head, int size, t_all *all);
-char	**map_copy(t_all *all);
+void	map_copy(t_all *all);
 int		check_ways(t_all *all);
 int		error(t_all *all);
 int		map_validate(t_all *all);

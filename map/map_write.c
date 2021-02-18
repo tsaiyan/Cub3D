@@ -56,7 +56,7 @@ void	ft_map_parcer(t_all *all, char *argv)
 	check_ways(all);
 	ft_lstadd_back(&head, ft_lstnew(line));
 	all->array = make_map(&head, ft_lstsize(head), all);
-	all->arrrecuv = map_copy(all);
+	map_copy(all);
 	close(fd);
 }
 
