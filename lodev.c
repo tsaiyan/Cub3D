@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*																																						*/
-/*																												:::			::::::::	 */
-/*	 cub3d																							:+:			:+:		:+:	 */
-/*																										+:+ +:+				 +:+		 */
-/*	 By: tsaiyan <tsaiyan@42.fr>										+#+	+:+			 +#+				*/
-/*																								+#+#+#+#+#+	 +#+					 */
-/*	 Created: 2021/01/28 18:29:13 by tsaiyan					 #+#		#+#						 */
-/*	 Updated: 2021/01/28 18:29:15 by tsaiyan					###	 ########.fr			 */
-/*																																						*/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tsaiyan <tsaiyan@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/28 18:29:13 by tsaiyan           #+#    #+#             */
+/*   Updated: 2021/01/28 18:29:15 by tsaiyan          ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #define numSprites 19
@@ -24,11 +24,8 @@ void	lodev(t_all *s)
 {
 	Sprite sprite[numSprites] =
 	{
-		//row of pillars in front of wall: fisheye test
 		{10, 5, 9},
 		{15, 10, 9},
-
-		//some barrels around the map
 	};
 	double ZBuffer[s->win.w];
 	int spriteOrder[numSprites];
@@ -57,7 +54,21 @@ void	lodev(t_all *s)
 	int lineHeight;
 	double step;
 	double texPos;
-
+	double spriteX;
+	double spriteY;
+	double invDet;
+	double transformX;
+	double transformY;
+	int spriteScreenX;
+	int spriteHeight;
+	int drawStartY;
+	int drawEndY;
+	int i;
+	int spriteWidth;
+	int drawStartX;
+	int drawEndX;
+	int stripe;
+	int d;
 	s->array[(int)s->plr.y][(int)s->plr.x] = '0';
 	s->win.img = mlx_new_image(s->win.mlx, s->win.w, s->win.h);
 	s->win.addr = mlx_get_data_addr(s->win.img, &s->win.bpp, &s->win.line_l, &s->win.en);
@@ -161,98 +172,60 @@ void	lodev(t_all *s)
 		for (y = drawEnd; y < s->win.h; y++)
 			my_mlx_pixel_put(&s->win, x, y, create_rgb(s->fl.r, s->fl.g, s->fl.b));
 			ZBuffer[x] = perpWallDist;
-		
 	}
 	//SPRITE CASTING
-	int texWidth = s->sp.w;
-	int texHeight = s->sp.h;
-		//sort sprites from far to close
-		for(int i = 0; i < numSprites; i++)
-		{
+//	int texWidth = s->sp.w;
+//	int texHeight = s->sp.h;
+	//sort sprites from far to close
+	for (i = 0; i < numSprites; i++)
+	{
 		spriteOrder[i] = i;
 		spriteDistance[i] = ((s->plr.x - sprite[i].x) * (s->plr.x - sprite[i].x) + (s->plr.y - sprite[i].y) * (s->plr.y - sprite[i].y)); //sqrt not taken, unneeded
-		}
+	}
 		//sortSprites(spriteOrder, spriteDistance, numSprites);
-
 		//after sorting the sprites, do the projection and draw them
-		for(int i = 0; i < numSprites; i++)
-		{
+	for(i = 0; i < numSprites; i++)
+	{
 		//translate sprite position to relative to camera
-		double spriteX = sprite[spriteOrder[i]].x - s->plr.x;
-		double spriteY = sprite[spriteOrder[i]].y - s->plr.y;
-
-		//transform sprite with the inverse camera matrix
-		 // [ planeX	 dirX ] -1																			 [ dirY			-dirX ]
-		 // [							 ]			 =	1/(planeX*dirY-dirX*planeY) *	 [								 ]
-		 // [ planeY	 dirY ]																					[ -planeY	planeX ]
-
-		double invDet = 1.0 / (s->plr.planeX * s->plr.end - s->plr.start * s->plr.planeY); //required for correct matrix multiplication
-
-		double transformX = invDet * (s->plr.end * spriteX - s->plr.start * spriteY);
-		double transformY = invDet * (-s->plr.planeY * spriteX + s->plr.planeX * spriteY); //this is actually the depth inside the screen, that what Z is in 3D, the distance of sprite to player, matching sqrt(spriteDistance[i])
-
-		int spriteScreenX = (int)((s->win.w / 2) * (1 + transformX / transformY));
-
-	 //	int vMoveScreen = (int)(vMove / transformY);
-
-		//calculate height of the sprite on screen
-		int spriteHeight = abs((int)(s->win.h / (transformY))); //using "transformY" instead of the real distance prevents fisheye
-		 //calculate lowest and highest pixel to fill in current stripe
-		int drawStartY = (s->win.h / 2) - (spriteHeight / 2);
+		spriteX = sprite[spriteOrder[i]].x - s->plr.x;
+		spriteY = sprite[spriteOrder[i]].y - s->plr.y;
+		invDet = 1.0 / (s->plr.planeX * s->plr.end - s->plr.start * s->plr.planeY); //required for correct matrix multiplication
+		transformX = invDet * (s->plr.end * spriteX - s->plr.start * spriteY);
+		transformY = invDet * (-s->plr.planeY * spriteX + s->plr.planeX * spriteY); //this is actually the depth inside the screen, that what Z is in 3D, the distance of sprite to player, matching sqrt(spriteDistance[i])
+		spriteScreenX = (int)((s->win.w / 2) * (1 + transformX / transformY));
+			//calculate height of the sprite on screen
+		spriteHeight = abs((int)(s->win.h / (transformY))); //using "transformY" instead of the real distance prevents fisheye
+				//calculate lowest and highest pixel to fill in current stripe
+		drawStartY = (s->win.h / 2) - (spriteHeight / 2);
 		if (drawStartY < 0)
 			drawStartY = 0;
-		int drawEndY = (spriteHeight / 2) + (s->win.h / 2);
+		drawEndY = (spriteHeight / 2) + (s->win.h / 2);
 		if (drawEndY >= s->win.h)
 			drawEndY = s->win.h - 1;
-
 		 //calculate width of the sprite
-		int spriteWidth = abs( (int)(s->win.w / (transformY)));
-		int drawStartX = -spriteWidth / 2 + spriteScreenX;
+		spriteWidth = abs( (int)(s->win.w / (transformY)));
+		drawStartX = -spriteWidth / 2 + spriteScreenX;
 		if(drawStartX < 0)
 			drawStartX = 0;
-		int drawEndX = spriteWidth / 2 + spriteScreenX;
+		drawEndX = spriteWidth / 2 + spriteScreenX;
 		if(drawEndX >= s->win.w)
 			drawEndX = s->win.w;
-
-		 //loop through every vertical stripe of the sprite on screen
-		int stripe = drawStartX;
+				//loop through every vertical stripe of the sprite on screen
+		stripe = drawStartX;
 		while (stripe < drawEndX)
 		{
-			int texX = (int)(256 * (stripe - (-spriteWidth / 2 + spriteScreenX)) * texWidth / spriteWidth) / 256;
-			 //the conditions in the if are:
-			 //1) it's in front of camera plane so you don't see things behind you
-			 //2) it's on the screen (left)
-			 //3) it's on the screen (right)
-			 //4) ZBuffer, with perpendicular distance
+			texX = (int)(256 * (stripe - (-spriteWidth / 2 + spriteScreenX)) * s->sp.w / spriteWidth) / 256;
 			if(transformY > 0 && stripe > 0 && stripe < s->win.w && transformY < ZBuffer[stripe])
-			for(int y = drawStartY; y < drawEndY; y++) //for every pixel of the current stripe
-			{
-				int d = y * 256 - s->win.h * 128 + spriteHeight * 128; //256 and 128 factors to avoid floats
-				int texY = ((d * s->sp.h) / spriteHeight) / 256;
-				color = get_color(s, texX, texY, 'P'); //get current color from the texture
-				 if((color & 0x00FFFF) != 0)
-				my_mlx_pixel_put(&s->win, stripe, y, color);
-					// buffer[y][stripe] = color; //paint pixel if it isn't black, black is the invisible color
-			}
+				for(y = drawStartY; y < drawEndY; y++) //for every pixel of the current stripe
+				{
+					d = y * 256 - s->win.h * 128 + spriteHeight * 128; //256 and 128 factors to avoid floats
+					texY = ((d * s->sp.h) / spriteHeight) / 256;
+					color = get_color(s, texX, texY, 'P'); //get current color from the texture
+					if((color & 0x00FFFF) != 0)
+						my_mlx_pixel_put(&s->win, stripe, y, color);
+				}
 			stripe++;
 		}
-		}
-
+	}
 	mlx_put_image_to_window(s->win.mlx, s->win.win, s->win.img, 0, 0);
 }
-
-////sort the sprites based on distance
-//void sortSprites(int* order, double* dist, int amount)
-//{
-//	std::vector<std::pair<double, int>> sprites(amount);
-//	for(int i = 0; i < amount; i++) {
-//		sprites[i].first = dist[i];
-//		sprites[i].second = order[i];
-//	}
-//	std::sort(sprites.begin(), sprites.end());
-//	// restore in reverse order to go from farthest to nearest
-//	for(int i = 0; i < amount; i++) {
-//		dist[i] = sprites[amount - i - 1].first;
-//		order[i] = sprites[amount - i - 1].second;
-//	}
-//}
