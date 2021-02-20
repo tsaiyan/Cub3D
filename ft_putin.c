@@ -19,6 +19,7 @@
 
 void ft_putin(t_all *all)
 {
+	all->map.sp_count = 0;
 	all->arrrecuv = NULL;
 	all->array = NULL;
 	all->win.w = 0;

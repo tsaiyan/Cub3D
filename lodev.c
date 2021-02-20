@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#define numSprites 19
+#define numSprites 2
 
 #include "cub3d.h"
 typedef struct Sprite
@@ -20,13 +20,15 @@ typedef struct Sprite
 	int texture;
 }	Sprite;
 
+Sprite sprite[2] =
+{
+	{10, 5, 9},
+	{15, 10, 9},
+};
+
 void	lodev(t_all *s)
 {
-	Sprite sprite[numSprites] =
-	{
-		{10, 5, 9},
-		{15, 10, 9},
-	};
+
 	double ZBuffer[s->win.w];
 	int spriteOrder[numSprites];
 	double spriteDistance[numSprites];
@@ -173,18 +175,14 @@ void	lodev(t_all *s)
 			my_mlx_pixel_put(&s->win, x, y, create_rgb(s->fl.r, s->fl.g, s->fl.b));
 			ZBuffer[x] = perpWallDist;
 	}
-	//SPRITE CASTING
-//	int texWidth = s->sp.w;
-//	int texHeight = s->sp.h;
-	//sort sprites from far to close
-	for (i = 0; i < numSprites; i++)
+	for (i = 0; i < s->map.sp_count; i++)
 	{
 		spriteOrder[i] = i;
 		spriteDistance[i] = ((s->plr.x - sprite[i].x) * (s->plr.x - sprite[i].x) + (s->plr.y - sprite[i].y) * (s->plr.y - sprite[i].y)); //sqrt not taken, unneeded
 	}
 		//sortSprites(spriteOrder, spriteDistance, numSprites);
-		//after sorting the sprites, do the projection and draw them
-	for(i = 0; i < numSprites; i++)
+		//after sorting the sxprites, do the projection and draw them
+	for(i = 0; i < s->map.sp_count; i++)
 	{
 		//translate sprite position to relative to camera
 		spriteX = sprite[spriteOrder[i]].x - s->plr.x;

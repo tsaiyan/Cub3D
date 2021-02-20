@@ -87,6 +87,7 @@ typedef struct	s_map //структура для карты
 	char *so_way;
 	char *we_way;
 	char *ea_way;
+	int	sp_count;
 	char *s_way;
 	char *floor_color;
 	char *sky_color;
@@ -96,6 +97,12 @@ typedef struct	s_map //структура для карты
 	int y;
 	int x;
 }				  t_map;
+
+typedef struct s_sprite
+{
+	double x;
+	double y;
+}	t_sprite;
 
 typedef struct	s_point // структура для точки
 {
@@ -134,6 +141,7 @@ typedef struct	s_all // структура для всего вместе
 	t_fl		fl;
 	t_fl		c;
 	t_mv		mv;
+	t_sprite	sprite;
 	char		**array;
 	char		**arrrecuv;
 }				  t_all;
@@ -166,5 +174,6 @@ void	floor_color(t_fl *strct, char *str);
 int		create_rgb(int r, int g, int b);
 void	ft_exit(char *str, t_all *all);
 void	map_check_around(t_all *s);
+void	sprite_parcer(t_all *s);
 //void	ft_floor(t_all *all);
 #endif /* parcer_map_h */

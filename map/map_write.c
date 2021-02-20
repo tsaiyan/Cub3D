@@ -112,3 +112,38 @@ void	write_player_pi(t_all *all)
 		plr->y += 0.5;
 		}
 }
+
+/*
+** ищет игрока
+** проверяет что он один и есть
+*/
+
+void	find_player(t_all *all)
+{
+	int y;
+	int x;
+
+	y = 0;
+	while (all->array[y])
+	{
+		x = 0;
+		while (all->array[y][x])
+		{
+			if (all->array[y][x] == 'N' || all->array[y][x] == 'S' || \
+				all->array[y][x] == 'W' || all->array[y][x] == 'E')
+			{
+				if (all->plr.plook)
+					ft_exit("double player in map", all);
+				all->plr.plook = all->array[y][x];
+				all->plr.y = y;
+				all->plr.x = x;
+			}
+			if (all->array[y][x] == '2')
+				all->map.sp_count++;
+			x++;
+		}
+		y++;
+	}
+	if (!all->plr.plook)
+		ft_exit("no player in map", all);
+}
