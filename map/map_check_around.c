@@ -66,10 +66,11 @@ void	map_copy(t_all *s)
 {
 	char **line;
 	int j = 0;
-	int i = s->map.lines;
+	int i;
 
+	i = s->map.lines;
 	longer_str(s);
-	if(!(line = (char **)malloc(sizeof(char*) * (i + 2))))
+	if (!(line = (char **)malloc(sizeof(char*) * (i + 2))))
 		ft_exit("can't malloc in map_copy", s);
 	line[0] = mapdup(s, "");
 	line[i] = mapdup(s, "");
@@ -128,7 +129,7 @@ void	map_check_around(t_all *s)
 	while (map[y])
 	{
 		x = 0;
-		while(map[y][x])
+		while (map[y][x])
 		{
 			if (ft_strchr(symbols, map[y][x]))
 				check_around(s, y, x);

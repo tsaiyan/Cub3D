@@ -21,7 +21,7 @@
 int	write_resolution(t_all *all, char *str)
 {
 	all->win.w = ft_atoi(str++);
-	while(ft_isdigit(*str))
+	while (ft_isdigit(*str))
 		str++;
 	if (*str == 32)
 		all->win.h = ft_atoi(str);
@@ -43,7 +43,7 @@ int	write_resolution(t_all *all, char *str)
 
 int	write_ways(t_all *all, char *str, int flag)
 {
-	while(*str == ' ')
+	while (*str == ' ')
 		str++;
 	if (flag < 6 && str[0] != '.' && str[1] != '/')
 		ft_exit("bad chars in way for texture", all);
@@ -122,21 +122,21 @@ void	floor_color(t_fl *strct, char *str)
 	int	res;
 
 	res = 0;
-	while(*str == 32)
+	while (*str == 32)
 		str++;
-	while(ft_isdigit(*str))
+	while (ft_isdigit(*str))
 		res = res * 10 + (*str++ -  48);
 	strct->r = res;
 	res = 0;
-	while(*str == 32 || *str == ',')
+	while (*str == 32 || *str == ',')
 		str++;
-	while(ft_isdigit(*str))
+	while (ft_isdigit(*str))
 		res = res * 10 + (*str++ -  48);
 	strct->g = res;
 	res = 0;
-	while(*str == 32 || *str == ',')
+	while (*str == 32 || *str == ',')
 		str++;
-	while(ft_isdigit(*str))
+	while (ft_isdigit(*str))
 		res = res * 10 + (*str++ -  48);
 	strct->b = res;
 	if (*str)
@@ -157,9 +157,9 @@ void	ft_exit(char *str, t_all *all)
 	write(1, "\n", 1);
 	if (all->array)
 		free(all->array);
-	if(all->arrrecuv)
+	if (all->arrrecuv)
 		free(all->arrrecuv);
-	if(all)
+	if (all)
 		free(all);
 	exit(1);
 }

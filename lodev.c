@@ -84,7 +84,7 @@ void	lodev(t_all *s)
 		deltaDistY = fabs(1 / rayDirY);
 		hit = 0;
 		side = 0;
-		if(rayDirX < 0)
+		if (rayDirX < 0)
 		{
 			stepX = -1;
 			sideDistX = (s->plr.x - mapX) * deltaDistX;
@@ -94,7 +94,7 @@ void	lodev(t_all *s)
 			stepX = 1;
 			sideDistX = (mapX + 1.0 - s->plr.x) * deltaDistX;
 		}
-		if(rayDirY < 0)
+		if (rayDirY < 0)
 		{
 			stepY = -1;
 			sideDistY = (s->plr.y - mapY) * deltaDistY;
@@ -123,26 +123,26 @@ void	lodev(t_all *s)
 			if (s->array[mapY][mapX] > '0')
 				hit = 1;
 		}
-		if(side == 0)
+		if (side == 0)
 			perpWallDist = (mapX - s->plr.x + (1 - stepX) / 2) / rayDirX;
 		else
 			perpWallDist = (mapY - s->plr.y + (1 - stepY) / 2) / rayDirY;
 		lineHeight = (int)(s->win.h / perpWallDist);
 		int drawStart = -lineHeight / 2 + s->win.h / 2;
-		if(drawStart < 0)
+		if (drawStart < 0)
 			drawStart = 0;
 		int drawEnd = lineHeight / 2 + s->win.h / 2;
-		if(drawEnd >= s->win.h)
+		if (drawEnd >= s->win.h)
 			drawEnd = s->win.h - 1;
-		if(side == 0)
+		if (side == 0)
 			wsX = s->plr.y + perpWallDist * rayDirY;
 		else
 			wsX = s->plr.x + perpWallDist * rayDirX;
 		wsX -= floor((wsX));
 		texX = (int)(wsX * (double)(s->no.w));
-		if(side == 0 && rayDirX > 0)
+		if (side == 0 && rayDirX > 0)
 			texX = s->no.w - texX - 1;
-		if(side == 1 && rayDirY < 0)
+		if (side == 1 && rayDirY < 0)
 			texX = s->no.w - texX - 1;
 		step = 1.0 * s->no.h / lineHeight;
 		texPos = (drawStart - s->win.h / 2 + lineHeight / 2) * step;
@@ -205,23 +205,23 @@ void	lodev(t_all *s)
 		 //calculate width of the sprite
 		spriteWidth = abs( (int)(s->win.w / (transformY)));
 		drawStartX = -spriteWidth / 2 + spriteScreenX;
-		if(drawStartX < 0)
+		if (drawStartX < 0)
 			drawStartX = 0;
 		drawEndX = spriteWidth / 2 + spriteScreenX;
-		if(drawEndX >= s->win.w)
+		if (drawEndX >= s->win.w)
 			drawEndX = s->win.w;
 				//loop through every vertical stripe of the sprite on screen
 		stripe = drawStartX;
 		while (stripe < drawEndX)
 		{
 			texX = (int)(256 * (stripe - (-spriteWidth / 2 + spriteScreenX)) * s->sp.w / spriteWidth) / 256;
-			if(transformY > 0 && stripe > 0 && stripe < s->win.w && transformY < ZBuffer[stripe])
+			if (transformY > 0 && stripe > 0 && stripe < s->win.w && transformY < ZBuffer[stripe])
 				for(y = drawStartY; y < drawEndY; y++) //for every pixel of the current stripe
 				{
 					d = y * 256 - s->win.h * 128 + spriteHeight * 128; //256 and 128 factors to avoid floats
 					texY = ((d * s->sp.h) / spriteHeight) / 256;
 					color = get_color(s, texX, texY, 'P'); //get current color from the texture
-					if((color & 0x00FFFF) != 0)
+					if ((color & 0x00FFFF) != 0)
 						my_mlx_pixel_put(&s->win, stripe, y, color);
 				}
 			stripe++;

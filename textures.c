@@ -81,5 +81,5 @@ unsigned	get_color(t_all *all, int x, int y, char side)
 
 int		create_rgb(int r, int g, int b)
 {
-	return(r << 16 | g << 8 | b);
+	return (r << 16 | g << 8 | b);
 }

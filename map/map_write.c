@@ -19,10 +19,11 @@
 
 char	**make_map(t_list **head, int size, t_all *all)
 {
-	char	  **map = ft_calloc(size + 1 - all->map.total_lines_before_map, sizeof(char *));
+	char	  **map;
 	int		  i;
 	t_list	*tmp;
 
+	map = ft_calloc(size + 1 - all->map.total_lines_before_map, sizeof(char *));
 	i = 0;
 	tmp = *head;
 	int count = all->map.total_lines_before_map;
@@ -73,7 +74,9 @@ void	ft_map_parcer(t_all *all, char *argv)
 
 void	write_player_pi(t_all *all)
 {
-	t_plr *plr = &all->plr;
+	t_plr *plr;
+
+	plr = &all->plr;
 	if (plr->plook == 'N')
 	{
 		plr->start = 0;
