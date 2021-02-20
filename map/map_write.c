@@ -14,7 +14,7 @@
 #include "../cub3d.h"
 
 /*
-** запись карты через листы минус строки конфига
+** запись карты через листы без строк конфига
 */
 
 char	**make_map(t_list **head, int size, t_all *all)
@@ -39,6 +39,7 @@ char	**make_map(t_list **head, int size, t_all *all)
 
 
 /*
+** проверка расширения файла
 ** считывание файла и его запись
 ** проверка путей к текстурам
 ** запись карты без конфига
@@ -47,18 +48,26 @@ char	**make_map(t_list **head, int size, t_all *all)
 
 void	ft_map_parcer(t_all *all, char *argv)
 {
-	int fd = open(argv, O_RDONLY);
-	char *line = NULL;
-	t_list *head = NULL;
+	int		fd;
+	char	*line;
+	t_list	*head;
+	size_t	i;
 
+	line = NULL;
+	head = NULL;
+	fd = open(argv, O_RDONLY);
+	i = ft_strlen(argv) - 1;
+	if (argv[i] != 'b' || argv[i -1] != 'u' || argv[i - 2] != 'c' \
+		|| argv[i - 3] != '.')
+		ft_exit("bad map extention", all);
 	while (get_next_line(fd, &line))
 	{
 		config_map(all, line);
 		ft_lstadd_back(&head, ft_lstnew(line));
 	}
-	check_ways(all);
 	ft_lstadd_back(&head, ft_lstnew(line));
 	all->array = make_map(&head, ft_lstsize(head), all);
+	check_ways(all);
 	close(fd);
 }
 

@@ -12,6 +12,8 @@
 
 #ifndef PARCER_MAP_H
 #define PARCER_MAP_H
+#include <math.h>
+#include <string.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <stdarg.h>

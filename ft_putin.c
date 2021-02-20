@@ -12,9 +12,15 @@
 
 #include "cub3d.h"
 
+/*
+** функция, помещающая изначальные значения в структуру
+** (от англ. put in) - класть
+*/
+
 void ft_putin(t_all *all)
 {
-	puts("ft_putin");
+	all->arrrecuv = NULL;
+	all->array = NULL;
 	all->win.w = 0;
 	all->win.h = 0;
 	all->map.error = 0;

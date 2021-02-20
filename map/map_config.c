@@ -12,6 +12,12 @@
 
 #include "../cub3d.h"
 
+/*
+** записывает разрешение, пропускает пробелы через atoi
+** увеличивает счетчик линий до карты
+** проверяет максимальное разрешение, которое соотвествует моему ноуту
+*/
+
 int	write_resolution(t_all *all, char *str)
 {
 	all->win.w = ft_atoi(str++);
@@ -22,13 +28,24 @@ int	write_resolution(t_all *all, char *str)
 	else
 		ft_exit("bad resolution", all);
 	all->map.total_lines_before_map++;
+	if (all->win.w > 1920)
+		all->win.w = 1920;
+	if (all->win.h > 1200)
+		all->win.h = 1200;
 	return (1);
 }
 
-int write_ways(t_all *all, char *str, int flag)
+/*
+** записывает пути к текстурам по флагу
+** проверяет синтаксис пути
+** пропускает пробелы
+*/
+
+int	write_ways(t_all *all, char *str, int flag)
 {
-	str++;
-	if (1 < flag && flag < 6 && str[0] != '.' && str[1] != '/')
+	while(*str == ' ')
+		str++;
+	if (flag < 6 && str[0] != '.' && str[1] != '/')
 		ft_exit("bad chars in way for texture", all);
 	if (flag == 1)
 		all->no.way = str;
@@ -47,6 +64,10 @@ int write_ways(t_all *all, char *str, int flag)
 	all->map.total_lines_before_map++;
 	return (1);
 }
+
+/*
+** определяет флаги для записи путей структур во write_ways
+*/
 
 int	config_map(t_all *all, char *str)
 {
@@ -72,6 +93,10 @@ int	config_map(t_all *all, char *str)
 	return (1);
 }
 
+/*
+** проверяет, что все пути были записаны
+*/
+
 int	check_ways(t_all *all)
 {
 	if (!all->ea.way || \
@@ -87,9 +112,14 @@ int	check_ways(t_all *all)
 	return (1);
 }
 
+/*
+** записывает цвет пола
+** выдает предупреждение, если int пола превышает 255
+*/
+
 void	floor_color(t_fl *strct, char *str)
 {
-	int res;
+	int	res;
 
 	res = 0;
 	while(*str == 32)
@@ -109,17 +139,27 @@ void	floor_color(t_fl *strct, char *str)
 	while(ft_isdigit(*str))
 		res = res * 10 + (*str++ -  48);
 	strct->b = res;
-if (strct->r > 255 || strct->b > 255 || strct->g > 255)
-	write(1, "attention : color int more than 255 \n", 37);
+	if (*str)
+		ft_putstr_fd("ATTENTION: too long color F/C\n", 1);
+	if (strct->r > 255 || strct->b > 255 || strct->g > 255)
+		write(1, "ATTENTION: color int more than 255 \n", 37);
 }
+
+/*
+** функция экстренного завершения программы
+** освобожает память, если она была аллоцирована
+*/
 
 void	ft_exit(char *str, t_all *all)
 {
 	ft_putstr_fd("ERROR!\n", 1);
 	ft_putstr_fd(str, 1);
 	write(1, "\n", 1);
-	free(all->array);
-	free(all->arrrecuv);
-	free(all);
+	if (all->array)
+		free(all->array);
+	if(all->arrrecuv)
+		free(all->arrrecuv);
+	if(all)
+		free(all);
 	exit(1);
 }
