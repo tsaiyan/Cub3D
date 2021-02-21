@@ -102,6 +102,7 @@ typedef struct s_sprite
 {
 	double x;
 	double y;
+	double distance;
 }	t_sprite;
 
 typedef struct	s_point // структура для точки
@@ -176,5 +177,6 @@ void	ft_exit(char *str, t_all *all);
 void	map_check_around(t_all *s);
 void	sprite_init(t_all *s);
 void	sprite_write(t_all *s);
+void	sort_sprite(t_all *s);
 //void	ft_floor(t_all *all);
 #endif /* parcer_map_h */

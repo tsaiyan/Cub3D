@@ -47,6 +47,7 @@ void	sprite_write(t_all *s)
 				{
 					s->sprite[i].y = y;
 					s->sprite[i].x = x;
+					s->sprite[i].distance = ((s->plr.x - x) * (s->plr.x - x) + (s->plr.y - y) * (s->plr.y - y)); 
 					s->array[y][x] = 0;
 					i++;
 				}
@@ -54,4 +55,44 @@ void	sprite_write(t_all *s)
 			}
 			y++;
 		}
+}
+
+void sort_sprite(t_all *s)
+{
+	double x;
+	double y;
+	int i;
+	int flag;
+	double d;
+	
+	flag = 1;
+	puts("- - - - - - -- - ");
+	while (flag)
+	{
+		i = 0;
+		flag = 0;
+		d = 0;
+		while (i <= s->map.sp_count)
+		{
+			if (s->sprite[i].distance < s->sprite[i + 1].distance ) // как сделать защиту?)
+			{
+				x = s->sprite[i].x;
+				y = s->sprite[i].y;
+				d = s->sprite[i].distance;
+				s->sprite[i].x = s->sprite[i + 1].x;
+				s->sprite[i].y = s->sprite[i + 1].y;
+				s->sprite[i].distance = s->sprite[i + 1].distance;
+				s->sprite[i + 1].x = x;
+				s->sprite[i + 1].y = y;
+				s->sprite[i + 1].distance = d;
+				flag = 1;
+				printf("%f\n", s->sprite[i].distance);
+			}
+			i++;
+		}
+		i = 0;
+		while (i < s->map.sp_count)
+			printf("sorted: %f\n", s->sprite[i++].distance);
+	}
+	puts("- - - - - - -- - ");
 }

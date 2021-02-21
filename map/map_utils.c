@@ -22,4 +22,5 @@ void	map_utils(t_all *all)
 	map_check_around(all);
 	sprite_init(all);
 	sprite_write(all);
+	sort_sprite(all);
 }

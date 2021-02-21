@@ -176,6 +176,8 @@ void	lodev(t_all *s)
 		//translate sprite position to relative to camera
 		spriteX = s->sprite[i].x - s->plr.x;
 		spriteY = s->sprite[i].y - s->plr.y;
+		sort_sprite(s);
+		printf("spriteDistance[i] = %f\n", s->sprite[i].distance);
 		invDet = 1.0 / (s->plr.planeX * s->plr.end - s->plr.start * s->plr.planeY); //required for correct matrix multiplication
 		transformX = invDet * (s->plr.end * spriteX - s->plr.start * spriteY);
 		transformY = invDet * (-s->plr.planeY * spriteX + s->plr.planeX * spriteY); //this is actually the depth inside the screen, that what Z is in 3D, the distance of sprite to player, matching sqrt(spriteDistance[i])
