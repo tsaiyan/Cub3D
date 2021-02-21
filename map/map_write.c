@@ -116,6 +116,7 @@ void	write_player_pi(t_all *all)
 /*
 ** ищет игрока
 ** проверяет что он один и есть
+** считает количество спрайтов
 */
 
 void	find_player(t_all *all)

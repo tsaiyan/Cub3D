@@ -12,12 +12,46 @@
 
 #include "../cub3d.h"
 
-void	map_utils(t_all *all)
+/*
+** создает массив спрайтов
+*/
+
+void	sprite_init(t_all *s)
 {
-	find_player(all);
-	write_player_pi(all);
-	floor_color(&all->fl, all->map.floor_color);
-	floor_color(&all->c, all->map.sky_color);
-	map_copy(all);
-	map_check_around(all);
+	t_sprite *sprite;
+	if(!(sprite = malloc(sizeof(t_sprite) * s->map.sp_count)))
+	   ft_exit("can't malloc sprite", s);
+	s->sprite = sprite;
+}
+
+/*
+** записывает координаты спрайтов
+** обнуляет позиции спрайтов в карте чтобы там не было стены
+*/
+
+void	sprite_write(t_all *s)
+{
+	int x;
+	int y;
+	int i;
+
+	i = 0;
+	y = 0;
+	while (i < s->map.sp_count)
+		while(s->array[y])
+		{
+			x = 0;
+			while(s->array[y][x])
+			{
+				if (s->array[y][x] == '2')
+				{
+					s->sprite[i].y = y;
+					s->sprite[i].x = x;
+					s->array[y][x] = 0;
+					i++;
+				}
+				x++;
+			}
+			y++;
+		}
 }

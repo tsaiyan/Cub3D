@@ -13,25 +13,14 @@
 #define numSprites 2
 
 #include "cub3d.h"
-typedef struct Sprite
-{
-	double x;
-	double y;
-	int texture;
-}	Sprite;
 
-Sprite sprite[2] =
-{
-	{10, 5, 9},
-	{15, 10, 9},
-};
 
 void	lodev(t_all *s)
 {
 
 	double ZBuffer[s->win.w];
-	int spriteOrder[numSprites];
-	double spriteDistance[numSprites];
+	int spriteOrder[s->map.sp_count];
+	double spriteDistance[s->map.sp_count];
 	double sideDistX;
 	double sideDistY;
 	double oldsideDist;
@@ -178,15 +167,15 @@ void	lodev(t_all *s)
 	for (i = 0; i < s->map.sp_count; i++)
 	{
 		spriteOrder[i] = i;
-		spriteDistance[i] = ((s->plr.x - sprite[i].x) * (s->plr.x - sprite[i].x) + (s->plr.y - sprite[i].y) * (s->plr.y - sprite[i].y)); //sqrt not taken, unneeded
+		spriteDistance[i] = ((s->plr.x - s->sprite[i].x) * (s->plr.x - s->sprite[i].x) + (s->plr.y - s->sprite[i].y) * (s->plr.y - s->sprite[i].y)); //sqrt not taken, unneeded
 	}
 		//sortSprites(spriteOrder, spriteDistance, numSprites);
 		//after sorting the sxprites, do the projection and draw them
 	for(i = 0; i < s->map.sp_count; i++)
 	{
 		//translate sprite position to relative to camera
-		spriteX = sprite[spriteOrder[i]].x - s->plr.x;
-		spriteY = sprite[spriteOrder[i]].y - s->plr.y;
+		spriteX = s->sprite[i].x - s->plr.x;
+		spriteY = s->sprite[i].y - s->plr.y;
 		invDet = 1.0 / (s->plr.planeX * s->plr.end - s->plr.start * s->plr.planeY); //required for correct matrix multiplication
 		transformX = invDet * (s->plr.end * spriteX - s->plr.start * spriteY);
 		transformY = invDet * (-s->plr.planeY * spriteX + s->plr.planeX * spriteY); //this is actually the depth inside the screen, that what Z is in 3D, the distance of sprite to player, matching sqrt(spriteDistance[i])

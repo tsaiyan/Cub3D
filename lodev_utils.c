@@ -127,6 +127,5 @@ void	lodev_init(t_all *all)
 {
 	all->win.mlx = mlx_init();
 	all->win.win = mlx_new_window(all->win.mlx, all->win.w, all->win.h, "3D");
-	sprite_parcer(all);
 	lodev(all);
 }

@@ -141,7 +141,7 @@ typedef struct	s_all // структура для всего вместе
 	t_fl		fl;
 	t_fl		c;
 	t_mv		mv;
-	t_sprite	sprite;
+	t_sprite	*sprite;
 	char		**array;
 	char		**arrrecuv;
 }				  t_all;
@@ -174,6 +174,7 @@ void	floor_color(t_fl *strct, char *str);
 int		create_rgb(int r, int g, int b);
 void	ft_exit(char *str, t_all *all);
 void	map_check_around(t_all *s);
-void	sprite_parcer(t_all *s);
+void	sprite_init(t_all *s);
+void	sprite_write(t_all *s);
 //void	ft_floor(t_all *all);
 #endif /* parcer_map_h */

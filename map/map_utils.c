@@ -12,7 +12,14 @@
 
 #include "../cub3d.h"
 
-void	sprite_parcer(t_all *s)
+void	map_utils(t_all *all)
 {
-	s->sprite.y = 0;
+	find_player(all);
+	write_player_pi(all);
+	floor_color(&all->fl, all->map.floor_color);
+	floor_color(&all->c, all->map.sky_color);
+	map_copy(all);
+	map_check_around(all);
+	sprite_init(all);
+	sprite_write(all);
 }
