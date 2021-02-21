@@ -714,8 +714,8 @@
             filePath = "map/sprite_write.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "sort_sprite(s)"
             landmarkType = "9">
          </BreakpointContent>
@@ -730,8 +730,8 @@
             filePath = "map/sprite_write.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "sort_sprite(s)"
             landmarkType = "9">
          </BreakpointContent>
@@ -746,8 +746,8 @@
             filePath = "map/sprite_write.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "sort_sprite(s)"
             landmarkType = "9">
          </BreakpointContent>
@@ -762,8 +762,8 @@
             filePath = "map/sprite_write.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "sort_sprite(s)"
             landmarkType = "9">
          </BreakpointContent>
@@ -794,8 +794,8 @@
             filePath = "map/sprite_write.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "sort_sprite(s)"
             landmarkType = "9">
          </BreakpointContent>
@@ -810,8 +810,8 @@
             filePath = "map/sprite_write.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "sort_sprite(s)"
             landmarkType = "9">
          </BreakpointContent>
@@ -826,8 +826,8 @@
             filePath = "map/sprite_write.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "sort_sprite(s)"
             landmarkType = "9">
          </BreakpointContent>

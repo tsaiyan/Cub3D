@@ -64,15 +64,18 @@ void sort_sprite(t_all *s)
 	int i;
 	int flag;
 	double d;
-	
+
 	flag = 1;
 	puts("- - - - - - -- - ");
 	while (flag)
 	{
-		i = 0;
+		i = -1;
 		flag = 0;
 		d = 0;
-		while (i <= s->map.sp_count)
+		while (++i < s->map.sp_count)
+			s->sprite[i].distance = ((s->plr.x - s->sprite[i].x) * (s->plr.x - s->sprite[i].x) + (s->plr.y - s->sprite[i].y) * (s->plr.y - s->sprite[i].y));
+		i = 0;
+		while (i < s->map.sp_count)
 		{
 			if (s->sprite[i].distance < s->sprite[i + 1].distance ) // как сделать защиту?)
 			{
