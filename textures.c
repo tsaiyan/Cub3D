@@ -18,19 +18,19 @@
 ** на этом работа программы завершается
 */
 
-void	write_textures_small(t_txr *st, t_all *all)
+void		write_textures_small(t_txr *st, t_all *all)
 {
 	st->addr = mlx_xpm_file_to_image(all->win.mlx, st->way, &st->w, &st->h);
 	if (!st->addr)
 		ft_exit("can't open texture", all);
-	st->ptr = mlx_get_data_addr(st->addr, &st->bpp,  &st->line_l,  &st->en);
+	st->ptr = mlx_get_data_addr(st->addr, &st->bpp, &st->line_l, &st->en);
 }
 
 /*
 ** функция разделена на две с целью сокращения повторяющегося кода
 */
 
-void	write_textures(t_all *all)
+void		write_textures(t_all *all)
 {
 	t_txr *st;
 
@@ -57,19 +57,19 @@ unsigned	get_color(t_all *all, int x, int y, char side)
 	char	*dst;
 
 	if (side == 'N')
-		 data = &all->no;
+		data = &all->no;
 	else if (side == 'W')
-		 data = &all->we;
+		data = &all->we;
 	else if (side == 'E')
-		 data = &all->ea;
+		data = &all->ea;
 	else if (side == 'S')
-		 data = &all->so;
+		data = &all->so;
 	else if (side == 'P')
-		 data = &all->sp;
+		data = &all->sp;
 	else
 		return (0);
 	dst = data->ptr;
-	dst +=  (x * (data->bpp / 8)) + (y * data->line_l);
+	dst += (x * (data->bpp / 8)) + (y * data->line_l);
 	color = *(unsigned int*)dst;
 	return (color);
 }
@@ -79,7 +79,7 @@ unsigned	get_color(t_all *all, int x, int y, char side)
 ** используется для цветов пола и потолка
 */
 
-int		create_rgb(int r, int g, int b)
+int			create_rgb(int r, int g, int b)
 {
 	return (r << 16 | g << 8 | b);
 }
