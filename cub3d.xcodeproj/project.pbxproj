@@ -23,6 +23,7 @@
 		97787CBC25D82A590001D204 /* textures.c in Sources */ = {isa = PBXBuildFile; fileRef = 97787CBB25D82A590001D204 /* textures.c */; };
 		97787CBE25D835BB0001D204 /* lodev_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 97787CBD25D835BB0001D204 /* lodev_utils.c */; };
 		97844C0F25D42BFA006B1CA8 /* floor.c in Sources */ = {isa = PBXBuildFile; fileRef = 97844C0E25D42BFA006B1CA8 /* floor.c */; };
+		97EBA46025E4181400467741 /* movements.c in Sources */ = {isa = PBXBuildFile; fileRef = 97EBA45F25E4181400467741 /* movements.c */; };
 		9A289D8A25CC463C0093CC63 /* visual_map.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A289D8925CC463C0093CC63 /* visual_map.c */; };
 		9A289D9225CC49890093CC63 /* cub3d.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A289D9125CC49890093CC63 /* cub3d.h */; };
 		9A39295825CB5A4400F613BB /* libft.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A39295625CB5A2A00F613BB /* libft.h */; };
@@ -77,6 +78,7 @@
 		97844C0E25D42BFA006B1CA8 /* floor.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = floor.c; sourceTree = "<group>"; };
 		9794A57625CB36EE00AE3721 /* libmlx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmlx.a; sourceTree = "<group>"; };
 		97E0C7FE25B9DD3000207A28 /* map.cub */ = {isa = PBXFileReference; lastKnownFileType = text; path = map.cub; sourceTree = "<group>"; };
+		97EBA45F25E4181400467741 /* movements.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = movements.c; sourceTree = "<group>"; };
 		9A0CE08025CB2F9D00BC2C6F /* get_next_line_utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = get_next_line_utils.c; path = "gnl copy/get_next_line_utils.c"; sourceTree = SOURCE_ROOT; };
 		9A0CE08225CB2FA600BC2C6F /* get_next_line.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = get_next_line.c; path = "gnl copy/get_next_line.c"; sourceTree = SOURCE_ROOT; };
 		9A0CE08325CB2FA600BC2C6F /* get_next_line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = get_next_line.h; path = "gnl copy/get_next_line.h"; sourceTree = SOURCE_ROOT; };
@@ -110,6 +112,7 @@
 				9A289D9125CC49890093CC63 /* cub3d.h */,
 				97E0C7FE25B9DD3000207A28 /* map.cub */,
 				973B96EA25B9C243008A2E8B /* main.c */,
+				97EBA45F25E4181400467741 /* movements.c */,
 				9732D66E25C06327009D1677 /* ft_putin.c */,
 				9732D66B25C04397009D1677 /* cub3d */,
 				973A408325BEFD980045E7BB /* Makefile */,
@@ -260,6 +263,7 @@
 				9732D66F25C06327009D1677 /* ft_putin.c in Sources */,
 				975E42AB25C0311B00A2707E /* map_write.c in Sources */,
 				97844C0F25D42BFA006B1CA8 /* floor.c in Sources */,
+				97EBA46025E4181400467741 /* movements.c in Sources */,
 				97787CBE25D835BB0001D204 /* lodev_utils.c in Sources */,
 				97501D6825C2FA2500663EE7 /* sprite_write.c in Sources */,
 				976C5A4E25E3F22100DE93EE /* cast_sprites.c in Sources */,

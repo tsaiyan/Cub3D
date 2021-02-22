@@ -23,4 +23,5 @@ void	map_utils(t_all *all)
 	sprite_init(all);
 	sprite_write(all);
 	sort_sprite(all);
+	
 }
