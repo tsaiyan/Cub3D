@@ -64,10 +64,11 @@ char	*mapdup(t_all *s, char *src)
 
 void	map_copy(t_all *s)
 {
-	char **line;
-	int j = 0;
-	int i;
+	char	**line;
+	int		j;
+	int		i;
 
+	j = 0;
 	i = s->map.lines;
 	longer_str(s);
 	if (!(line = (char **)malloc(sizeof(char*) * (i + 2))))
@@ -116,14 +117,14 @@ void	check_around(t_all *s, int y, int x)
 
 void	map_check_around(t_all *s)
 {
-	char **map;
+	char	**map;
+	int		x;
+	int		y;
+	char	*symbols;
+	char	*skip;
 
+	y = 0;
 	map = s->arrrecuv;
-	int x;
-	int y = 0;
-	char *symbols;
-	char *skip;
-
 	symbols = "0SWEN2";
 	skip = "1 \n";
 	while (map[y])
