@@ -22,9 +22,7 @@
 		976C5A4E25E3F22100DE93EE /* cast_sprites.c in Sources */ = {isa = PBXBuildFile; fileRef = 976C5A4D25E3F22100DE93EE /* cast_sprites.c */; };
 		97787CBC25D82A590001D204 /* textures.c in Sources */ = {isa = PBXBuildFile; fileRef = 97787CBB25D82A590001D204 /* textures.c */; };
 		97787CBE25D835BB0001D204 /* lodev_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 97787CBD25D835BB0001D204 /* lodev_utils.c */; };
-		97844C0F25D42BFA006B1CA8 /* floor.c in Sources */ = {isa = PBXBuildFile; fileRef = 97844C0E25D42BFA006B1CA8 /* floor.c */; };
 		97EBA46025E4181400467741 /* movements.c in Sources */ = {isa = PBXBuildFile; fileRef = 97EBA45F25E4181400467741 /* movements.c */; };
-		9A289D8A25CC463C0093CC63 /* visual_map.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A289D8925CC463C0093CC63 /* visual_map.c */; };
 		9A289D9225CC49890093CC63 /* cub3d.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A289D9125CC49890093CC63 /* cub3d.h */; };
 		9A39295825CB5A4400F613BB /* libft.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A39295625CB5A2A00F613BB /* libft.h */; };
 		9A826C0B25DAC77000DAB127 /* libmlx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9794A57625CB36EE00AE3721 /* libmlx.a */; };
@@ -75,14 +73,12 @@
 		976C5A4D25E3F22100DE93EE /* cast_sprites.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cast_sprites.c; sourceTree = "<group>"; };
 		97787CBB25D82A590001D204 /* textures.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = textures.c; sourceTree = "<group>"; };
 		97787CBD25D835BB0001D204 /* lodev_utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = lodev_utils.c; sourceTree = "<group>"; };
-		97844C0E25D42BFA006B1CA8 /* floor.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = floor.c; sourceTree = "<group>"; };
 		9794A57625CB36EE00AE3721 /* libmlx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmlx.a; sourceTree = "<group>"; };
 		97E0C7FE25B9DD3000207A28 /* map.cub */ = {isa = PBXFileReference; lastKnownFileType = text; path = map.cub; sourceTree = "<group>"; };
 		97EBA45F25E4181400467741 /* movements.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = movements.c; sourceTree = "<group>"; };
 		9A0CE08025CB2F9D00BC2C6F /* get_next_line_utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = get_next_line_utils.c; path = "gnl copy/get_next_line_utils.c"; sourceTree = SOURCE_ROOT; };
 		9A0CE08225CB2FA600BC2C6F /* get_next_line.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = get_next_line.c; path = "gnl copy/get_next_line.c"; sourceTree = SOURCE_ROOT; };
 		9A0CE08325CB2FA600BC2C6F /* get_next_line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = get_next_line.h; path = "gnl copy/get_next_line.h"; sourceTree = SOURCE_ROOT; };
-		9A289D8925CC463C0093CC63 /* visual_map.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = visual_map.c; sourceTree = "<group>"; };
 		9A289D9125CC49890093CC63 /* cub3d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cub3d.h; sourceTree = "<group>"; };
 		9A39295625CB5A2A00F613BB /* libft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = libft.h; path = lbft/libft.h; sourceTree = "<group>"; };
 		9A826C0D25DAC7AA00DAB127 /* libft.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libft.a; path = lbft/libft.a; sourceTree = "<group>"; };
@@ -121,7 +117,6 @@
 				97278A4425DAD3CA0060DB0A /* get_next_line.c */,
 				97278A4025DAD3900060DB0A /* get_next_line.h */,
 				97844C0D25D42ACA006B1CA8 /* 3D */,
-				9A289D9025CC48750093CC63 /* 2D */,
 				9A0CE07F25CB2F6800BC2C6F /* gnl */,
 				9A3C90BF25C723540075077D /* map */,
 				9AD8C45025CB29CC00E77F8A /* Frameworks */,
@@ -134,7 +129,6 @@
 				9750EFDA25D1D6F9007262C4 /* lodev.c */,
 				976C5A4D25E3F22100DE93EE /* cast_sprites.c */,
 				97787CBD25D835BB0001D204 /* lodev_utils.c */,
-				97844C0E25D42BFA006B1CA8 /* floor.c */,
 				97787CBB25D82A590001D204 /* textures.c */,
 			);
 			name = 3D;
@@ -148,14 +142,6 @@
 				9A0CE08325CB2FA600BC2C6F /* get_next_line.h */,
 			);
 			path = gnl;
-			sourceTree = "<group>";
-		};
-		9A289D9025CC48750093CC63 /* 2D */ = {
-			isa = PBXGroup;
-			children = (
-				9A289D8925CC463C0093CC63 /* visual_map.c */,
-			);
-			path = 2D;
 			sourceTree = "<group>";
 		};
 		9A3C90BF25C723540075077D /* map */ = {
@@ -262,13 +248,11 @@
 				9732D66D25C0453A009D1677 /* map_config.c in Sources */,
 				9732D66F25C06327009D1677 /* ft_putin.c in Sources */,
 				975E42AB25C0311B00A2707E /* map_write.c in Sources */,
-				97844C0F25D42BFA006B1CA8 /* floor.c in Sources */,
 				97EBA46025E4181400467741 /* movements.c in Sources */,
 				97787CBE25D835BB0001D204 /* lodev_utils.c in Sources */,
 				97501D6825C2FA2500663EE7 /* sprite_write.c in Sources */,
 				976C5A4E25E3F22100DE93EE /* cast_sprites.c in Sources */,
 				97501D6625C2F68A00663EE7 /* map_utils.c in Sources */,
-				9A289D8A25CC463C0093CC63 /* visual_map.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

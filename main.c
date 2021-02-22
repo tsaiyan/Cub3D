@@ -27,10 +27,10 @@
 ** дальше идет рейкастинг
 */
 
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_all *all;
+
 	if (argc != 2)
 		return (0 * (int)write(1, "ERROR\n", 7));
 	if (!(all = malloc(sizeof(t_all))))

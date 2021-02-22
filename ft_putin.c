@@ -17,7 +17,7 @@
 ** (от англ. put in) - класть
 */
 
-void ft_putin(t_all *all)
+void	ft_putin(t_all *all)
 {
 	all->map.sp_count = 0;
 	all->arrrecuv = NULL;
