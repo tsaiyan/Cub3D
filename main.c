@@ -25,6 +25,8 @@
 ** map_utils -> map_copy: копирование карты для валидации / longer_str, mapdup
 ** map_utils -> map_check_around: валидация карты / check_around
 ** дальше идет рейкастинг
+** ПРОВЕРИТЬ: УТЕЧКИ, КНОПКИ ПЕРЕДВИЖЕНИЯ, ПАРСЕР, СКРИНШОТ, MAKEFILE
+** ля скриншот же надо сделать еще
 */
 
 int	main(int argc, char **argv)

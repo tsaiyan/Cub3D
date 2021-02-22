@@ -82,6 +82,7 @@ typedef struct	s_map
 	int			lines;
 	int			y;
 	int			x;
+	int			longest_line;
 }				t_map;
 
 typedef struct	s_sprite
@@ -103,11 +104,6 @@ typedef struct	s_plr
 	char		plook;
 }				t_plr;
 
-typedef struct	s_mv
-{
-	int			longest_line;
-}				t_mv;
-
 typedef struct	s_all
 {
 	t_win		win;
@@ -120,7 +116,6 @@ typedef struct	s_all
 	t_txr		sp;
 	t_fl		fl;
 	t_fl		c;
-	t_mv		mv;
 	t_sprite	*sprite;
 	char		**array;
 	char		**arrrecuv;

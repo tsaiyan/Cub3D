@@ -39,7 +39,7 @@ void	longer_str(t_all *s)
 		i = 0;
 		j++;
 	}
-	s->mv.longest_line = lenght + 1;
+	s->map.longest_line = lenght + 1;
 }
 
 char	*mapdup(t_all *s, char *src)
@@ -48,7 +48,7 @@ char	*mapdup(t_all *s, char *src)
 	size_t	i;
 
 	i = 0;
-	if (!(dest = malloc((s->mv.longest_line + 2) * sizeof(char))))
+	if (!(dest = malloc((s->map.longest_line + 2) * sizeof(char))))
 		ft_exit("can't malloc in mapdup", s);
 	dest[i] = ' ';
 	while (src[i])
@@ -56,7 +56,7 @@ char	*mapdup(t_all *s, char *src)
 		dest[i + 1] = src[i];
 		i++;
 	}
-	while (++i < (s->mv.longest_line + 2))
+	while (++i < (s->map.longest_line + 2))
 		dest[i] = ' ';
 	dest[i] = '\0';
 	return (dest);

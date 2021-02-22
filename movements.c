@@ -102,6 +102,6 @@ void	key_press(int key, t_all *all)
 	if (key == TURN_RIGHT)
 		turn_right(&all->plr, ROT_SPEED);
 	if (key == 53)
-		ft_exit("? NO. IT'S ESCAPE", all);
+		ft_exit("OH, NO. IT'S ESCAPE", all);
 	lodev(all);
 }
