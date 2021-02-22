@@ -98,9 +98,9 @@ void	key_press(int key, t_all *all)
 	if (key == BACK)
 		go_back(all);
 	if (key == TURN_LEFT)
-		turn_left(&all->plr, rotSpeed);
+		turn_left(&all->plr, ROT_SPEED);
 	if (key == TURN_RIGHT)
-		turn_right(&all->plr, rotSpeed);
+		turn_right(&all->plr, ROT_SPEED);
 	if (key == 53)
 		ft_exit("? NO. IT'S ESCAPE", all);
 	lodev(all);
