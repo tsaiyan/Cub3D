@@ -20,25 +20,25 @@ void	casting(t_all *s)
 {
 	int	d;
 
-	while (s->v.stripe < s->v.draw_end_x)
+	while (s->stripe < s->draw_end_x)
 	{
-		s->v.tex_x = (int)(256 * (s->v.stripe - \
-			(-s->v.spr_w / 2 + s->v.spr_scrn_x)) * s->sp.w / s->v.spr_w) / 256;
-		if (s->v.trans_y > 0 && s->v.stripe > 0 && s->v.stripe < s->win.w \
-							&& s->v.trans_y < s->v.z_buffer[s->v.stripe])
+		s->tex_x = (int)(256 * (s->stripe - \
+			(-s->spr_w / 2 + s->spr_scrn_x)) * s->sp.w / s->spr_w) / 256;
+		if (s->tr_y > 0 && s->stripe > 0 && s->stripe < s->win.w \
+							&& s->tr_y < s->z_buffer[s->stripe])
 		{
-			s->v.y = s->v.draw_start_y;
-			while (s->v.y < s->v.draw_end_y)
+			s->y = s->draw_start_y;
+			while (s->y < s->drw_nd_y)
 			{
-				d = s->v.y * 256 - s->win.h * 128 + s->v.sprite_height * 128;
-				s->v.tex_y = ((d * s->sp.h) / s->v.sprite_height) / 256;
-				s->v.color = get_color(s, s->v.tex_x, s->v.tex_y, 'P');
-				if ((s->v.color & 0x00FFFF) != 0)
-					my_mlx_pixel_put(&s->win, s->v.stripe, s->v.y, s->v.color);
-				s->v.y++;
+				d = s->y * 256 - s->win.h * 128 + s->spr_h * 128;
+				s->tex_y = ((d * s->sp.h) / s->spr_h) / 256;
+				s->color = get_color(s, s->tex_x, s->tex_y, 'P');
+				if ((s->color & 0x00FFFF) != 0)
+					my_mlx_pixel_put(&s->win, s->stripe, s->y, s->color);
+				s->y++;
 			}
 		}
-		s->v.stripe++;
+		s->stripe++;
 	}
 }
 
@@ -48,28 +48,28 @@ void	casting(t_all *s)
 
 void	spites(t_all *s)
 {
-	s->v.i = 0;
-	while (s->v.i < s->map.sp_count)
+	s->i = 0;
+	while (s->i < s->map.sp_count)
 	{
-		s->v.sprt_x = s->sprite[s->v.i].x - s->plr.x;
-		s->v.sprt_y = s->sprite[s->v.i].y - s->plr.y;
+		s->sprt_x = s->sprite[s->i].x - s->plr.x;
+		s->sprt_y = s->sprite[s->i].y - s->plr.y;
 		sort_sprite(s);
-		s->v.i_d = 1.0 / (s->plr.plx * s->plr.end - s->plr.start * s->plr.ply);
-		s->v.trans_x = s->v.i_d * (s->plr.end * s->v.sprt_x - s->plr.start * s->v.sprt_y);
-		s->v.trans_y = s->v.i_d * (-s->plr.ply * s->v.sprt_x + s->plr.plx * s->v.sprt_y);
-		s->v.spr_scrn_x = (int)((s->win.w / 2) * (1 + s->v.trans_x / s->v.trans_y));
-		s->v.sprite_height = abs((int)(s->win.h / (s->v.trans_y)));
-		s->v.draw_start_y = (s->win.h / 2) - (s->v.sprite_height / 2);
-		s->v.draw_start_y = (s->v.draw_start_y < 0) ? 0 : s->v.draw_start_y;
-		s->v.draw_end_y = (s->v.sprite_height / 2) + (s->win.h / 2);
-		s->v.draw_end_y = (s->v.draw_end_y >= s->win.h) ? s->win.h - 1 : s->v.draw_end_y;
-		s->v.spr_w = abs((int)(s->win.w / (s->v.trans_y)));
-		s->v.draw_start_x = -s->v.spr_w / 2 + s->v.spr_scrn_x;
-		s->v.draw_start_x = (s->v.draw_start_x < 0) ? 0 : s->v.draw_start_x;
-		s->v.draw_end_x = s->v.spr_w / 2 + s->v.spr_scrn_x;
-		s->v.draw_end_x = (s->v.draw_end_x >= s->win.w) ? s->win.w : s->v.draw_end_x;
-		s->v.stripe = s->v.draw_start_x;
+		s->i_d = 1.0 / (s->plr.plx * s->plr.end - s->plr.start * s->plr.ply);
+		s->tr_x = s->i_d * (s->plr.end * s->sprt_x - s->plr.start * s->sprt_y);
+		s->tr_y = s->i_d * (-s->plr.ply * s->sprt_x + s->plr.plx * s->sprt_y);
+		s->spr_scrn_x = (int)((s->win.w / 2) * (1 + s->tr_x / s->tr_y));
+		s->spr_h = abs((int)(s->win.h / (s->tr_y)));
+		s->draw_start_y = (s->win.h / 2) - (s->spr_h / 2);
+		s->draw_start_y = (s->draw_start_y < 0) ? 0 : s->draw_start_y;
+		s->drw_nd_y = (s->spr_h / 2) + (s->win.h / 2);
+		s->drw_nd_y = (s->drw_nd_y >= s->win.h) ? s->win.h - 1 : s->drw_nd_y;
+		s->spr_w = abs((int)(s->win.w / (s->tr_y)));
+		s->draw_start_x = -s->spr_w / 2 + s->spr_scrn_x;
+		s->draw_start_x = (s->draw_start_x < 0) ? 0 : s->draw_start_x;
+		s->draw_end_x = s->spr_w / 2 + s->spr_scrn_x;
+		s->draw_end_x = (s->draw_end_x >= s->win.w) ? s->win.w : s->draw_end_x;
+		s->stripe = s->draw_start_x;
 		casting(s);
-		s->v.i++;
+		s->i++;
 	}
 }

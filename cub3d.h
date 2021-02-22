@@ -130,6 +130,27 @@ typedef struct	s_mv
 
 typedef struct	s_v
 {
+
+}				t_v;
+
+typedef struct	s_all // структура для всего вместе
+{
+	t_win		win;
+	t_plr		plr;
+	t_map		map;
+	t_dd		dd;
+	t_txr		no;
+	t_txr		so;
+	t_txr		ea;
+	t_txr		we;
+	t_txr		sp;
+	t_fl		fl;
+	t_fl		c;
+	t_mv		mv;
+	t_v			v;
+	t_sprite	*sprite;
+	char		**array;
+	char		**arrrecuv;
 	double side_dist_x;
 	double side_dist_y;
 	double old_side_dist;
@@ -155,12 +176,12 @@ typedef struct	s_v
 	double sprt_y;
 	int color;
 	double i_d;
-	double trans_x;
-	double trans_y;
+	double tr_x;
+	double tr_y;
 	int spr_scrn_x;
-	int sprite_height;
+	int spr_h;
 	int draw_start_y;
-	int draw_end_y;
+	int drw_nd_y;
 	int spr_w;
 	int draw_start_x;
 	int draw_end_x;
@@ -169,26 +190,6 @@ typedef struct	s_v
 	int i;
 	double *z_buffer;
 	int	stripe;
-}				t_v;
-
-typedef struct	s_all // структура для всего вместе
-{
-	t_win		win;
-	t_plr		plr;
-	t_map		map;
-	t_dd		dd;
-	t_txr		no;
-	t_txr		so;
-	t_txr		ea;
-	t_txr		we;
-	t_txr		sp;
-	t_fl		fl;
-	t_fl		c;
-	t_mv		mv;
-	t_v			v;
-	t_sprite	*sprite;
-	char		**array;
-	char		**arrrecuv;
 }				  t_all;
 
 
