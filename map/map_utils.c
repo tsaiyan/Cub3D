@@ -15,6 +15,8 @@
 void	map_utils(t_all *all)
 {
 	find_player(all);
+	if (!all->plr.plook)
+		ft_exit("no player in map", all);
 	write_player_pi(all);
 	floor_color(&all->fl, all->map.floor_color);
 	floor_color(&all->c, all->map.sky_color);

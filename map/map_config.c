@@ -18,7 +18,7 @@
 ** проверяет максимальное разрешение, которое соотвествует моему ноуту
 */
 
-int	write_resolution(t_all *all, char *str)
+void	write_resolution(t_all *all, char *str)
 {
 	all->win.w = ft_atoi(str++);
 	while (ft_isdigit(*str))
@@ -32,7 +32,6 @@ int	write_resolution(t_all *all, char *str)
 		all->win.w = 1920;
 	if (all->win.h > 1200)
 		all->win.h = 1200;
-	return (1);
 }
 
 /*
@@ -41,7 +40,7 @@ int	write_resolution(t_all *all, char *str)
 ** пропускает пробелы
 */
 
-int	write_ways(t_all *all, char *str, int flag)
+void	write_ways(t_all *all, char *str, int flag)
 {
 	while (*str == ' ')
 		str++;
@@ -62,14 +61,13 @@ int	write_ways(t_all *all, char *str, int flag)
 	else if (flag == 7)
 		all->map.sky_color = str;
 	all->map.total_lines_before_map++;
-	return (1);
 }
 
 /*
 ** определяет флаги для записи путей структур во write_ways
 */
 
-int	config_map(t_all *all, char *str)
+void	config_map(t_all *all, char *str)
 {
 	if (str[0] == '\0')
 		all->map.total_lines_before_map++;
@@ -89,15 +87,13 @@ int	config_map(t_all *all, char *str)
 		write_ways(all, (str + 1), 6);
 	else if (*str == 'C' && *(str + 1) == 32)
 		write_ways(all, (str + 1), 7);
-
-	return (1);
 }
 
 /*
 ** проверяет, что все пути были записаны
 */
 
-int	check_ways(t_all *all)
+void	check_ways(t_all *all)
 {
 	if (!all->ea.way || \
 		!all->so.way || \
@@ -109,7 +105,6 @@ int	check_ways(t_all *all)
 		!all->map.floor_color || \
 		!all->map.sky_color)
 		ft_exit("BAD WAY FOR TEXTURES!", all);
-	return (1);
 }
 
 /*
@@ -125,41 +120,22 @@ void	floor_color(t_fl *strct, char *str)
 	while (*str == 32)
 		str++;
 	while (ft_isdigit(*str))
-		res = res * 10 + (*str++ -  48);
+		res = res * 10 + (*str++ - 48);
 	strct->r = res;
 	res = 0;
 	while (*str == 32 || *str == ',')
 		str++;
 	while (ft_isdigit(*str))
-		res = res * 10 + (*str++ -  48);
+		res = res * 10 + (*str++ - 48);
 	strct->g = res;
 	res = 0;
 	while (*str == 32 || *str == ',')
 		str++;
 	while (ft_isdigit(*str))
-		res = res * 10 + (*str++ -  48);
+		res = res * 10 + (*str++ - 48);
 	strct->b = res;
 	if (*str)
 		ft_putstr_fd("ATTENTION: too long color F/C\n", 1);
 	if (strct->r > 255 || strct->b > 255 || strct->g > 255)
 		write(1, "ATTENTION: color int more than 255 \n", 37);
-}
-
-/*
-** функция экстренного завершения программы
-** освобожает память, если она была аллоцирована
-*/
-
-void	ft_exit(char *str, t_all *all)
-{
-	ft_putstr_fd("ERROR!\n", 1);
-	ft_putstr_fd(str, 1);
-	write(1, "\n", 1);
-	if (all->array)
-		free(all->array);
-	if (all->arrrecuv)
-		free(all->arrrecuv);
-	if (all)
-		free(all);
-	exit(1);
 }

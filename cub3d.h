@@ -188,6 +188,8 @@ typedef struct	s_all // структура для всего вместе
 	int x;
 	int y;
 	int i;
+	int j;
+	int flag;
 	double *z_buffer;
 	int	stripe;
 }				  t_all;
@@ -196,11 +198,11 @@ typedef struct	s_all // структура для всего вместе
 void printf_checks(t_all *all);
 // for map:
 void	ft_map_parcer(t_all *all, char *argv);
-int		config_map(t_all *all, char *str);
+void		config_map(t_all *all, char *str);
 void	ft_putin(t_all *all);
 char	**make_map(t_list **head, int size, t_all *all);
 void	map_copy(t_all *all);
-int		check_ways(t_all *all);
+void		check_ways(t_all *all);
 void	map_utils(t_all *all);
 int		map_validate(t_all *all);
 void	find_player(t_all *all);

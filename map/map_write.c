@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../cub3d.h"
 
 /*
@@ -19,25 +18,25 @@
 
 char	**make_map(t_list **head, int size, t_all *all)
 {
-	char	  **map;
-	int		  i;
+	char	**map;
+	int		i;
 	t_list	*tmp;
+	int		count;
 
 	map = ft_calloc(size + 1 - all->map.total_lines_before_map, sizeof(char *));
 	i = 0;
 	tmp = *head;
-	int count = all->map.total_lines_before_map;
+	count = all->map.total_lines_before_map;
 	while (count--)
 		tmp = tmp->next;
 	while (tmp)
 	{
 		map[i++] = tmp->content;
-		tmp= tmp->next;
+		tmp = tmp->next;
 		all->map.lines++;
 	}
 	return (map);
 }
-
 
 /*
 ** проверка расширения файла
@@ -58,7 +57,7 @@ void	ft_map_parcer(t_all *all, char *argv)
 	head = NULL;
 	fd = open(argv, O_RDONLY);
 	i = ft_strlen(argv) - 1;
-	if (argv[i] != 'b' || argv[i -1] != 'u' || argv[i - 2] != 'c' \
+	if (argv[i] != 'b' || argv[i - 1] != 'u' || argv[i - 2] != 'c' \
 		|| argv[i - 3] != '.')
 		ft_exit("bad map extention", all);
 	while (get_next_line(fd, &line))
@@ -70,6 +69,30 @@ void	ft_map_parcer(t_all *all, char *argv)
 	all->array = make_map(&head, ft_lstsize(head), all);
 	check_ways(all);
 	close(fd);
+}
+
+void	write_player_pi2(t_all *all)
+{
+	t_plr *plr;
+
+	plr = &all->plr;
+	if (plr->plook == 'E')
+	{
+		plr->start = 1;
+		plr->end = 0;
+		plr->plx = 0;
+		plr->ply = 0.66;
+		plr->y += 0.5;
+	}
+	if (plr->plook == 'S')
+	{
+		plr->start = 0;
+		plr->end = 1;
+		plr->plx = -0.66;
+		plr->ply = 0;
+		plr->x += 0.5;
+		plr->y += 0.5;
+	}
 }
 
 void	write_player_pi(t_all *all)
@@ -87,30 +110,14 @@ void	write_player_pi(t_all *all)
 		plr->y += 0.5;
 	}
 	if (plr->plook == 'W')
-		{
+	{
 		plr->start = -1;
 		plr->end = 0;
 		plr->plx = 0;
 		plr->ply = -0.66;
 		plr->y += 0.5;
 	}
-	if (plr->plook == 'E')
-	{
-		plr->start = 1;
-		plr->end = 0;
-		plr->plx = 0;
-		plr->ply = 0.66;
-		plr->y += 0.5;
-	}
-	if (plr->plook == 'S')
-		{
-		plr->start = 0;
-		plr->end = 1;
-		plr->plx = -0.66;
-		plr->ply = 0;
-		plr->x += 0.5;
-		plr->y += 0.5;
-		}
+	write_player_pi2(all);
 }
 
 /*
@@ -145,6 +152,4 @@ void	find_player(t_all *all)
 		}
 		y++;
 	}
-	if (!all->plr.plook)
-		ft_exit("no player in map", all);
 }
