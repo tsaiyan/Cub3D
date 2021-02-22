@@ -118,8 +118,8 @@ typedef struct	s_plr //структура для игрока и луча
 	float		dir;
 	double		start;
 	double		end;
-	double		planeX;
-	double		planeY;
+	double		plx;
+	double		ply;
 	char		plook;
 }				  t_plr;
 
@@ -127,6 +127,49 @@ typedef struct	s_mv
 {
 	int longest_line;
 }				t_mv;
+
+typedef struct	s_v
+{
+	double side_dist_x;
+	double side_dist_y;
+	double old_side_dist;
+	double perp_wall_dist;
+	int	step_x;
+	int	step_y;
+	double delta_dist_x;
+	double delta_dist_y;
+	double ws_x;
+	double camera_x;
+	double ray_dir_x;
+	double ray_dir_y;
+	int map_x;
+	int map_y;
+	int hit;
+	int side;
+	double step;
+	int tex_x;
+	int tex_y;
+	int line_height;
+	double tex_pos;
+	double sprt_x;
+	double sprt_y;
+	int color;
+	double i_d;
+	double trans_x;
+	double trans_y;
+	int spr_scrn_x;
+	int sprite_height;
+	int draw_start_y;
+	int draw_end_y;
+	int spr_w;
+	int draw_start_x;
+	int draw_end_x;
+	int x;
+	int y;
+	int i;
+	double *z_buffer;
+	int	stripe;
+}				t_v;
 
 typedef struct	s_all // структура для всего вместе
 {
@@ -142,6 +185,7 @@ typedef struct	s_all // структура для всего вместе
 	t_fl		fl;
 	t_fl		c;
 	t_mv		mv;
+	t_v			v;
 	t_sprite	*sprite;
 	char		**array;
 	char		**arrrecuv;
@@ -178,5 +222,6 @@ void	map_check_around(t_all *s);
 void	sprite_init(t_all *s);
 void	sprite_write(t_all *s);
 void	sort_sprite(t_all *s);
+void	spites(t_all *s);
 //void	ft_floor(t_all *all);
 #endif /* parcer_map_h */

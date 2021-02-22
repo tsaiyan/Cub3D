@@ -48,7 +48,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
             endingLineNumber = "54"
-            landmarkName = "config_map(all, str)"
+            landmarkName = "write_ways(all, str, flag)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -151,22 +151,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2DECC5A6-A6EC-44BB-B122-C47FBDC03035"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "lodev.c"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "lodev(s)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "6E539A2F-EDC2-4DFE-B100-A1CE7905D192"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -174,8 +158,8 @@
             filePath = "lodev.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "lodev(s)"
             landmarkType = "9">
          </BreakpointContent>
@@ -190,8 +174,8 @@
             filePath = "lodev.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232">
+            startingLineNumber = "136"
+            endingLineNumber = "136">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -204,8 +188,8 @@
             filePath = "lodev.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232">
+            startingLineNumber = "136"
+            endingLineNumber = "136">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -330,8 +314,8 @@
             filePath = "lodev.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "lodev(s)"
             landmarkType = "9">
          </BreakpointContent>
@@ -346,8 +330,8 @@
             filePath = "lodev.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "lodev(s)"
             landmarkType = "9">
          </BreakpointContent>
@@ -362,8 +346,8 @@
             filePath = "lodev.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232">
+            startingLineNumber = "136"
+            endingLineNumber = "136">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -376,8 +360,8 @@
             filePath = "lodev.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "lodev(s)"
             landmarkType = "9">
          </BreakpointContent>
@@ -392,8 +376,8 @@
             filePath = "lodev.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "lodev(s)"
             landmarkType = "9">
          </BreakpointContent>
@@ -410,7 +394,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "93"
             endingLineNumber = "93"
-            landmarkName = "floor_color(strct, str)"
+            landmarkName = "config_map(all, str)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -426,7 +410,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
             endingLineNumber = "102"
-            landmarkName = "floor_color(strct, str)"
+            landmarkName = "check_ways(all)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -442,8 +426,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "117"
             endingLineNumber = "117"
-            landmarkName = "ft_exit(str, all)"
-            landmarkType = "9">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -456,10 +440,8 @@
             filePath = "lodev.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
-            landmarkName = "lodev(s)"
-            landmarkType = "9">
+            startingLineNumber = "136"
+            endingLineNumber = "136">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -472,8 +454,8 @@
             filePath = "lodev.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232">
+            startingLineNumber = "136"
+            endingLineNumber = "136">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -486,10 +468,8 @@
             filePath = "lodev.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
-            landmarkName = "lodev(s)"
-            landmarkType = "9">
+            startingLineNumber = "136"
+            endingLineNumber = "136">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -502,10 +482,8 @@
             filePath = "lodev.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
-            landmarkName = "lodev(s)"
-            landmarkType = "9">
+            startingLineNumber = "136"
+            endingLineNumber = "136">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -518,10 +496,8 @@
             filePath = "lodev.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
-            landmarkName = "lodev(s)"
-            landmarkType = "9">
+            startingLineNumber = "136"
+            endingLineNumber = "136">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -534,8 +510,8 @@
             filePath = "lodev.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232">
+            startingLineNumber = "136"
+            endingLineNumber = "136">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -548,8 +524,8 @@
             filePath = "lodev.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232">
+            startingLineNumber = "136"
+            endingLineNumber = "136">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -562,8 +538,8 @@
             filePath = "lodev.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232">
+            startingLineNumber = "136"
+            endingLineNumber = "136">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -578,7 +554,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
             endingLineNumber = "54"
-            landmarkName = "map_copy(s)"
+            landmarkName = "mapdup(s, src)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -594,7 +570,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
             endingLineNumber = "34"
-            landmarkName = "mapdup(s, src)"
+            landmarkName = "longer_str(s)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -610,8 +586,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "11"
             endingLineNumber = "11"
-            landmarkName = "longer_str(s)"
-            landmarkType = "9">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -626,7 +602,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
             endingLineNumber = "60"
-            landmarkName = "map_copy(s)"
+            landmarkName = "mapdup(s, src)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -658,7 +634,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
             endingLineNumber = "63"
-            landmarkName = "map_copy(s)"
+            landmarkName = "mapdup(s, src)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -690,7 +666,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
             endingLineNumber = "43"
-            landmarkName = "mapdup(s, src)"
+            landmarkName = "longer_str(s)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -714,7 +690,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4DBE3C93-3D32-4704-89E2-A630E36D8BE0"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "map/map_check_around.c"
@@ -722,7 +698,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "111"
             endingLineNumber = "111"
-            landmarkName = "map_check_around(s)"
+            landmarkName = "check_around(s, y, x)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

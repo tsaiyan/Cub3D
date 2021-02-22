@@ -81,8 +81,8 @@ void	write_player_pi(t_all *all)
 	{
 		plr->start = 0;
 		plr->end = -1;
-		plr->planeX = 0.66;
-		plr->planeY = 0;
+		plr->plx = 0.66;
+		plr->ply = 0;
 		plr->x += 0.5;
 		plr->y += 0.5;
 	}
@@ -90,24 +90,24 @@ void	write_player_pi(t_all *all)
 		{
 		plr->start = -1;
 		plr->end = 0;
-		plr->planeX = 0;
-		plr->planeY = -0.66;
+		plr->plx = 0;
+		plr->ply = -0.66;
 		plr->y += 0.5;
 	}
 	if (plr->plook == 'E')
 	{
 		plr->start = 1;
 		plr->end = 0;
-		plr->planeX = 0;
-		plr->planeY = 0.66;
+		plr->plx = 0;
+		plr->ply = 0.66;
 		plr->y += 0.5;
 	}
 	if (plr->plook == 'S')
 		{
 		plr->start = 0;
 		plr->end = 1;
-		plr->planeX = -0.66;
-		plr->planeY = 0;
+		plr->plx = -0.66;
+		plr->ply = 0;
 		plr->x += 0.5;
 		plr->y += 0.5;
 		}

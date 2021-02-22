@@ -35,36 +35,36 @@ void	my_mlx_pixel_put(t_win *data, int x, int y, int color)
 
 void	turn_right(t_plr *plr, double step)
 {
-	double planeX;
+	double plx;
 	double planeY;
 	double dirX;
 	double dirY;
 
-	planeX = plr->planeX;
-	planeY = plr->planeY;
+	plx = plr->plx;
+	planeY = plr->ply;
 	dirX = plr->start;
 	dirY = plr->end;
 	plr->start = dirX * cos(step) - dirY * sin(step);
 	plr->end = dirX * sin(step) + dirY * cos(step);
-	plr->planeX = planeX * cos(step) - planeY * sin(step);
-	plr->planeY = planeX * sin(step) + planeY * cos(step);
+	plr->plx = plx * cos(step) - planeY * sin(step);
+	plr->ply = plx * sin(step) + planeY * cos(step);
 }
 
 void	turn_left(t_plr *plr, double step)
 {
-	double planeX;
+	double plx;
 	double planeY;
 	double dirX;
 	double dirY;
 
-	planeX = plr->planeX;
-	planeY = plr->planeY;
+	plx = plr->plx;
+	planeY = plr->ply;
 	dirX = plr->start;
 	dirY = plr->end;
 	plr->start = dirX * cos(-step) - dirY * sin(-step);
 	plr->end = dirX * sin(-step) + dirY * cos(-step);
-	plr->planeX = planeX * cos(-step) - planeY * sin(-step);
-	plr->planeY = planeX * sin(-step) + planeY * cos(-step);
+	plr->plx = plx * cos(-step) - planeY * sin(-step);
+	plr->ply = plx * sin(-step) + planeY * cos(-step);
 }
 
 void	go_forward(t_all *all)
@@ -115,7 +115,7 @@ void	key_press(int key, t_all *all)
 	if (key == TURN_RIGHT)
 		turn_right(&all->plr, rotSpeed);
 	if (key == 53)
-		ft_exit("ESC", all);
+		ft_exit("? NO. IT'S ESCAPE", all);
 	lodev(all);
 }
 
