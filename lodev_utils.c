@@ -18,7 +18,7 @@
 ** y * line_l перед по строкам
 */
 
-void	my_mlx_pixel_put(t_win *data, int x, int y, int color)
+void	pixel_put(t_win *data, int x, int y, int color)
 {
 	char	*dst;
 
@@ -30,11 +30,14 @@ void	my_mlx_pixel_put(t_win *data, int x, int y, int color)
 ** инициализация окна
 */
 
-void	lodev_init(t_all *all)
+void	lodev_init(t_all *s)
 {
-	all->win.mlx = mlx_init();
-	all->win.win = mlx_new_window(all->win.mlx, all->win.w, all->win.h, "3D");
-	lodev(all);
+	s->win.mlx = mlx_init();
+	s->win.win = mlx_new_window(s->win.mlx, s->win.w, s->win.h, "3D");
+	write_textures(s);
+	s->array[(int)s->plr.y][(int)s->plr.x] = '0';
+	lodev(s);
+	
 }
 
 /*

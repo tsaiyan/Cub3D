@@ -16,7 +16,7 @@
 ** цикл отрисовки спрайтов
 */
 
-void	casting(t_all *s)
+static void	casting(t_all *s)
 {
 	int	d;
 
@@ -34,7 +34,7 @@ void	casting(t_all *s)
 				s->tex_y = ((d * s->sp.h) / s->spr_h) / 256;
 				s->color = get_color(s, s->tex_x, s->tex_y, 'P');
 				if ((s->color & 0x00FFFF) != 0)
-					my_mlx_pixel_put(&s->win, s->stripe, s->y, s->color);
+					pixel_put(&s->win, s->stripe, s->y, s->color);
 				s->y++;
 			}
 		}

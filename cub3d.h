@@ -31,6 +31,7 @@
 # define BACK 1
 # define TURN_LEFT 0
 # define TURN_RIGHT 2
+# define MLX_GADR mlx_get_data_addr
 
 typedef struct	s_win
 {
@@ -122,7 +123,7 @@ typedef struct	s_all
 	double		side_dist_x;
 	double		side_dist_y;
 	double		old_side_dist;
-	double		perp_wall_dist;
+	double		pwd;
 	int			step_x;
 	int			step_y;
 	double		delta_dist_x;
@@ -160,9 +161,10 @@ typedef struct	s_all
 	int			flag;
 	double		*z_buffer;
 	int			stripe;
+	int			draw_start;
+	int			draw_end;
 }				t_all;
 
-void			printf_checks(t_all *all);
 void			ft_map_parcer(t_all *all, char *argv);
 void			config_map(t_all *all, char *str);
 void			ft_putin(t_all *all);
@@ -172,17 +174,15 @@ void			check_ways(t_all *all);
 void			map_utils(t_all *all);
 int				map_validate(t_all *all);
 void			find_player(t_all *all);
-int				bad_chars_in_map(t_all *all);
-int				borders_ok(t_all *all);
 void			write_player_pi(t_all *all);
 void			key_press(int key, t_all *all);
 void			lodev(t_all *all);
-void			my_mlx_pixel_put(t_win *data, int x, int y, int color);
+void			pixel_put(t_win *data, int x, int y, int color);
 void			lodev_init(t_all *all);
 void			write_textures(t_all *all);
 unsigned		get_color(t_all *all, int x, int y, char side);
 void			floor_color(t_fl *strct, char *str);
-int				create_rgb(int r, int g, int b);
+int				rgb(int r, int g, int b);
 void			ft_exit(char *str, t_all *all);
 void			map_check_around(t_all *s);
 void			sprite_init(t_all *s);
