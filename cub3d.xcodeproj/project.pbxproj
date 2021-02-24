@@ -18,6 +18,7 @@
 		97501D6625C2F68A00663EE7 /* map_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 97501D6525C2F68A00663EE7 /* map_utils.c */; };
 		97501D6825C2FA2500663EE7 /* sprite_write.c in Sources */ = {isa = PBXBuildFile; fileRef = 97501D6725C2FA2500663EE7 /* sprite_write.c */; };
 		9750EFDB25D1D6F9007262C4 /* lodev.c in Sources */ = {isa = PBXBuildFile; fileRef = 9750EFDA25D1D6F9007262C4 /* lodev.c */; };
+		975A362925E6CF97007D48FD /* screenshot.c in Sources */ = {isa = PBXBuildFile; fileRef = 975A362825E6CF97007D48FD /* screenshot.c */; };
 		975E42AB25C0311B00A2707E /* map_write.c in Sources */ = {isa = PBXBuildFile; fileRef = 975E42A925C0311B00A2707E /* map_write.c */; };
 		976C5A4E25E3F22100DE93EE /* cast_sprites.c in Sources */ = {isa = PBXBuildFile; fileRef = 976C5A4D25E3F22100DE93EE /* cast_sprites.c */; };
 		97787CBC25D82A590001D204 /* textures.c in Sources */ = {isa = PBXBuildFile; fileRef = 97787CBB25D82A590001D204 /* textures.c */; };
@@ -69,6 +70,7 @@
 		97501D6525C2F68A00663EE7 /* map_utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = map_utils.c; sourceTree = "<group>"; };
 		97501D6725C2FA2500663EE7 /* sprite_write.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sprite_write.c; sourceTree = "<group>"; };
 		9750EFDA25D1D6F9007262C4 /* lodev.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = lodev.c; sourceTree = "<group>"; };
+		975A362825E6CF97007D48FD /* screenshot.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = screenshot.c; sourceTree = "<group>"; };
 		975E42A925C0311B00A2707E /* map_write.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = map_write.c; sourceTree = "<group>"; };
 		976C5A4D25E3F22100DE93EE /* cast_sprites.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cast_sprites.c; sourceTree = "<group>"; };
 		97787CBB25D82A590001D204 /* textures.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = textures.c; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				9732D66E25C06327009D1677 /* ft_putin.c */,
 				9732D66B25C04397009D1677 /* cub3d */,
 				973A408325BEFD980045E7BB /* Makefile */,
+				975A362825E6CF97007D48FD /* screenshot.c */,
 				9A39295625CB5A2A00F613BB /* libft.h */,
 				97278A4325DAD3CA0060DB0A /* get_next_line_utils.c */,
 				97278A4425DAD3CA0060DB0A /* get_next_line.c */,
@@ -247,6 +250,7 @@
 				97787CBC25D82A590001D204 /* textures.c in Sources */,
 				9732D66D25C0453A009D1677 /* map_config.c in Sources */,
 				9732D66F25C06327009D1677 /* ft_putin.c in Sources */,
+				975A362925E6CF97007D48FD /* screenshot.c in Sources */,
 				975E42AB25C0311B00A2707E /* map_write.c in Sources */,
 				97EBA46025E4181400467741 /* movements.c in Sources */,
 				97787CBE25D835BB0001D204 /* lodev_utils.c in Sources */,

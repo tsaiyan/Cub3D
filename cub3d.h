@@ -32,7 +32,11 @@
 # define TURN_LEFT 0
 # define TURN_RIGHT 2
 # define MLX_GADR mlx_get_data_addr
-
+# define CASTING_WALLS casting
+# define CHOISE_SIDE choise_side
+# define CAST_SPRITES spites
+# define X	s->x
+# define Y	s->y
 typedef struct	s_win
 {
 	void		*mlx;
@@ -142,7 +146,7 @@ typedef struct	s_all
 	double		step;
 	int			tex_x;
 	int			tex_y;
-	int			line_height;
+	int			line_h;
 	double		tex_pos;
 	double		sprt_x;
 	double		sprt_y;
