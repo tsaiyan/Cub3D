@@ -16,13 +16,31 @@
 ** casting walls, floor and sky
 */
 
+static void	choise_side(t_all *s)
+{
+	if (s->side)
+	{
+		if (s->step_y > 0)
+			s->current_side = s->so;
+		else
+			s->current_side = s->no;
+	}
+	else
+	{
+		if (s->step_x > 0)
+			s->current_side = s->ea;
+		else
+			s->current_side = s->we;
+	}
+}
+
 static void	casting(t_all *s)
 {
 	while (s->y < s->draw_start)
 		pixel_put(&s->win, s->x, s->y++, rgb(s->c.r, s->c.g, s->c.b));
 	while (s->y < s->draw_end)
 	{
-		s->tex_y = (int)s->tex_pos & (s->no.h - 1);
+		s->tex_y = (int)s->tex_pos & (s->current_side.h - 1);
 		s->tex_pos += s->step;
 		s->color = get_color(s, s->tex_x, s->tex_y, 'W');
 		if (s->side)
@@ -122,12 +140,13 @@ void		lodev(t_all *s)
 		else
 			s->ws_x = s->plr.x + s->pwd * s->ray_dir_x;
 		s->ws_x -= floor((s->ws_x));
-		s->tex_x = (int)(s->ws_x * (double)(s->no.w));
+		s->tex_x = (int)(s->ws_x * (double)(s->current_side.w));
+		choise_side(s);
 		if (s->side == 0 && s->ray_dir_x > 0)
-			s->tex_x = s->no.w - s->tex_x - 1;
+			s->tex_x = s->current_side.w - s->tex_x - 1;
 		if (s->side == 1 && s->ray_dir_y < 0)
-			s->tex_x = s->no.w - s->tex_x - 1;
-		s->step = 1.0 * s->no.h / s->line_height;
+			s->tex_x = s->current_side.w - s->tex_x - 1;
+		s->step = 1.0 * s->current_side.h / s->line_height;
 		s->tex_pos = (s->draw_start - s->win.h / 2 + s->line_height / 2) * s->step;
 		casting(s);
 		z_buf[s->x] = s->pwd;

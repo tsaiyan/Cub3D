@@ -42,6 +42,8 @@ typedef struct	s_win
 	int			line_l;
 	int			bpp;
 	int			en;
+	int			max_h;
+	int			max_w;
 	int			h;
 	int			w;
 }				t_win;
@@ -113,6 +115,7 @@ typedef struct	s_all
 	t_txr		no;
 	t_txr		so;
 	t_txr		ea;
+	t_txr		current_side;
 	t_txr		we;
 	t_txr		sp;
 	t_fl		fl;

@@ -28,10 +28,10 @@ void	write_resolution(t_all *all, char *str)
 	else
 		ft_exit("bad resolution", all);
 	all->map.total_lines_before_map++;
-	if (all->win.w > 1920)
-		all->win.w = 1920;
-	if (all->win.h > 1200)
-		all->win.h = 1200;
+	if (all->win.w > 2560)
+		all->win.w = 2560;
+	if (all->win.h > 1440)
+		all->win.h = 1440;
 }
 
 /*
