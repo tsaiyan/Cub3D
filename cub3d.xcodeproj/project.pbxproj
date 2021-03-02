@@ -27,6 +27,7 @@
 		9A352D9D25EEDBB700165DC4 /* textures.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A352D2325EEDBB600165DC4 /* textures.c */; };
 		9A352D9E25EEDBB700165DC4 /* raycasting.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A352D2425EEDBB600165DC4 /* raycasting.c */; };
 		9A352D9F25EEDBB700165DC4 /* cast_sprites.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A352D2525EEDBB600165DC4 /* cast_sprites.c */; };
+		9A352DA325EEDDC400165DC4 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 9A352DA225EEDDC400165DC4 /* Makefile */; };
 		9A826C0B25DAC77000DAB127 /* libmlx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9794A57625CB36EE00AE3721 /* libmlx.a */; };
 		9A826C0E25DAC7C200DAB127 /* libft.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A826C0D25DAC7AA00DAB127 /* libft.a */; };
 /* End PBXBuildFile section */
@@ -93,6 +94,9 @@
 		9A352D2325EEDBB600165DC4 /* textures.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = textures.c; sourceTree = "<group>"; };
 		9A352D2425EEDBB600165DC4 /* raycasting.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = raycasting.c; sourceTree = "<group>"; };
 		9A352D2525EEDBB600165DC4 /* cast_sprites.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cast_sprites.c; sourceTree = "<group>"; };
+		9A352DA125EEDDBC00165DC4 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile; sourceTree = SOURCE_ROOT; };
+		9A352DA225EEDDC400165DC4 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		9A352DA425EEDDCA00165DC4 /* map.cub */ = {isa = PBXFileReference; lastKnownFileType = text; path = map.cub; sourceTree = "<group>"; };
 		9A826C0D25DAC7AA00DAB127 /* libft.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libft.a; path = lbft/libft.a; sourceTree = "<group>"; };
 		9AD8C45125CB29CC00E77F8A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		9AD8C45325CB29E900E77F8A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -117,6 +121,8 @@
 		973B967725B9C1AD008A2E8B = {
 			isa = PBXGroup;
 			children = (
+				9A352DA425EEDDCA00165DC4 /* map.cub */,
+				9A352DA225EEDDC400165DC4 /* Makefile */,
 				9A352C8725EEDBB600165DC4 /* source */,
 				9732D66B25C04397009D1677 /* cub3d */,
 				9AD8C45025CB29CC00E77F8A /* Frameworks */,
@@ -126,6 +132,7 @@
 		9A352C8725EEDBB600165DC4 /* source */ = {
 			isa = PBXGroup;
 			children = (
+				9A352DA125EEDDBC00165DC4 /* Makefile */,
 				9A352C8825EEDBB600165DC4 /* gnl */,
 				9A352C8C25EEDBB600165DC4 /* libmlx.a */,
 				9A352C8D25EEDBB600165DC4 /* cub3d.h */,
@@ -290,6 +297,7 @@
 				9A352D9325EEDBB700165DC4 /* ft_putin.c in Sources */,
 				9A352D9C25EEDBB700165DC4 /* raycast_utils.c in Sources */,
 				9A352D9625EEDBB700165DC4 /* map_write.c in Sources */,
+				9A352DA325EEDDC400165DC4 /* Makefile in Sources */,
 				9A352D2925EEDBB600165DC4 /* get_next_line.c in Sources */,
 				9A352D9725EEDBB700165DC4 /* map_utils.c in Sources */,
 				9A352D9E25EEDBB700165DC4 /* raycasting.c in Sources */,
