@@ -37,7 +37,6 @@ void	lodev_init(t_all *s)
 	write_textures(s);
 	s->array[(int)s->plr.y][(int)s->plr.x] = '0';
 	lodev(s);
-	
 }
 
 /*

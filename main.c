@@ -41,6 +41,7 @@ int	main(int argc, char **argv)
 	ft_map_parcer(all, argv[1]);
 	map_utils(all);
 	lodev_init(all);
+	screenshot(all);
 	mlx_hook(all->win.win, 2, (1L << 0), key_press, all);
 	mlx_loop(all->win.mlx);
 }

@@ -46,7 +46,7 @@ static void	casting(t_all *s)
 ** функция вычисления для спрайтов
 */
 
-void	spites(t_all *s)
+void		spites(t_all *s)
 {
 	s->i = 0;
 	while (s->i < s->map.sp_count)

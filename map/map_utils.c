@@ -25,5 +25,4 @@ void	map_utils(t_all *all)
 	sprite_init(all);
 	sprite_write(all);
 	sort_sprite(all);
-	//mlx_get_screen_size(all->win.mlx, &all->win.max_h,  &all->win.max_w);
 }

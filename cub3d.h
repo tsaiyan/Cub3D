@@ -37,6 +37,7 @@
 # define CAST_SPRITES spites
 # define X	s->x
 # define Y	s->y
+
 typedef struct	s_win
 {
 	void		*mlx;
@@ -196,4 +197,5 @@ void			sprite_init(t_all *s);
 void			sprite_write(t_all *s);
 void			sort_sprite(t_all *s);
 void			spites(t_all *s);
+void			screenshot(t_all *s);
 #endif
