@@ -103,5 +103,5 @@ void	key_press(int key, t_all *all)
 		turn_right(&all->plr, ROT_SPEED);
 	if (key == 53)
 		ft_exit("OH, NO. IT'S ESCAPE", all);
-	lodev(all);
+	raycasting_1(all);
 }

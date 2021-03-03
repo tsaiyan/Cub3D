@@ -20,6 +20,12 @@
 
 void	write_resolution(t_all *all, char *str)
 {
+	int h;
+	int w;
+
+	h = 0;
+	w = 0;
+	mlx_get_screen_size(&w, &h);
 	all->win.w = ft_atoi(str++);
 	while (ft_isdigit(*str))
 		str++;
@@ -28,10 +34,10 @@ void	write_resolution(t_all *all, char *str)
 	else
 		ft_exit("bad resolution", all);
 	all->map.total_lines_before_map++;
-	if (all->win.w > 1920)
-		all->win.w = 1920;
-	if (all->win.h > 1200)
-		all->win.h = 1200;
+	if (all->win.w > w)
+		all->win.w = w;
+	if (all->win.h > h)
+		all->win.h = h;
 }
 
 /*

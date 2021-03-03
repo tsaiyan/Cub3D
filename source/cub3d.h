@@ -35,6 +35,9 @@
 # define CASTING_WALLS casting
 # define CHOISE_SIDE choise_side
 # define CAST_SPRITES spites
+# define RAYCASTING_2 raycasting_2
+# define RAYCASTING_0 raycasting_0
+# define RAYCASTING_3 raycasting_3
 # define X	s->x
 # define Y	s->y
 
@@ -184,9 +187,9 @@ int				map_validate(t_all *all);
 void			find_player(t_all *all);
 void			write_player_pi(t_all *all);
 void			key_press(int key, t_all *all);
-void			lodev(t_all *all);
+void			raycasting_1(t_all *all);
 void			pixel_put(t_win *data, int x, int y, int color);
-void			lodev_init(t_all *all);
+void			raycasting_init(t_all *all);
 void			write_textures(t_all *all);
 unsigned		get_color(t_all *all, int x, int y, char side);
 void			floor_color(t_fl *strct, char *str);
@@ -198,4 +201,6 @@ void			sprite_write(t_all *s);
 void			sort_sprite(t_all *s);
 void			spites(t_all *s);
 void			screenshot(t_all *s);
+void			defines(t_all *s);
+void			choise_side(t_all *s);
 #endif

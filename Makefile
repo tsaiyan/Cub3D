@@ -1,4 +1,5 @@
 SOURCE = ./source
+MMS = $(SOURCE)/mms
 UTILS = $(SOURCE)/other_utils
 MAP_UT = $(SOURCE)/map_utils
 CASTING = $(SOURCE)/casting
@@ -15,14 +16,16 @@ CC = clang -Wall -Wextra -Werror
 
 .PHONY:		all clean fclean re
 
-all: $(NAME) $(GNL)/get_next_line.h $(LIBFT)/libft.h cub3d.h $(SOURCE)/cub3d.c
+all: $(NAME) $(GNL)/get_next_line.h $(LIBFT)/libft.h $(SOURCE)/cub3d.h
 
-$(NAME): $(OBJTS) $(SOURCE)/cub3d.c $(SOURCE)/cub3d.h
+$(NAME): $(OBJTS) 
+	$(MAKE) -C $(MMS)
 	$(MAKE) bonus -C $(LIBFT)
-	clang $(OBJTS) $(LIBFT)/libft.a $(SOURCE)/libmlx.a -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(OBJTS) $(LIBFT)/libft.a $(MMS)/libmlx.a -framework OpenGL -framework AppKit -o $(NAME)
 clean:
 	${RM} $(NAME)
 	$(MAKE) clean -C $(LIBFT)
+	$(MAKE) clean -C $(MMS)
 
 fclean: clean
 	${RM} $(NAME)

@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		973BD54725CD8BF00069B8DB /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD8C45325CB29E900E77F8A /* OpenGL.framework */; };
 		973BD54825CD8BF40069B8DB /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD8C45125CB29CC00E77F8A /* AppKit.framework */; };
+		9A0CFAEE25EFDE4A0095ACA1 /* libmlx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A0CFAED25EFDE4A0095ACA1 /* libmlx.a */; };
+		9A0CFAF025EFDE590095ACA1 /* libft.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A0CFAEF25EFDE590095ACA1 /* libft.a */; };
 		9A352D2825EEDBB600165DC4 /* get_next_line_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A352C8925EEDBB600165DC4 /* get_next_line_utils.c */; };
 		9A352D2925EEDBB600165DC4 /* get_next_line.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A352C8A25EEDBB600165DC4 /* get_next_line.c */; };
 		9A352D2A25EEDBB600165DC4 /* get_next_line.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A352C8B25EEDBB600165DC4 /* get_next_line.h */; };
-		9A352D2B25EEDBB600165DC4 /* libmlx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A352C8C25EEDBB600165DC4 /* libmlx.a */; };
 		9A352D2C25EEDBB600165DC4 /* cub3d.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A352C8D25EEDBB600165DC4 /* cub3d.h */; };
 		9A352D9325EEDBB700165DC4 /* ft_putin.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A352D1725EEDBB600165DC4 /* ft_putin.c */; };
 		9A352D9425EEDBB700165DC4 /* screenshot.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A352D1825EEDBB600165DC4 /* screenshot.c */; };
@@ -28,8 +29,6 @@
 		9A352D9E25EEDBB700165DC4 /* raycasting.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A352D2425EEDBB600165DC4 /* raycasting.c */; };
 		9A352D9F25EEDBB700165DC4 /* cast_sprites.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A352D2525EEDBB600165DC4 /* cast_sprites.c */; };
 		9A352DA325EEDDC400165DC4 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 9A352DA225EEDDC400165DC4 /* Makefile */; };
-		9A826C0B25DAC77000DAB127 /* libmlx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9794A57625CB36EE00AE3721 /* libmlx.a */; };
-		9A826C0E25DAC7C200DAB127 /* libft.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A826C0D25DAC7AA00DAB127 /* libft.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -61,11 +60,11 @@
 
 /* Begin PBXFileReference section */
 		9732D66B25C04397009D1677 /* cub3d */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cub3d; sourceTree = BUILT_PRODUCTS_DIR; };
-		9794A57625CB36EE00AE3721 /* libmlx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmlx.a; sourceTree = "<group>"; };
+		9A0CFAED25EFDE4A0095ACA1 /* libmlx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmlx.a; path = source/mms/libmlx.a; sourceTree = "<group>"; };
+		9A0CFAEF25EFDE590095ACA1 /* libft.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libft.a; path = source/lbft/libft.a; sourceTree = "<group>"; };
 		9A352C8925EEDBB600165DC4 /* get_next_line_utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = get_next_line_utils.c; sourceTree = "<group>"; };
 		9A352C8A25EEDBB600165DC4 /* get_next_line.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = get_next_line.c; sourceTree = "<group>"; };
 		9A352C8B25EEDBB600165DC4 /* get_next_line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = get_next_line.h; sourceTree = "<group>"; };
-		9A352C8C25EEDBB600165DC4 /* libmlx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmlx.a; sourceTree = "<group>"; };
 		9A352C8D25EEDBB600165DC4 /* cub3d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cub3d.h; sourceTree = "<group>"; };
 		9A352D1725EEDBB600165DC4 /* ft_putin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ft_putin.c; sourceTree = "<group>"; };
 		9A352D1825EEDBB600165DC4 /* screenshot.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = screenshot.c; sourceTree = "<group>"; };
@@ -97,7 +96,6 @@
 		9A6A265625EF7A8B00CD28B3 /* eagle.xpm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = eagle.xpm; sourceTree = "<group>"; };
 		9A6A265725EF7A8B00CD28B3 /* lgbt2.xpm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lgbt2.xpm; sourceTree = "<group>"; };
 		9A6A265825EF7A8B00CD28B3 /* pink.xpm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pink.xpm; sourceTree = "<group>"; };
-		9A826C0D25DAC7AA00DAB127 /* libft.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libft.a; path = lbft/libft.a; sourceTree = "<group>"; };
 		9AD8C45125CB29CC00E77F8A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		9AD8C45325CB29E900E77F8A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -108,10 +106,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				973BD54725CD8BF00069B8DB /* OpenGL.framework in Frameworks */,
+				9A0CFAEE25EFDE4A0095ACA1 /* libmlx.a in Frameworks */,
 				973BD54825CD8BF40069B8DB /* AppKit.framework in Frameworks */,
-				9A826C0B25DAC77000DAB127 /* libmlx.a in Frameworks */,
-				9A826C0E25DAC7C200DAB127 /* libft.a in Frameworks */,
-				9A352D2B25EEDBB600165DC4 /* libmlx.a in Frameworks */,
+				9A0CFAF025EFDE590095ACA1 /* libft.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,11 +132,10 @@
 			children = (
 				9A352DA125EEDDBC00165DC4 /* Makefile */,
 				9A352C8825EEDBB600165DC4 /* gnl */,
-				9A352C8C25EEDBB600165DC4 /* libmlx.a */,
 				9A352C8D25EEDBB600165DC4 /* cub3d.h */,
+				9A352D2025EEDBB600165DC4 /* cub3d.c */,
 				9A352D1625EEDBB600165DC4 /* other_utils */,
 				9A352D1A25EEDBB600165DC4 /* map_utils */,
-				9A352D2025EEDBB600165DC4 /* cub3d.c */,
 				9A352D2125EEDBB600165DC4 /* casting */,
 			);
 			path = source;
@@ -212,8 +208,8 @@
 		9AD8C45025CB29CC00E77F8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9A826C0D25DAC7AA00DAB127 /* libft.a */,
-				9794A57625CB36EE00AE3721 /* libmlx.a */,
+				9A0CFAEF25EFDE590095ACA1 /* libft.a */,
+				9A0CFAED25EFDE4A0095ACA1 /* libmlx.a */,
 				9AD8C45325CB29E900E77F8A /* OpenGL.framework */,
 				9AD8C45125CB29CC00E77F8A /* AppKit.framework */,
 			);
@@ -438,6 +434,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/source",
 					"$(PROJECT_DIR)/source/lbft",
+					"$(PROJECT_DIR)/source/mms",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -457,6 +454,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/source",
 					"$(PROJECT_DIR)/source/lbft",
+					"$(PROJECT_DIR)/source/mms",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_NAME = "$(TARGET_NAME)";

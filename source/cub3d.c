@@ -25,14 +25,12 @@
 ** map_utils -> map_copy: копирование карты для валидации / longer_str, mapdup
 ** map_utils -> map_check_around: валидация карты / check_around
 ** дальше идет рейкастинг
-** ПРОВЕРИТЬ: УТЕЧКИ, КНОПКИ ПЕРЕДВИЖЕНИЯ, ПАРСЕР, СКРИНШОТ, MAKEFILE
-** ля скриншот же надо сделать еще
 */
 
-int check_save(char *str, t_all *s)
+int		check_save(char *str, t_all *s)
 {
-	char *save;
-	int res;
+	char	*save;
+	int		res;
 
 	save = "--save";
 	res = ft_strncmp(str, save, ft_strlen(str));
@@ -43,7 +41,12 @@ int check_save(char *str, t_all *s)
 	return (0);
 }
 
-int	main(int argc, char **argv)
+void	key_exit(t_all *s)
+{
+	ft_exit("no. it's cross pressed", s);
+}
+
+int		main(int argc, char **argv)
 {
 	t_all *all;
 
@@ -52,9 +55,10 @@ int	main(int argc, char **argv)
 	ft_putin(all);
 	ft_map_parcer(all, argv[1]);
 	map_utils(all);
-	lodev_init(all);
+	raycasting_init(all);
 	if (argc == 3 && check_save(argv[2], all))
 		screenshot(all);
-	mlx_hook(all->win.win, 2, (1L << 0), key_press, all);
+	mlx_hook(all->win.win, 2, 0, key_press, all);
+	mlx_hook(all->win.win, 17, 0, key_exit, all);
 	mlx_loop(all->win.mlx);
 }

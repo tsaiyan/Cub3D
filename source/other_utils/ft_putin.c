@@ -39,4 +39,7 @@ void	ft_putin(t_all *all)
 	all->map.x = 0;
 	all->plr.y = 0;
 	all->plr.x = 0;
+	all->array = NULL;
+	all->arrrecuv = NULL;
+	all->sprite = NULL;
 }

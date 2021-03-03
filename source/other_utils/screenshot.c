@@ -94,9 +94,9 @@ void	screenshot(t_all *s)
 
 	if (!(fd = open("screenshot.bmp", O_CREAT | O_WRONLY | O_TRUNC, 0666)))
 		ft_exit("can't create a file for screenshot", s);
-	while(s->win.w % 4 != 0)
+	while (s->win.w % 4 != 0)
 		s->win.w--;
-	lodev(s);
+	raycasting_1(s);
 	create_header(fd, s);
 	write_pixels(s, fd);
 	close(fd);

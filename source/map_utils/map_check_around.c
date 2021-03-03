@@ -45,7 +45,7 @@ void	longer_str(t_all *s)
 char	*mapdup(t_all *s, char *src)
 {
 	char	*dest;
-	size_t	i;
+	int		i;
 
 	i = 0;
 	if (!(dest = malloc((s->map.longest_line + 2) * sizeof(char))))
