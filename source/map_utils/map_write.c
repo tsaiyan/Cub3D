@@ -83,6 +83,7 @@ void	write_player_pi2(t_all *all)
 		plr->plx = 0;
 		plr->ply = 0.66;
 		plr->y += 0.5;
+		plr->x += 0.5;
 	}
 	if (plr->plook == 'S')
 	{
@@ -115,6 +116,7 @@ void	write_player_pi(t_all *all)
 		plr->end = 0;
 		plr->plx = 0;
 		plr->ply = -0.66;
+		plr->x += 0.5;
 		plr->y += 0.5;
 	}
 	write_player_pi2(all);

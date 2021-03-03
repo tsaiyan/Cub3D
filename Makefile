@@ -19,8 +19,7 @@ all: $(NAME) $(GNL)/get_next_line.h $(LIBFT)/libft.h cub3d.h $(SOURCE)/cub3d.c
 
 $(NAME): $(OBJTS) $(SOURCE)/cub3d.c $(SOURCE)/cub3d.h
 	$(MAKE) bonus -C $(LIBFT)
-	clang $(SOURCE)/cub3d.c $(OBJTS) $(LIBFT)/libft.a $(SOURCE)/libmlx.a -framework OpenGL -framework AppKit
-	./a.out map.cub
+	clang $(OBJTS) $(LIBFT)/libft.a $(SOURCE)/libmlx.a -framework OpenGL -framework AppKit -o $(NAME)
 clean:
 	${RM} $(NAME)
 	$(MAKE) clean -C $(LIBFT)
@@ -28,5 +27,7 @@ clean:
 fclean: clean
 	${RM} $(NAME)
 	$(MAKE) fclean -C $(LIBFT)
+run : $(NAME)
+	./$(NAME) map.cub
 
 re: fclean all

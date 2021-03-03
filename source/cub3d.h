@@ -25,12 +25,12 @@
 
 # define ROT_SPEED 0.1
 # define FOOT 0.5
-# define SL 12
-# define SR 14
+# define SL 0
+# define SR 2
 # define FRWD 13
 # define BACK 1
-# define TURN_LEFT 0
-# define TURN_RIGHT 2
+# define TURN_LEFT 123
+# define TURN_RIGHT 124
 # define MLX_GADR mlx_get_data_addr
 # define CASTING_WALLS casting
 # define CHOISE_SIDE choise_side
