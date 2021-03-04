@@ -55,7 +55,20 @@ typedef struct	s_win
 	int			max_w;
 	int			h;
 	int			w;
+	int			flag;
 }				t_win;
+
+typedef struct	s_ways
+{
+	int			c;
+	int			r;
+	int			no;
+	int			ea;
+	int			so;
+	int			we;
+	int			s;
+	int			f;
+}				t_ways;
 
 typedef struct	s_txr
 {
@@ -76,17 +89,13 @@ typedef struct	s_fl
 	int			r;
 	int			g;
 	int			b;
+	int			flag;
 
 }				t_fl;
 
 typedef struct	s_map
 {
-	char		*no_way;
-	char		*so_way;
-	char		*we_way;
-	char		*ea_way;
 	int			sp_count;
-	char		*s_way;
 	char		*floor_color;
 	char		*sky_color;
 	int			total_lines_before_map;
@@ -129,6 +138,7 @@ typedef struct	s_all
 	t_txr		sp;
 	t_fl		fl;
 	t_fl		c;
+	t_ways		w;
 	t_sprite	*sprite;
 	char		**array;
 	char		**arrrecuv;

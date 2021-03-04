@@ -1,11 +1,12 @@
 C 0 , 191 , 255
-R   1000   1000
 NO ./images/NO.xpm
-EA  ./images/EA.xpm
 SO    ./images/SO.xpm
 WE ./images/WE.xpm
 S  ./images/ITEM.xpm
+EA ./images/EA.xpm
+R   100   100
 F 40, 31  ,   19000 4
+
 
  11111111111
 10000010001

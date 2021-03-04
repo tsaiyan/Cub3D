@@ -11,6 +11,10 @@
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+#define CMP ft_strncmp
+#define WR write_resolution
+#define WW write_ways
+#define EXIT ft_exit
 
 /*
 ** записывает разрешение, пропускает пробелы через atoi
@@ -32,12 +36,13 @@ void	write_resolution(t_all *all, char *str)
 	if (*str == 32)
 		all->win.h = ft_atoi(str);
 	else
-		ft_exit("bad resolution", all);
+		EXIT("bad resolution", all);
 	all->map.total_lines_before_map++;
 	if (all->win.w > w)
 		all->win.w = w;
 	if (all->win.h > h)
 		all->win.h = h;
+	all->win.flag = 1;
 }
 
 /*
@@ -51,7 +56,7 @@ void	write_ways(t_all *all, char *str, int flag)
 	while (*str == ' ')
 		str++;
 	if (flag < 6 && str[0] != '.' && str[1] != '/')
-		ft_exit("bad chars in way for texture", all);
+		EXIT("bad chars in way for texture", all);
 	if (flag == 1)
 		all->no.way = ft_strdup(str);
 	else if (flag == 2)
@@ -63,36 +68,42 @@ void	write_ways(t_all *all, char *str, int flag)
 	else if (flag == 5)
 		all->sp.way = ft_strdup(str);
 	else if (flag == 6)
+	{
 		all->map.floor_color = ft_strdup(str);
+		all->fl.flag = 1;
+	}
 	else if (flag == 7)
+	{
 		all->map.sky_color = ft_strdup(str);
+		all->c.flag = 1;
+	}
 	all->map.total_lines_before_map++;
 }
 
 /*
-** определяет флаги для записи путей структур во write_ways
+** определяет флаги для записи путей структур во vv
 */
 
-void	config_map(t_all *all, char *str)
+void	config_map(t_all *s, char *str)
 {
 	if (str[0] == '\0')
-		all->map.total_lines_before_map++;
+		s->map.total_lines_before_map++;
 	else if (*str == 'R')
-		write_resolution(all, (str + 1));
-	else if (*str == 'N' && *(str + 1) == 'O')
-		write_ways(all, (str + 2), 1);
-	else if (*str == 'S' && *(str + 1) == 'O')
-		write_ways(all, (str + 2), 2);
-	else if (*str == 'W' && *(str + 1) == 'E')
-		write_ways(all, (str + 2), 3);
-	else if (*str == 'E' && *(str + 1) == 'A')
-		write_ways(all, (str + 2), 4);
-	else if (*str == 'S' && *(str + 1) == 32)
-		write_ways(all, (str + 1), 5);
-	else if (*str == 'F' && *(str + 1) == 32)
-		write_ways(all, (str + 1), 6);
-	else if (*str == 'C' && *(str + 1) == 32)
-		write_ways(all, (str + 1), 7);
+		(s->win.flag) ? EXIT("double defination res", s) : WR(s, (str + 1));
+	else if (!CMP(str, "NO ", 3))
+		(s->no.way) ? EXIT("double defination NO", s) : WW(s, (str + 2), 1);
+	else if (!CMP(str, "SO ", 2))
+		(s->so.way) ? EXIT("double defination SO", s) : WW(s, (str + 2), 2);
+	else if (!CMP(str, "WE ", 2))
+		(s->we.way) ? EXIT("double defination WE", s) : WW(s, (str + 2), 3);
+	else if (!CMP(str, "EA ", 2))
+		(s->ea.way) ? EXIT("double defination EA", s) : WW(s, (str + 2), 4);
+	else if (!CMP(str, "S ", 2))
+		(s->sp.way) ? EXIT("double defination S", s) : WW(s, (str + 1), 5);
+	else if (!CMP(str, "F ", 2))
+		(s->fl.flag) ? EXIT("double defination FL", s) : WW(s, (str + 1), 6);
+	else if (!CMP(str, "C ", 2))
+		(s->c.flag) ? EXIT("double defination C", s) : WW(s, (str + 1), 7);
 }
 
 /*
@@ -110,7 +121,7 @@ void	check_ways(t_all *all)
 		!all->win.w || \
 		!all->map.floor_color || \
 		!all->map.sky_color)
-		ft_exit("BAD WAY FOR TEXTURES!", all);
+		EXIT("BAD WAY FOR TEXTURES!", all);
 }
 
 /*

@@ -71,11 +71,11 @@ void	map_copy(t_all *s)
 	j = 0;
 	i = s->map.lines;
 	longer_str(s);
-	if (!(line = (char **)malloc(sizeof(char*) * (i + 2))))
+	if (!(line = (char **)malloc(sizeof(char*) * (i + 3))))
 		ft_exit("can't malloc in map_copy", s);
 	line[0] = mapdup(s, "");
-	line[i] = mapdup(s, "");
-	line[i + 1] = NULL;
+	line[i + 1] = mapdup(s, "");
+	line[i + 2] = NULL;
 	while (i--)
 	{
 		line[j + 1] = mapdup(s, s->array[j]);

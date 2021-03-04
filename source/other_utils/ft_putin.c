@@ -19,17 +19,19 @@
 
 void	ft_putin(t_all *all)
 {
+	all->fl.flag = 0;
+	all->c.flag = 0;
+	all->win.flag = 0;
 	all->map.sp_count = 0;
 	all->arrrecuv = NULL;
 	all->array = NULL;
 	all->win.w = 0;
 	all->win.h = 0;
-	all->map.error = 0;
-	all->map.no_way = NULL;
-	all->map.so_way = NULL;
-	all->map.we_way = NULL;
-	all->map.ea_way = NULL;
-	all->map.s_way = NULL;
+	all->no.way = NULL;
+	all->so.way = NULL;
+	all->we.way = NULL;
+	all->ea.way = NULL;
+	all->sp.way = NULL;
 	all->map.floor_color = NULL;
 	all->map.sky_color = NULL;
 	all->map.total_lines_before_map = 0;
