@@ -94,6 +94,7 @@ void	ft_exit(char *str, t_all *all)
 	}
 	if (all->sprite)
 		free(all->sprite);
+	//mlx_destroy_image(all->win.win, all->win.img);
 	if (all)
 		free(all);
 	exit(1);

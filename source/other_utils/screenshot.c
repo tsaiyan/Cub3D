@@ -58,12 +58,12 @@ void	create_header(int fd, t_all *s)
 	header[0] = 'B';
 	header[1] = 'M';
 	bit_move(size_file, header + 2);
-	header[10] = 54;
-	header[14] = 40;
+	header[10] = (unsigned char)(54);
+	header[14] = (unsigned char)(40);
 	bit_move(s->win.w, header + 18);
 	bit_move(s->win.h, header + 22);
-	header[26] = 1;
-	header[28] = 24;
+	header[26] = (unsigned char)(1);
+	header[28] = (unsigned char)(24);
 	write(fd, header, 54);
 }
 

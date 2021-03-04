@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include "mms/mlx.h"
 # include <fcntl.h>
 # include "lbft/libft.h"

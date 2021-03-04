@@ -53,19 +53,19 @@ void	write_ways(t_all *all, char *str, int flag)
 	if (flag < 6 && str[0] != '.' && str[1] != '/')
 		ft_exit("bad chars in way for texture", all);
 	if (flag == 1)
-		all->no.way = str;
+		all->no.way = ft_strdup(str);
 	else if (flag == 2)
-		all->so.way = str;
+		all->so.way = ft_strdup(str);
 	else if (flag == 3)
-		all->we.way = str;
+		all->we.way = ft_strdup(str);
 	else if (flag == 4)
-		all->ea.way = str;
+		all->ea.way = ft_strdup(str);
 	else if (flag == 5)
-		all->sp.way = str;
+		all->sp.way = ft_strdup(str);
 	else if (flag == 6)
-		all->map.floor_color = str;
+		all->map.floor_color = ft_strdup(str);
 	else if (flag == 7)
-		all->map.sky_color = str;
+		all->map.sky_color = ft_strdup(str);
 	all->map.total_lines_before_map++;
 }
 
