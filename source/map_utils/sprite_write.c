@@ -46,8 +46,8 @@ void	sprite_write(t_all *s)
 			{
 				if (s->array[y][x] == '2')
 				{
-					s->sprite[i].y = y;
-					s->sprite[i].x = x;
+					s->sprite[i].y = y + 0.5;
+					s->sprite[i].x = x + 0.5;
 					s->sprite[i].distance = ((s->plr.x - x) * \
 					(s->plr.x - x) + (s->plr.y - y) * (s->plr.y - y));
 					s->array[y][x] = 0;
