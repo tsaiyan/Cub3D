@@ -16,7 +16,7 @@ CC = gcc -Wall -Wextra -Werror
 
 all: $(NAME) $(SRCS) libft.h $(BNS)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(BNS)
 	ar rc $(NAME) $?
 	ranlib $(NAME)
 

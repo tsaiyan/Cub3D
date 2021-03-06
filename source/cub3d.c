@@ -52,6 +52,7 @@ int		main(int argc, char **argv)
 
 	if ((argc != 2 && argc != 3) || !(all = malloc(sizeof(t_all))))
 		return (0 * (int)write(1, "ERROR\n", 7));
+	all->argc = argc;
 	ft_putin(all);
 	ft_map_parcer(all, argv[1]);
 	map_utils(all);

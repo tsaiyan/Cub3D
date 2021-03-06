@@ -74,7 +74,7 @@ void	ft_map_parcer(t_all *all, char *argv)
 	}
 	free(line);
 	all->array = make_map(&head, ft_lstsize(head), all);
-	check_ways(all);
+	check_ways(all, 1);
 	close(fd);
 }
 

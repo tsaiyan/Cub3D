@@ -31,7 +31,7 @@ char				*ft_gstrjoin(char *s1, char *s2)
 	i = ft_gstrlen(s1);
 	j = ft_gstrlen(s2);
 	if (!(dest = malloc(((i + j + 1)))))
-		return (0);
+		exit(-1);
 	i = 0;
 	j = 0;
 	if (s1)
@@ -58,7 +58,7 @@ char				*ft_gstrdup(char *src)
 	i = 0;
 	j = 0;
 	if (!(dest = malloc((ft_gstrlen(src) + 1) * sizeof(char))))
-		return (0);
+		exit(-1);
 	while (src[i] != '\n' && src[i])
 		i++;
 	if (src[i] == '\n')

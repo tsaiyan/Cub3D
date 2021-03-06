@@ -38,9 +38,9 @@ void	write_resolution(t_all *all, char *str)
 	else
 		EXIT("bad resolution", all);
 	all->map.total_lines_before_map++;
-	if (all->win.w > w)
+	if (all->win.w > w && all->argc == 2)
 		all->win.w = w;
-	if (all->win.h > h)
+	if (all->win.h > h && all->argc == 2)
 		all->win.h = h;
 	all->win.flag = 1;
 }
@@ -104,13 +104,15 @@ void	config_map(t_all *s, char *str)
 		(s->fl.flag) ? EXIT("double defination FL", s) : WW(s, (str + 1), 6);
 	else if (!CMP(str, "C ", 2))
 		(s->c.flag) ? EXIT("double defination C", s) : WW(s, (str + 1), 7);
+	else if (!check_ways(s, 2))
+		ft_exit("bad string in map", s);
 }
 
 /*
 ** проверяет, что все пути были записаны
 */
 
-void	check_ways(t_all *all)
+int		check_ways(t_all *all, int flag)
 {
 	if (!all->ea.way || \
 		!all->so.way || \
@@ -121,7 +123,13 @@ void	check_ways(t_all *all)
 		!all->win.w || \
 		!all->map.floor_color || \
 		!all->map.sky_color)
-		EXIT("BAD WAY FOR TEXTURES!", all);
+	{
+		if (flag == 1)
+			EXIT("BAD WAY FOR TEXTURES!", all);
+		else
+			return (0);
+	}
+	return (1);
 }
 
 /*

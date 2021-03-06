@@ -185,6 +185,7 @@ typedef struct	s_all
 	int			stripe;
 	int			draw_start;
 	int			draw_end;
+	int			argc;
 }				t_all;
 
 void			ft_map_parcer(t_all *all, char *argv);
@@ -192,7 +193,6 @@ void			config_map(t_all *all, char *str);
 void			ft_putin(t_all *all);
 char			**make_map(t_list **head, int size, t_all *all);
 void			map_copy(t_all *all);
-void			check_ways(t_all *all);
 void			map_utils(t_all *all);
 int				map_validate(t_all *all);
 void			find_player(t_all *all);
@@ -214,4 +214,5 @@ void			spites(t_all *s);
 void			screenshot(t_all *s);
 void			defines(t_all *s);
 void			choise_side(t_all *s);
+int				check_ways(t_all *all, int flag);
 #endif

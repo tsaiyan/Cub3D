@@ -46,7 +46,7 @@ void			*ft_gcalloc(size_t number, size_t size)
 	char *start;
 
 	if (!(str = malloc(number * size)))
-		return (0);
+		exit(-1);
 	start = str;
 	while (size--)
 		*str++ = 0;

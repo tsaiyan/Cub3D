@@ -23,13 +23,12 @@ $(NAME): $(OBJTS)
 	$(MAKE) bonus -C $(LIBFT)
 	$(CC) $(OBJTS) $(LIBFT)/libft.a $(MMS)/libmlx.a -framework OpenGL -framework AppKit -o $(NAME)
 clean:
-	${RM} $(NAME)
 	$(MAKE) clean -C $(LIBFT)
-	$(MAKE) clean -C $(MMS)
 
 fclean: clean
 	${RM} $(NAME)
 	$(MAKE) fclean -C $(LIBFT)
+	$(MAKE) clean -C $(MMS)
 run : $(NAME)
 	./$(NAME) map.cub
 
