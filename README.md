@@ -16,7 +16,7 @@ open, read, write, malloc, free, perror, strerror, exit
     Movements, Sprites
 
 #### Skills:
-Parsing, math.
+Parsing, math, makefile, C.
 
 #### Projects written with the NORM 42.
 Basic points:
