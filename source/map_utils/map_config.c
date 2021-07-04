@@ -37,6 +37,8 @@ void	write_resolution(t_all *all, char *str)
 		all->win.h = ft_atoi(str);
 	else
 		EXIT("bad resolution", all);
+	if (all->win.h <= 0 || all->win.w <= 0)
+		EXIT("bad resolution", all);
 	all->map.total_lines_before_map++;
 	if (all->win.w > w && all->argc == 2)
 		all->win.w = w;
